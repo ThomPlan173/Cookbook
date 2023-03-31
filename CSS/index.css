@@ -1,6 +1,14 @@
-#content2{
+.search {
     display: flex;
 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.recherche {
+    height: 20px;
+    margin-left: 50px;
+    margin-top: 33px;
 
 
 }

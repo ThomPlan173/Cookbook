@@ -2,10 +2,23 @@
 
 <?php ob_start() ?>
 
-<div id="content2">
-    <h1>Hello world !!</h1>
+<div class="search">
+    <div><h1>Recherche de recette :</h1></div>
+    <input class="recherche" type="text" placeholder="Rechercher une recette">
+
 </div>
 
+<div class="search">
+    <div><h1>Recette à partir d'un ingrédient :</h1></div>
+    <input class="recherche" type="text" placeholder="Rechercher une recette avec un ingrédient">
+
+</div>
+
+<div class="search">
+    <div><h1>Genre de recette :</h1></div>
+    <input class="recherche" type="text" placeholder="Rechercher une recette">
+
+</div>
 <?php $content = ob_get_clean() ?>
 
 <?php ob_start() ?>
