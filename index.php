@@ -1,6 +1,7 @@
 <?php require_once __DIR__.DIRECTORY_SEPARATOR."/Template/Template.php";?>
 
 <?php ob_start() ?>
+<h1>Hello word !!</h1>
 <?php $content = ob_get_clean() ?>
 
 <?php ob_start() ?>
