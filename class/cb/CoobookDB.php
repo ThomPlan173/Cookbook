@@ -1,7 +1,7 @@
 <?php
 namespace cb;
 
-use \pdo_wrapper\PdoWrapper ;
+use \pdowrapper\PdoWrapper ;
 
 include __DIR__ . "../../../DB_CREDENTIALS.php" ;
 
@@ -21,7 +21,7 @@ class CoobookDB extends PdoWrapper
     }
 
     public function getRecette(){
-        return $this->exec("SELECT * FROM recette WHERE nomRecette = 'Cookies'",null,null) ;
+        return $this->exec("SELECT * FROM recette WHERE nomRecette = 'Cookies'",null) ;
     }
 
     public function createRecette($name, $description=null, $imgFile=null){

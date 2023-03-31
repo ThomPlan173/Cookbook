@@ -1,5 +1,5 @@
 <?php
-namespace pdo_wrapper ;
+namespace pdowrapper ;
 
 use \PDO ;
 
