@@ -6,7 +6,7 @@
 
 <div id="nom"><h1>Nom de la recette</h1></div>
 <div id="info">
-    <img id="photo_tete" src="images/tomate.jpg">
+    <img id="photo_tete" src="images/spaghettis.jpg">
     <div id="ingredient">
         <h3>Ingrédients :</h3>
         <ul>
