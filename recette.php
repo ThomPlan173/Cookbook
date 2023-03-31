@@ -1,6 +1,7 @@
+<?php require "." . DIRECTORY_SEPARATOR .'class'.DIRECTORY_SEPARATOR.'Autoloader.php' ;
+Autoloader::register();
 
 
-<?php 
 use cb\CoobookDB;
 
 //$data = new CoobookDB;

@@ -16,7 +16,7 @@ class Template
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
 
-            <link rel="stylesheet" href="Template/css/main.css" >
+            <link rel="stylesheet" href="class/Template/css/main.css" >
             <?= $css ?>
 
         </head>
@@ -29,7 +29,7 @@ class Template
             <?php include "Template/Footer.php" ?>
         </div>
 
-        <script src="Template/JS/main.js"></script>
+        <script src="class/Template/JS/main.js"></script>
         <?= $js ?>
 
         </body>
