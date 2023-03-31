@@ -1,10 +1,10 @@
-<?php require_once __DIR__.DIRECTORY_SEPARATOR."/Template/Template.php";?>
+
 
 <?php 
 use cb\CoobookDB;
 
-$data = new CoobookDB;
-$data->getRecette();
+//$data = new CoobookDB;
+//$data->getRecette();
 ?>
 
 <?php ob_start() ?>
