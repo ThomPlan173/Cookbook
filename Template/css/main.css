@@ -13,7 +13,7 @@ html, body {
     left: 0;
 
     width: 100%;
-    height: 7vh;
+    height: 10vh;
     z-index: 9;
 
 
@@ -29,8 +29,8 @@ display: flex;
 }
 
 #index {
-    height: 7vh;
-    width: 7vh;
+    height: 10vh;
+    width: 10vh;
     z-index: 10;
 }
 
@@ -47,7 +47,7 @@ display: flex;
     margin: 0;
 
     width: 25%;
-    height: 7vh;
+    height: 10vh;
 }
 
 
@@ -57,13 +57,13 @@ display: flex;
 
     position: relative;
     margin: 0 auto;
-    top: 7vh;
+    top: 10vh;
 
     background-color: white;
     font-family: 'Mochiy Pop One', sans-serif;
 
     max-width: 1200px;
-    min-height: 93vh;
+    min-height: 90vh;
 
 }
 
