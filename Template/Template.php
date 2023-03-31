@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "../init_autoload.php";
+require_once __DIR__  . "/init_autoload.php";
 class Template
 {
 
@@ -21,12 +21,12 @@ class Template
 
         </head>
         <body>
-        <?php include "Header.php" ?>
+        <?php include "Template/Header.php" ?>
 
         <div class="content">
 
             <?= $content  ?>
-            <?php include "Footer.php" ?>
+            <?php include "Template/Footer.php" ?>
         </div>
 
         <script src="Template/JS/main.js"></script>
