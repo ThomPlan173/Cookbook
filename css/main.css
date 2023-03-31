@@ -1,0 +1,92 @@
+html, body {
+    background-color: #d9d9d9;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/*_HEADER_________________________________________________________________*/
+.header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 7vh;
+    z-index: 9;
+
+
+    background-color: black;
+}
+
+#header2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+
+display: flex;
+}
+
+#index {
+    height: 7vh;
+    width: 7vh;
+    z-index: 10;
+}
+
+#content_bouton_header {
+    display: flex;
+    width: 100%;
+}
+
+.button_header {
+    color: white;
+    font-size: 1.5vh;
+    background-color: black;
+    border: white;
+    margin: 0;
+
+    width: 25%;
+    height: 7vh;
+}
+
+
+/*_CONTENT_________________________________________________________________*/
+.content {
+    display: ruby;
+
+    position: relative;
+    margin: 0 auto;
+    top: 7vh;
+
+    background-color: white;
+    font-family: 'Mochiy Pop One', sans-serif;
+
+    max-width: 1200px;
+    min-height: 93vh;
+
+}
+
+
+
+/*_FOOTER___________________________________________________________________*/
+.footer {
+    position: absolute;
+    bottom: 0; left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background-color: black;
+    color: white;
+}
+
+
+
+#copyright {
+    position: absolute;
+    margin: 20px;
+    bottom: 0;
+    right: 0;
+}
+
