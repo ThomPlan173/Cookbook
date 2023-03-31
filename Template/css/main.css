@@ -53,7 +53,7 @@ display: flex;
 
 /*_CONTENT_________________________________________________________________*/
 .content {
-    display: flex;
+    display: ruby;
 
     position: relative;
     margin: 0 auto;

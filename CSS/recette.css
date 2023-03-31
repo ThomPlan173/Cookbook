@@ -1,0 +1,33 @@
+#nom {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+
+    display: flex;
+    width: 100%;
+}
+
+#info {
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+}
+#photo_tete {
+    width: 50%;
+}
+
+#ingredient {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.image_ingredient {
+    width: 15%;
+}
+
+#recette {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
