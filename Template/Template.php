@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__  . "/init_autoload.php";
+require_once "./init_autoload.php";
 class Template
 {
 

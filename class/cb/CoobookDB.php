@@ -5,7 +5,7 @@ use \pdo_wrapper\PdoWrapper ;
 
 include __DIR__ . "../../../DB_CREDENTIALS.php" ;
 
-class cbDB extends PdoWrapper
+class CoobookDB extends PdoWrapper
 {
 
     public const IMAGE_DIR = "images/" ;
@@ -20,13 +20,13 @@ class cbDB extends PdoWrapper
             $GLOBALS['db_pwd']) ;
     }
 
-    public function Search($search){
-        return $this->exec("SELECT * FROM recette WHERE nomRecette = $search ORDER BY nomRecette",null,'gdb\GameRenderer') ;
+    public function getRecette(){
+        return $this->exec("SELECT * FROM recette WHERE nomRecette = 'Cookies'",null,null) ;
     }
 
-    /*public function createGame($name, $description=null, $imgFile=null){
+    public function createRecette($name, $description=null, $imgFile=null){
 
-        $name = htmlspecialchars($name) ;
+       /* $name = htmlspecialchars($name) ;
         $description = htmlspecialchars($description) ;
 
         $imgName = null ;
@@ -48,7 +48,7 @@ class cbDB extends PdoWrapper
             'description' => htmlspecialchars($description),
             'image' => $imgName
         ] ;
-        return $this->exec($query, $params) ;
-    }*/
+        return $this->exec($query, $params) ;*/
+    }
 
 }
