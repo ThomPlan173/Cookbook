@@ -25,9 +25,12 @@
 .image_ingredient {
     width: 15%;
 }
-
+#flex {
+    display: flex;
+}
 #recette {
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 30px;
+    margin-bottom: 90px;
 }
