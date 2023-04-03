@@ -3,7 +3,7 @@ namespace cb;
 
 use \pdowrapper\PdoWrapper ;
 
-include __DIR__ . "../../../DB_CREDENTIALS.php" ;
+include __DIR__ . "../../../db_credentials.php" ;
 
 class CoobookDB extends PdoWrapper
 {
