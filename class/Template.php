@@ -3,7 +3,7 @@
 class Template
 {
 
-    public static function render(string $content, string $css, string $js) :void{?>
+    public static function render(string $content,string $css=null,string $js=null) :void{?>
 
 
         <!doctype html>
@@ -17,7 +17,9 @@ class Template
             <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
 
             <link rel="stylesheet" href="/Projet_Recettes/class/Template/css/main.css">
-            <?= $css ?>
+            <?php if($css!=null){?>
+                <?= $css; ?>
+            <?php } ?>
 
         </head>
         <body>
@@ -30,7 +32,9 @@ class Template
         </div>
 
         <script src="/Projet_Recettes/class/Template/JS/main.js"></script>
-        <?= $js ?>
+        <?php if($js!=null){?>
+            <?= $js; ?>
+        <?php } ?>
 
         </body>
         </html>

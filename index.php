@@ -1,4 +1,7 @@
-<?php require "." . DIRECTORY_SEPARATOR .'class'.DIRECTORY_SEPARATOR.'Autoloader.php' ;
+<?php
+session_start() ;
+
+require "." . DIRECTORY_SEPARATOR .'class'.DIRECTORY_SEPARATOR.'Autoloader.php' ;
 Autoloader::register();
 
 ?>
