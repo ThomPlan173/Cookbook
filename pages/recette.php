@@ -1,4 +1,4 @@
-<?php require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
+<?php require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 
@@ -12,14 +12,14 @@ $data = $cb->getRecette();
     <h1> <?= $data[0]->nomRecette ?></h1>
 </div>
 <div id="info">
-    <img id="photo_tete" src="<?= $data[0]->imgRecette ?>">
+    <img id="photo_tete" src="/Projet_Recettes/<?= $data[0]->imgRecette ?>">
     <div id="ingredient">
         <h3>Ingrédients :</h3>
         <ul>
             <li>
                 </di>
                 <div class="ingredient">
-                    <img class="image_ingredient" src="images/tomate.jpg">
+                    <img class="image_ingredient" src="/Projet_Recettes/images/tomate.jpg">
                     unité ingrédient
                 </div>
             </li>
@@ -36,19 +36,19 @@ $data = $cb->getRecette();
 
 <?php $content = ob_get_clean() ?>
 
-<!-----------------------!>
+<!----------------------->
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="CSS/recette.css" >
+<link rel="stylesheet" href="../CSS/recette.css" >
 
 <?php $css = ob_get_clean() ?>
 
-<!----------------------!>
+<!---------------------->
 
 <?php ob_start() ?>
 
-<script src="JS/recette.js"></script>
+<script src="../JS/recette.js"></script>
 
 <?php $js = ob_get_clean() ?>
 
