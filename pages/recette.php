@@ -12,7 +12,6 @@ $liste = $cb->getIngredients();
 ?>
 
 <?php ob_start() ?>
-<?php var_dump($liste) ?>
 <div id="nom">
     <h1> <?= $data[0]->nomRecette ?></h1>
 </div>
