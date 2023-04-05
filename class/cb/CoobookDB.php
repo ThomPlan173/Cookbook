@@ -1,32 +1,45 @@
 <?php
+
 namespace cb;
 
-use \pdowrapper\PdoWrapper ;
+use \pdowrapper\PdoWrapper;
 
-include __DIR__ . "../../../db_credentials.php" ;
+include __DIR__ . "../../../db_credentials.php";
 
 class CoobookDB extends PdoWrapper
 {
 
-    public const IMAGE_DIR = "images/" ;
+    public const IMAGE_DIR = "images/";
 
-    public function __construct(){
+    public function __construct()
+    {
         // appel au constructeur de la classe mère
         parent::__construct(
             $GLOBALS['db_name'],
             $GLOBALS['db_host'],
             $GLOBALS['db_port'],
             $GLOBALS['db_user'],
-            $GLOBALS['db_pwd']) ;
+            $GLOBALS['db_pwd']
+        );
     }
 
-    public function getRecette(){
-        return $this->exec("SELECT * FROM recette WHERE nomRecette = 'Cookies'",null) ;
+    public function getRecette()
+    {
+        return $this->exec("SELECT * FROM recette WHERE nomRecette = 'Cookies'", null);
     }
+    public function getIngredients()
+    {
+        return $this->exec("SELECT i.imgIngredient, i.nomIngredient, c.quantite, c.unite FROM recette as r 
+        INNER JOIN contenir as c
+        ON r.idRecette = c.idRecette
+        INNER JOIN ingredient as i
+        ON c.idIngredient = i.idIngredient
+        WHERE nomRecette = 'Cookies'", null);
+    }
+    public function createRecette($name, $description = null, $imgFile = null)
+    {
 
-    public function createRecette($name, $description=null, $imgFile=null){
-
-       /* $name = htmlspecialchars($name) ;
+        /* $name = htmlspecialchars($name) ;
         $description = htmlspecialchars($description) ;
 
         $imgName = null ;
@@ -50,5 +63,4 @@ class CoobookDB extends PdoWrapper
         ] ;
         return $this->exec($query, $params) ;*/
     }
-
 }
