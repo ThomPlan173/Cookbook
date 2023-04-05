@@ -1,4 +1,7 @@
-<?php require "." . DIRECTORY_SEPARATOR .'class'.DIRECTORY_SEPARATOR.'Autoloader.php' ;
+<?php
+session_start() ;
+
+require "." . DIRECTORY_SEPARATOR .'class'.DIRECTORY_SEPARATOR.'Autoloader.php' ;
 Autoloader::register();
 
 ?>
@@ -26,7 +29,7 @@ Autoloader::register();
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="css/index.css" >
+<link rel="stylesheet" href="CSS/index.css" >
 
 <?php $css = ob_get_clean() ?>
 
