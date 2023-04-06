@@ -1,4 +1,4 @@
-<?php session_start() ;
+<?php session_start();
 
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
@@ -8,21 +8,27 @@ Autoloader::register();
 $cb = new \cb\CoobookDB();
 $data = $cb->getRecette();
 $liste = $cb->getIngredients();
+$tags = $cb->getTags();
+
 ?>
 
 <?php ob_start() ?>
 <div id="nom">
     <h1> <?= $data[0]->nomRecette ?></h1>
+    <?php foreach ($tags as $t) {
+        echo " - " . $t->nomTag . "<br/>";
+    } ?>
 </div>
 <div id="info">
+    
     <img id="photo_tete" src="/Projet_Recettes/<?= $data[0]->imgRecette ?>">
     <div id="ingredient">
         <h3>Ingrédients :</h3>
         <ul>
-            <?php  foreach ($liste as $l) {
-               echo "<li><div class='ingredient'><img class='image_ingredient' src='/Projet_Recettes/" . $l->imgIngredient
-                  
-               . "'>". $l->quantite . $l->unite ." " .  $l->nomIngredient . "</div></li>";
+            <?php foreach ($liste as $l) {
+                echo "<li><div class='ingredient'><img class='image_ingredient' src='/Projet_Recettes/" . $l->imgIngredient
+
+                    . "'>" . $l->quantite . $l->unite . " " .  $l->nomIngredient . "</div></li>";
             }
             ?>
         </ul>
@@ -31,7 +37,7 @@ $liste = $cb->getIngredients();
 <?= $data[0]->Description ?> <br />
 <div id="flex">
     <div id="recette">
-        
+
         <?= $data[0]->Preparation ?>
     </div>
 </div>
@@ -43,7 +49,7 @@ $liste = $cb->getIngredients();
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="../CSS/recette.css" >
+<link rel="stylesheet" href="../CSS/recette.css">
 
 <?php $css = ob_get_clean() ?>
 

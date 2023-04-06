@@ -36,6 +36,15 @@ class CoobookDB extends PdoWrapper
         ON c.idIngredient = i.idIngredient
         WHERE nomRecette = 'Cookies'", null);
     }
+    public function getTags()
+    {
+        return $this->exec("SELECT t.nomTag FROM tag as t 
+        INNER JOIN attribuer as a
+        ON a.idTag = t.idTag
+        INNER JOIN recette as r
+        ON r.idRecette = a.idRecette
+        WHERE nomRecette = 'Cookies'", null);
+    }
     public function createRecette($name, $description = null, $imgFile = null)
     {
 
