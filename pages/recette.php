@@ -1,5 +1,4 @@
-<?php
-session_start() ;
+<?php session_start() ;
 
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
@@ -32,6 +31,7 @@ $liste = $cb->getIngredients();
 <?= $data[0]->Description ?> <br />
 <div id="flex">
     <div id="recette">
+        
         <?= $data[0]->Preparation ?>
     </div>
 </div>
