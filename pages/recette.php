@@ -16,7 +16,7 @@ $tags = $cb->getTags();
 <div id="nom">
     <h1> <?= $data[0]->nomRecette ?></h1>
     <?php foreach ($tags as $t) {
-        echo " - " . $t->nomTag . "<br/>";
+        echo " - " . utf8_encode($t->nomTag) . "<br/>";
     } ?>
 </div>
 <div id="info">
@@ -34,11 +34,11 @@ $tags = $cb->getTags();
         </ul>
     </div>
 </div>
-<?= $data[0]->Description ?> <br />
+<?= utf8_encode($data[0]->Description) ?> <br />
 <div id="flex">
     <div id="recette">
 
-        <?= $data[0]->Preparation ?>
+        <?= utf8_encode($data[0]->Preparation) ?>
     </div>
 </div>
 
