@@ -38,10 +38,14 @@ Autoloader::register();
 <?php if (isset($_POST["nom"])) {
     $cb = new \cb\CoobookDB();
     $data = $cb->search($_POST["nom"]);
-    foreach ($data as $d) {
-       echo  "<div><img id='photo_tete' src='/Projet_Recettes/$d->imgRecette' >";
-       echo "-" . $d->nomRecette . "<br/>";
-       echo "<input type='button' value='Détails de la recette'></div>";
+    if (!empty($data)) {
+        foreach ($data as $d) {
+            echo  "<div><img id='photo_tete' src='/Projet_Recettes/$d->imgRecette' >";
+            echo "-" . $d->nomRecette . "<br/>";
+            echo "<input type='button' value='Détails de la recette'></div>";
+        }
+    }else{
+        echo "Aucune recette trouvée...";
     }
 }; ?>
 
