@@ -8,7 +8,7 @@ $_SESSION['page'] = "ingredient";
 
 <?php ob_start() ?>
 
-<fieldset>
+<fieldset id="type_search">
     <legend>Type de recherche:</legend>
 
     <div>

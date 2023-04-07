@@ -40,9 +40,9 @@ display: flex;
 }
 
 .button_header {
-    color: white;
+    color: black;
     font-size: 1.5vh;
-    background-color: black;
+    background-color: powderblue;
     border: white;
     margin: 0;
 

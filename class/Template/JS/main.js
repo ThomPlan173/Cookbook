@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     for(let elem of elements){
 
         elem.addEventListener('mousemove', e=> {
-            elem.style.backgroundColor = "#3a3a3a"
+            elem.style.backgroundColor = "cornflowerblue"
         })
 
         elem.addEventListener('mouseout', function () {
-            elem.style.backgroundColor = "black"
+            elem.style.backgroundColor = "powderblue"
         })
 
     }
