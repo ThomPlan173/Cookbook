@@ -26,7 +26,8 @@
 
 #trie {
     right: 20px;
-    position: absolute;
+    position: relative;
+    width: 150px;
 }
 
 .tri{

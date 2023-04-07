@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c75364d-85cc-4862-a33f-5d984aa420af" name="Changes" comment="ne pas pull" />
+    <list default="true" id="3c75364d-85cc-4862-a33f-5d984aa420af" name="Changes" comment="header">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/recette.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/recette.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/recette.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680867263052</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="header">
+      <created>1680867668809</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680867668809</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,10 +126,10 @@
     <MESSAGE value="recette2h" />
     <MESSAGE value="index" />
     <MESSAGE value="index css" />
-    <MESSAGE value="header" />
     <MESSAGE value="css index" />
     <MESSAGE value="css index fini ?" />
     <MESSAGE value="ne pas pull" />
-    <option name="LAST_COMMIT_MESSAGE" value="ne pas pull" />
+    <MESSAGE value="header" />
+    <option name="LAST_COMMIT_MESSAGE" value="header" />
   </component>
 </project>

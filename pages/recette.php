@@ -25,13 +25,18 @@ $tags = $cb->getTags($id);
 <div id="info">
     
     <img id="photo_tete" src="/Projet_Recettes/<?= $data[0]->imgRecette ?>">
+    <span id="nbPersonne">
+        Cette recette est pour
+        <input type="number" id="personne" name="personne" max="20" min="1" value="1">
+
+    </span>
     <div id="ingredient">
         <h3>Ingrédients :</h3>
         <ul>
             <?php foreach ($liste as $l) {
                 echo "<li><div class='ingredient'><img class='image_ingredient' src='/Projet_Recettes/" . $l->imgIngredient
 
-                    . "'>" . $l->quantite . $l->unite . " " .  $l->nomIngredient . "</div></li>";
+                    . "'>" ?> <quantite><?=$l->quantite?></quantite> <?= $l->unite . " " .  $l->nomIngredient . "</div></li>";
             }
             ?>
         </ul>
