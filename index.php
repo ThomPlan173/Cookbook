@@ -3,7 +3,7 @@ session_start();
 
 require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
-
+$_SESSION['page'] = "ingredient";
 ?>
 
 <?php ob_start() ?>
