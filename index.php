@@ -1,6 +1,5 @@
 <?php
- 
-echo "hello world";
+
 require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 $_SESSION['page'] = "ingredients";
