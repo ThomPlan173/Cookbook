@@ -1,4 +1,5 @@
-<?php  
+<?php
+session_start();
 $_SESSION['page']="tags";
 
 require "..." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
