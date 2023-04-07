@@ -46,21 +46,22 @@ class CoobookDB extends PdoWrapper
         WHERE r.idRecette = '$id'", null);
     }
 
-    public function search($nom){
-        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-        WHERE nomRecette LIKE '%$nom%'", null);
+    public function search($nom, $method)
+    {
+
+        switch ($method) {
+            case 'nomRecette':
+                return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
+                WHERE $method LIKE '%$nom%'", null);
+            case 'nomIngredient':
+                return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
+                WHERE $method LIKE '%$nom%'", null);
+            case 'nomTag':
+                return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
+                WHERE $method LIKE '%$nom%'", null);
+        }
     }
 
-    public function searchByIngredient($nom){
-        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-        WHERE nomRecette LIKE '%$nom%'", null);
-    }
-
-    public function searchByTag($nom){
-        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-        WHERE nomRecette LIKE '%$nom%'", null);
-    }
-    
     public function createRecette($name, $description = null, $imgFile = null)
     {
 

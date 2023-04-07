@@ -12,17 +12,17 @@ $_SESSION['page'] = "ingredient";
     <legend>Type de recherche:</legend>
 
     <div>
-        <input type="radio" id="type" name="type" value="nom" checked>
+        <input type="radio" id="type" name="type" value="nomRecette" checked>
         <label for="nom">Par nom</label>
     </div>
 
     <div>
-        <input type="radio" id="type" name="type" value="ingrédient">
+        <input type="radio" id="type" name="type" value="nomIngrédient">
         <label for="ingredient">Par ingrédient</label>
     </div>
 
     <div>
-        <input type="radio" id="type" name="type" value="tag">
+        <input type="radio" id="type" name="type" value="nomTag">
         <label for="louie">Par tag</label>
     </div>
 </fieldset>
@@ -59,7 +59,7 @@ $_SESSION['page'] = "ingredient";
 <div id="liste_recette">
 <?php if (isset($_POST["nom"])) {
     $cb = new \cb\CoobookDB();
-    $data = $cb->search($_POST["nom"]);
+    $data = $cb->search($_POST["nom"],$_POST["method"]);
     if (!empty($data)) {
         foreach ($data as $d) {
            
