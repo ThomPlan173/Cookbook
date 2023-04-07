@@ -47,7 +47,7 @@ class CoobookDB extends PdoWrapper
     }
 
     public function search($nom){
-        return $this->exec("SELECT nomRecette FROM recette
+        return $this->exec("SELECT nomRecette, imgRecette FROM recette
         WHERE nomRecette LIKE '%$nom%'", null);
     }
     public function createRecette($name, $description = null, $imgFile = null)
