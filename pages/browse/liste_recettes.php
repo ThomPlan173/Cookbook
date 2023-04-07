@@ -1,5 +1,5 @@
 <?php
-session_start();
+ 
 $_SESSION['page']="recettes";
 
 require "..." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
