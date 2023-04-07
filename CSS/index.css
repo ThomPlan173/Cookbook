@@ -19,6 +19,15 @@
     border-color: blue;
 }
 
+#trie {
+    right: 20px;
+    position: absolute;
+}
+
+
+
+
+
 #liste_recette {
     padding-bottom: 90px;
     max-height: 100%;

@@ -34,27 +34,29 @@ $_SESSION['page'] = "ingredient";
         </div>
         <input class="recherche" type="text" placeholder="Rechercher une recette" name="nom">
         <button id="search_button" type="submit">Rechercher</button>
+
+        <fieldset id="trie">
+            <legend>Préférences de recherche:</legend>
+
+            <div>
+                <input type="radio" id="huey" name="drone" value="huey" checked>
+                <label for="huey">Alphabétique ( A-Z )</label>
+            </div>
+
+            <div>
+                <input type="radio" id="dewey" name="drone" value="dewey">
+                <label for="dewey">Alphabétique inversée ( Z-A )</label>
+            </div>
+
+
+        </fieldset>
     </div>
 </form>
 
 
 
 
-<fieldset>
-    <legend>Préférences de recherche:</legend>
 
-    <div>
-        <input type="radio" id="huey" name="drone" value="huey" checked>
-        <label for="huey">Alphabétique ( A-Z )</label>
-    </div>
-
-    <div>
-        <input type="radio" id="dewey" name="drone" value="dewey">
-        <label for="dewey">Alphabétique inversée ( Z-A )</label>
-    </div>
-
-
-</fieldset>
 
 <div id="liste_recette">
 <?php if (isset($_POST["nom"])) {
