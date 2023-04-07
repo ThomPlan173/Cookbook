@@ -1,11 +1,13 @@
 <?php session_start();
+$msg = $_GET['msg'] ;
+$name = "'" . htmlspecialchars($msg) . "'" ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 
 $cb = new \cb\CoobookDB();
-$data = $cb->getRecette("Cookies");
+$data = $cb->getRecette($name);
 $liste = $cb->getIngredients();
 $tags = $cb->getTags();
 
