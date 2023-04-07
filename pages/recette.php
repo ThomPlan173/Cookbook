@@ -1,4 +1,5 @@
-<?php  
+<?php
+session_start();
 $msg = $_GET['msg'] ;
 $id = htmlspecialchars( utf8_encode($msg))  ;
 
