@@ -11,21 +11,24 @@ $_SESSION['page'] = "ingredients";
     <fieldset id="type_search">
         <legend>Type de recherche:</legend>
 
-        <?php 
-                $a = "checked";
-                $b = "";  
+        <?php
+        $a = "checked";
+        $b = "";
+        $c = "";
+        if(isset($_POST["method"])){
+            if ($_POST["method"] == "nomIngredient") {
+                $a = "";
+                $b = "checked";
                 $c = "";
-                if($_POST["method"] == "nomIngredient"){
-                    $a = "";
-                    $b = "checked";
-                    $c = "";
-                }
-                if ($_POST["method"] == "nomTag") {
-                    $a = "";
-                    $b = "";
-                    $c = "checked";
-                }
-              ?>
+            }
+            if ($_POST["method"] == "nomTag") {
+                $a = "";
+                $b = "";
+                $c = "checked";
+            }
+        }
+        
+        ?>
 
         <div>
             <input type="radio" id="type" name="method" value="nomRecette" <?= $a ?>>
@@ -33,12 +36,12 @@ $_SESSION['page'] = "ingredients";
         </div>
 
         <div>
-            <input type="radio" id="type" name="method" value="nomIngredient"  <?= $b ?>>
+            <input type="radio" id="type" name="method" value="nomIngredient" <?= $b ?>>
             <label for="ingredient">Par ingrédient</label>
         </div>
 
         <div>
-            <input type="radio" id="type" name="method" value="nomTag"  <?= $c ?>>
+            <input type="radio" id="type" name="method" value="nomTag" <?= $c ?>>
             <label for="louie">Par tag</label>
         </div>
 
@@ -58,20 +61,23 @@ $_SESSION['page'] = "ingredients";
         <fieldset id="trie" type="submit">
             <legend>Préférences de recherche:</legend>
 
-            <?php 
-                $a = "checked";
-                $b = "";  
-                if($_POST["preference"] == "DESC"){
+            <?php
+
+            $a = "checked";
+            $b = "";
+            if (isset($_POST["preference"])) {
+                if ($_POST["preference"] == "DESC") {
                     $a = "";
                     $b = "checked";
                 }
-              ?>
+            }
+            ?>
             <div class="tri">
-                <input type="radio" id="huwey" name="preference" value="ASC" <?=$a?> >
+                <input type="radio" id="huwey" name="preference" value="ASC" <?= $a ?>>
                 <label for="huey">Alphabétique ( A-Z )</label>
             </div>
             <div class="tri">
-                <input type="radio" id="dewey" name="preference" value="DESC" <?=$b?> >
+                <input type="radio" id="dewey" name="preference" value="DESC" <?= $b ?>>
                 <label for="dewey">Alphabétique inversée ( Z-A )</label>
             </div>
 
@@ -85,7 +91,7 @@ $_SESSION['page'] = "ingredients";
     <?php if (isset($_POST["nom"]) && isset($_POST["method"]) && isset($_POST["preference"])) {
         $cb = new \cb\CoobookDB();
         $data = $cb->search($_POST["nom"], $_POST["method"], $_POST["preference"]);
-        
+
 
         switch ($_POST["method"]) {
             case 'nomRecette':
