@@ -7,17 +7,6 @@ $_SESSION['page'] = "ingredient";
 ?>
 
 <?php ob_start() ?>
-<form action="./index.php" method="post">
-    <div class="search">
-        <div>
-
-            <h1>Recherche :</h1>
-        </div>
-        <input class="recherche" type="text" placeholder="Rechercher une recette" name="nom">
-        <input type="submit" value="Rechercher">
-    </div>
-</form>
-
 
 <fieldset>
     <legend>Type de recherche:</legend>
@@ -28,7 +17,7 @@ $_SESSION['page'] = "ingredient";
     </div>
 
     <div>
-        <input type="radio" id="type"" name=" type" value="ingrédient">
+        <input type="radio" id="type" name="type" value="ingrédient">
         <label for="ingredient">Par ingrédient</label>
     </div>
 
@@ -37,6 +26,19 @@ $_SESSION['page'] = "ingredient";
         <label for="louie">Par tag</label>
     </div>
 </fieldset>
+
+<form action="./index.php" method="post">
+    <div class="search">
+        <div>
+            <h1>Recherche :</h1>
+        </div>
+        <input class="recherche" type="text" placeholder="Rechercher une recette" name="nom">
+        <button id="search_button" type="submit">Rechercher</button>
+    </div>
+</form>
+
+
+
 
 <fieldset>
     <legend>Préférences de recherche:</legend>
@@ -54,6 +56,7 @@ $_SESSION['page'] = "ingredient";
 
 </fieldset>
 
+<div id="liste_recette">
 <?php if (isset($_POST["nom"])) {
     $cb = new \cb\CoobookDB();
     $data = $cb->search($_POST["nom"]);
@@ -62,12 +65,14 @@ $_SESSION['page'] = "ingredient";
            
             ?>
             <form method='get' action="pages/recette.php" >
-                <div>
-                    <button type="submit" id='photo_tete' name="msg" value='<?=$d->idRecette?>'>
-                        <img src="<?=$d->imgRecette?>">
+                <div class="recette">
+                    <button class="bouton_image_recette" type="submit" id='photo_tete' name="msg" value='<?=$d->idRecette?>'>
+                        <img class="image_recette" src="<?=$d->imgRecette?>">
                     </button>
-                    <?=$d->nomRecette?> <br/>
-                    <?=$d->Description?>
+                    <div>
+                        <h3><?=$d->nomRecette?> :</h3>
+                        <?=$d->Description?>
+                    </div>
                 </div>
             </form>
 
@@ -77,7 +82,7 @@ $_SESSION['page'] = "ingredient";
         echo "Aucune recette trouvée...";
     }
 }; ?>
-
+</div>
 <?php $content = ob_get_clean() ?>
 
 <?php ob_start() ?>
