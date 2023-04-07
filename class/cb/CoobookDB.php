@@ -54,8 +54,13 @@ class CoobookDB extends PdoWrapper
                 return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
                 WHERE $method LIKE '%$nom%'", null);
             case 'nomIngredient':
-                return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-                WHERE $method LIKE '%$nom%'", null);
+                return $this->exec("SELECT r.idRecette,r.nomRecette, r.imgRecette, r.Description 
+                FROM recette as r
+                INNER JOIN contenir as c
+                ON r.idRecette = c.idRecette
+                INNER JOIN ingredient as i
+                ON c.idIngredient = i.idIngredient 
+                WHERE I.nomIngredient LIKE '%nom%'", null);
             case 'nomTag':
                 return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
                 WHERE $method LIKE '%$nom%'", null);

@@ -36,7 +36,6 @@ $tags = $cb->getTags($id);
         </ul>
     </div>
 </div>
-<?= utf8_encode($data[0]->Description) ?> <br />
 <div id="flex">
     <div id="recette">
 
