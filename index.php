@@ -11,7 +11,7 @@ Autoloader::register();
     <div class="search">
         <div>
 
-            <h1>Recherche de recette :</h1>
+            <h1>Recherche :</h1>
         </div>
         <input class="recherche" type="text" placeholder="Rechercher une recette" name="nom">
         <input type="submit" value="Rechercher">
@@ -19,21 +19,25 @@ Autoloader::register();
 </form>
 
 
-<div class="search">
-    <div>
-        <h1>Recette à partir d'un ingrédient :</h1>
-    </div>
-    <input class="recherche" type="text" placeholder="Rechercher une recette avec un ingrédient">
-    <input type="button" value="Rechercher">
-</div>
+<fieldset>
+    <legend>Type de recherche:</legend>
 
-<div class="search">
     <div>
-        <h1>Recherche par tag :</h1>
+      <input type="radio" id="huey" name="drone" value="huey"
+             checked>
+      <label for="huey">Par nom</label>
     </div>
-    <input class="recherche" type="text" placeholder="Rechercher un tag">
-    <input type="button" value="Rechercher">
-</div>
+
+    <div>
+      <input type="radio" id="dewey" name="drone" value="dewey">
+      <label for="dewey">Par ingrédient</label>
+    </div>
+
+    <div>
+      <input type="radio" id="louie" name="drone" value="louie">
+      <label for="louie">Par tag</label>
+    </div>
+</fieldset>
 
 <?php if (isset($_POST["nom"])) {
     $cb = new \cb\CoobookDB();
