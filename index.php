@@ -39,6 +39,23 @@ Autoloader::register();
     </div>
 </fieldset>
 
+<fieldset>
+    <legend>Préférences de recherche:</legend>
+
+    <div>
+      <input type="radio" id="huey" name="drone" value="huey"
+             checked>
+      <label for="huey">Alphabétique ( A-Z )</label>
+    </div>
+
+    <div>
+      <input type="radio" id="dewey" name="drone" value="dewey">
+      <label for="dewey">Alphabétique inversée ( Z-A )</label>
+    </div>
+
+    
+</fieldset>
+
 <?php if (isset($_POST["nom"])) {
     $cb = new \cb\CoobookDB();
     $data = $cb->search($_POST["nom"]);
