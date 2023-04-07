@@ -46,13 +46,13 @@ class CoobookDB extends PdoWrapper
         WHERE r.idRecette = '$id'", null);
     }
 
-    public function search($nom, $method)
+    public function search($nom, $method, $pref)
     {
 
         switch ($method) {
             case 'nomRecette':
                 return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-                WHERE $method LIKE '%$nom%'", null);
+                WHERE $method LIKE '%$nom%' ORDER BY nomRecette $pref", null);
             case 'nomIngredient':
                 return $this->exec("SELECT r.idRecette,r.nomRecette, r.imgRecette, r.Description 
                 FROM recette as r
@@ -60,10 +60,15 @@ class CoobookDB extends PdoWrapper
                 ON r.idRecette = c.idRecette
                 INNER JOIN ingredient as i
                 ON c.idIngredient = i.idIngredient 
-                WHERE I.nomIngredient LIKE '%nom%'", null);
+                WHERE i.nomIngredient LIKE '%$nom%' ORDER BY r.nomRecette $pref", null);
             case 'nomTag':
-                return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-                WHERE $method LIKE '%$nom%'", null);
+                return $this->exec("SELECT r.idRecette,r.nomRecette, r.imgRecette, r.Description 
+                FROM recette as r
+                INNER JOIN attribuer as a
+                ON a.idRecette = r.idRecette
+                INNER JOIN tag as t
+                ON t.idTag = a.idTag
+                WHERE t.nomTag LIKE '%$nom%'ORDER BY r.nomRecette $pref", null);
         }
     }
 

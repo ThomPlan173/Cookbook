@@ -29,9 +29,9 @@
     position: absolute;
 }
 
-
-
-
+.tri{
+    visibility: visible;
+}
 
 #liste_recette {
     padding-bottom: 90px;
