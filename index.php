@@ -10,21 +10,22 @@ $_SESSION['page'] = "ingredient";
 
 <fieldset>
     <legend>Type de recherche:</legend>
-
+    <form action="./index.php" method="post">
     <div>
-        <input type="radio" id="type" name="type" value="nomRecette" checked>
+        <input type="radio" id="type" name="method" value="nomRecette" checked>
         <label for="nom">Par nom</label>
     </div>
 
     <div>
-        <input type="radio" id="type" name="type" value="nomIngrédient">
+        <input type="radio" id="type" name="method" value="nomIngrédient">
         <label for="ingredient">Par ingrédient</label>
     </div>
 
     <div>
-        <input type="radio" id="type" name="type" value="nomTag">
+        <input type="radio" id="type" name="method" value="nomTag">
         <label for="louie">Par tag</label>
     </div>
+    </form>
 </fieldset>
 
 <form action="./index.php" method="post">
@@ -39,12 +40,12 @@ $_SESSION['page'] = "ingredient";
             <legend>Préférences de recherche:</legend>
 
             <div>
-                <input type="radio" id="huey" name="drone" value="huey" checked>
+                <input type="radio" id="" name="Preference" value="Alphabet" checked>
                 <label for="huey">Alphabétique ( A-Z )</label>
             </div>
 
             <div>
-                <input type="radio" id="dewey" name="drone" value="dewey">
+                <input type="radio" id="dewey" name="Preference" value="Anti-Alphabet">
                 <label for="dewey">Alphabétique inversée ( Z-A )</label>
             </div>
 
@@ -55,7 +56,7 @@ $_SESSION['page'] = "ingredient";
 
 
 
-
+<?php var_dump($_POST); ?>
 
 
 <div id="liste_recette">
