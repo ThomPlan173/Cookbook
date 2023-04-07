@@ -3,31 +3,31 @@
 echo "hello world";
 require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
-$_SESSION['page'] = "ingredient";
+$_SESSION['page'] = "ingredients";
 ?>
 
 <?php ob_start() ?>
-
-<fieldset id="type_search">
-    <legend>Type de recherche:</legend>
-
-    <div>
-        <input type="radio" id="type" name="type" value="nomRecette" checked>
-        <label for="nom">Par nom</label>
-    </div>
-
-    <div>
-        <input type="radio" id="type" name="type" value="nomIngrédient">
-        <label for="ingredient">Par ingrédient</label>
-    </div>
-
-    <div>
-        <input type="radio" id="type" name="type" value="nomTag">
-        <label for="louie">Par tag</label>
-    </div>
-</fieldset>
-
 <form action="./index.php" method="post">
+    <fieldset id="type_search">
+        <legend>Type de recherche:</legend>
+
+        <div>
+            <input type="radio" id="type" name="method" value="nomRecette" checked>
+            <label for="nom">Par nom</label>
+        </div>
+
+        <div>
+            <input type="radio" id="type" name="method" value="nomIngrédient">
+            <label for="ingredient">Par ingrédient</label>
+        </div>
+
+        <div>
+            <input type="radio" id="type" name="method" value="nomTag">
+            <label for="louie">Par tag</label>
+        </div>
+
+    </fieldset>
+
     <div class="search">
         <div>
             <h1>Recherche :</h1>
@@ -39,12 +39,12 @@ $_SESSION['page'] = "ingredient";
             <legend>Préférences de recherche:</legend>
 
             <div>
-                <input type="radio" id="huey" name="drone" value="huey" checked>
+                <input type="radio" id="" name="Preference" value="Alphabet" checked>
                 <label for="huey">Alphabétique ( A-Z )</label>
             </div>
 
             <div>
-                <input type="radio" id="dewey" name="drone" value="dewey">
+                <input type="radio" id="dewey" name="Preference" value="Anti-Alphabet">
                 <label for="dewey">Alphabétique inversée ( Z-A )</label>
             </div>
 
@@ -53,37 +53,35 @@ $_SESSION['page'] = "ingredient";
     </div>
 </form>
 
-
-
-
+<?php var_dump($_POST); ?>
 
 
 <div id="liste_recette">
-<?php if (isset($_POST["nom"])) {
-    $cb = new \cb\CoobookDB();
-    $data = $cb->search($_POST["nom"],$_POST["method"]);
-    if (!empty($data)) {
-        foreach ($data as $d) {
-           
-            ?>
-            <form method='get' action="pages/recette.php" >
-                <div class="recette">
-                    <button class="bouton_image_recette" type="submit" id='photo_tete' name="msg" value='<?=$d->idRecette?>'>
-                        <img class="image_recette" src="<?=$d->imgRecette?>">
-                    </button>
-                    <div>
-                        <h3><?=$d->nomRecette?> :</h3>
-                        <?=$d->Description?>
-                    </div>
-                </div>
-            </form>
+    <?php if (isset($_POST["nom"])) {
+        $cb = new \cb\CoobookDB();
+        $data = $cb->search($_POST["nom"], $_POST["method"]);
+        if (!empty($data)) {
+            foreach ($data as $d) {
 
-            <?php
+    ?>
+                <form method='get' action="pages/recette.php">
+                    <div class="recette">
+                        <button class="bouton_image_recette" type="submit" id='photo_tete' name="msg" value='<?= $d->idRecette ?>'>
+                            <img class="image_recette" src="<?= $d->imgRecette ?>">
+                        </button>
+                        <div>
+                            <h3><?= utf8_encode( $d->nomRecette) ?> :</h3>
+                            <?= utf8_encode($d->Description) ?>
+                        </div>
+                    </div>
+                </form>
+
+    <?php
+            }
+        } else {
+            echo "Aucune recette trouvée...";
         }
-    } else {
-        echo "Aucune recette trouvée...";
-    }
-}; ?>
+    }; ?>
 </div>
 <?php $content = ob_get_clean() ?>
 
@@ -100,4 +98,3 @@ $_SESSION['page'] = "ingredient";
 <?php $js = ob_get_clean() ?>
 
 <?php Template::render($content, $css, $js) ?>
-
