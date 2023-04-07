@@ -23,19 +23,18 @@ Autoloader::register();
     <legend>Type de recherche:</legend>
 
     <div>
-      <input type="radio" id="huey" name="drone" value="huey"
-             checked>
-      <label for="huey">Par nom</label>
+        <input type="radio" id="type" name="type" value="nom" checked>
+        <label for="nom">Par nom</label>
     </div>
 
     <div>
-      <input type="radio" id="dewey" name="drone" value="dewey">
-      <label for="dewey">Par ingrédient</label>
+        <input type="radio" id="type"" name=" type" value="ingrédient">
+        <label for="ingredient">Par ingrédient</label>
     </div>
 
     <div>
-      <input type="radio" id="louie" name="drone" value="louie">
-      <label for="louie">Par tag</label>
+        <input type="radio" id="type" name="type" value="tag">
+        <label for="louie">Par tag</label>
     </div>
 </fieldset>
 
@@ -43,17 +42,16 @@ Autoloader::register();
     <legend>Préférences de recherche:</legend>
 
     <div>
-      <input type="radio" id="huey" name="drone" value="huey"
-             checked>
-      <label for="huey">Alphabétique ( A-Z )</label>
+        <input type="radio" id="huey" name="drone" value="huey" checked>
+        <label for="huey">Alphabétique ( A-Z )</label>
     </div>
 
     <div>
-      <input type="radio" id="dewey" name="drone" value="dewey">
-      <label for="dewey">Alphabétique inversée ( Z-A )</label>
+        <input type="radio" id="dewey" name="drone" value="dewey">
+        <label for="dewey">Alphabétique inversée ( Z-A )</label>
     </div>
 
-    
+
 </fieldset>
 
 <?php if (isset($_POST["nom"])) {
@@ -62,10 +60,10 @@ Autoloader::register();
     if (!empty($data)) {
         foreach ($data as $d) {
             echo  "<div><img id='photo_tete' src='/Projet_Recettes/$d->imgRecette' >";
-            echo "-" . $d->nomRecette . "<br/>";
+            echo "-" . utf8_encode($d->nomRecette) . "<br/>";
             echo "<input type='button' value='Détails de la recette'></div>";
         }
-    }else{
+    } else {
         echo "Aucune recette trouvée...";
     }
 }; ?>
