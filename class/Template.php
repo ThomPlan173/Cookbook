@@ -1,8 +1,4 @@
-<?php if (isset($_SESSION["bin"])) {
-    session_destroy();
-}
-session_start();
-$_SESSION["bin"] = true;
+<?php
 
 class Template
 {
