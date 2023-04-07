@@ -53,9 +53,6 @@ $_SESSION['page'] = "ingredients";
     </div>
 </form>
 
-<?php var_dump($_POST); ?>
-
-
 <div id="liste_recette">
     <?php if (isset($_POST["nom"])) {
         $cb = new \cb\CoobookDB();
