@@ -23,9 +23,9 @@ class CoobookDB extends PdoWrapper
         );
     }
 
-    public function getRecette()
+    public function getRecette($nom)
     {
-        return $this->exec("SELECT * FROM recette WHERE nomRecette = 'Cookies'", null);
+        return $this->exec("SELECT * FROM recette WHERE nomRecette = '$nom'", null);
     }
     public function getIngredients()
     {
@@ -44,6 +44,11 @@ class CoobookDB extends PdoWrapper
         INNER JOIN recette as r
         ON r.idRecette = a.idRecette
         WHERE nomRecette = 'Cookies'", null);
+    }
+
+    public function search($nom){
+        return $this->exec("SELECT nomRecette FROM recette
+        WHERE nomRecette LIKE '%$nom%'", null);
     }
     public function createRecette($name, $description = null, $imgFile = null)
     {

@@ -1,12 +1,11 @@
 <?php session_start();
 
-
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 
 $cb = new \cb\CoobookDB();
-$data = $cb->getRecette();
+$data = $cb->getRecette("Cookies");
 $liste = $cb->getIngredients();
 $tags = $cb->getTags();
 
