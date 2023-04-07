@@ -62,14 +62,16 @@ Autoloader::register();
     if (!empty($data)) {
         foreach ($data as $d) {
             ?>
-            <form method='get' action='page/edit/recette.php'>
+            <form method='get' action="pages/recette.php" >
                 <div>
-                    <input type='image' type="submit" id='photo_tete' src='<?=$d->imgRecette?>'>
-                    <option value
+                    <button type="submit" id='photo_tete' name="msg" value='<?=$d->nomRecette?>'>
+                        <img src="<?=$d->imgRecette?>">
+                    </button>
                     <?=$d->nomRecette?> <br/>
                     <?=$d->Description?>
                 </div>
             </form>
+
             <?php
         }
     }else{
