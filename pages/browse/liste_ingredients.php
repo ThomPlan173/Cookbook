@@ -1,4 +1,5 @@
-<?php  
+<?php
+session_start();
 $_SESSION['page']="ingredients";
 require "..." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
