@@ -61,9 +61,16 @@ Autoloader::register();
     $data = $cb->search($_POST["nom"]);
     if (!empty($data)) {
         foreach ($data as $d) {
-            echo  "<div><img id='photo_tete' src='/Projet_Recettes/$d->imgRecette' >";
-            echo "-" . $d->nomRecette . "<br/>";
-            echo "<input type='button' value='Détails de la recette'></div>";
+            ?>
+            <form method='get' action='page/edit/recette.php'>
+                <div>
+                    <input type='image' type="submit" id='photo_tete' src='<?=$d->imgRecette?>'>
+                    <option value
+                    <?=$d->nomRecette?> <br/>
+                    <?=$d->Description?>
+                </div>
+            </form>
+            <?php
         }
     }else{
         echo "Aucune recette trouvée...";
