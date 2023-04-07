@@ -4,11 +4,44 @@
     margin-left: 20px;
     margin-right: 20px;
 }
-
 .recherche {
     height: 20px;
     margin-left: 50px;
     margin-top: 33px;
+}
+
+#search_button {
+    margin-left: 30px;
+    margin-top: 25px;
+    height: 40px;
+
+    background-color: cornflowerblue;
+    border-color: blue;
+}
+
+#liste_recette {
+    padding-bottom: 90px;
+    max-height: 100%;
+
+}
+
+.recette {
+    background-color: lightgray;
+    border: black;
+
+    margin: 20px;
+    display: flex;
+}
+
+.bouton_image_recette {
+    visibility: hidden;
+    margin: 5px;
 
 
+}
+
+.image_recette {
+    visibility: visible;
+    height: 250px;
+    width: 250px;
 }
