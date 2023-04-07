@@ -1,5 +1,5 @@
 <?php session_start();
-$msg = $_GET['msg'] ;
+$msg = $_GET['image'] ;
 $name = "'" . htmlspecialchars($msg) . "'" ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
@@ -14,6 +14,7 @@ $tags = $cb->getTags();
 ?>
 
 <?php ob_start() ?>
+<?php var_dump($msg); ?>
 <div id="nom">
     <h1> <?= $data[0]->nomRecette ?></h1>
     <?php foreach ($tags as $t) {
