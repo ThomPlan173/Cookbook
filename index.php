@@ -59,18 +59,19 @@ Autoloader::register();
     $data = $cb->search($_POST["nom"]);
     if (!empty($data)) {
         foreach ($data as $d) {
-
-?>
-            <form method='get' action='pages/recette.php/<?= $d->idRecette ?>'>
-            <?php var_dump( $d->imgRecette); ?>
+           
+            ?>
+            <form method='get' action="pages/recette.php" >
                 <div>
-                <button type="submit" name="image" title="Envoyer"><img src="/Projet_Recettes/ <?= $d->imgRecette ?>" /></button>
-                    
-                    <?= $d->nomRecette ?>
-                    <?= $d->Description ?>
+                    <button type="submit" id='photo_tete' name="msg" value='<?=$d->nomRecette?>'>
+                        <img src="<?=$d->imgRecette?>">
+                    </button>
+                    <?=$d->nomRecette?> <br/>
+                    <?=$d->Description?>
                 </div>
             </form>
-<?php
+
+            <?php
         }
     } else {
         echo "Aucune recette trouvée...";
