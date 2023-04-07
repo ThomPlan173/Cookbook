@@ -7,17 +7,6 @@ Autoloader::register();
 ?>
 
 <?php ob_start() ?>
-<form action="./index.php" method="post">
-    <div class="search">
-        <div>
-
-            <h1>Recherche :</h1>
-        </div>
-        <input class="recherche" type="text" placeholder="Rechercher une recette" name="nom">
-        <input type="submit" value="Rechercher">
-    </div>
-</form>
-
 
 <fieldset>
     <legend>Type de recherche:</legend>
@@ -28,7 +17,7 @@ Autoloader::register();
     </div>
 
     <div>
-        <input type="radio" id="type"" name=" type" value="ingrédient">
+        <input type="radio" id="type" name="type" value="ingrédient">
         <label for="ingredient">Par ingrédient</label>
     </div>
 
@@ -37,6 +26,19 @@ Autoloader::register();
         <label for="louie">Par tag</label>
     </div>
 </fieldset>
+
+<form action="./index.php" method="post">
+    <div class="search">
+        <div>
+            <h1>Recherche :</h1>
+        </div>
+        <input class="recherche" type="text" placeholder="Rechercher une recette" name="nom">
+        <button type="submit">Rechercher</button>
+    </div>
+</form>
+
+
+
 
 <fieldset>
     <legend>Préférences de recherche:</legend>
