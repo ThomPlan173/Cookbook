@@ -63,7 +63,7 @@ Autoloader::register();
             ?>
             <form method='get' action="pages/recette.php" >
                 <div>
-                    <button type="submit" id='photo_tete' name="msg" value='<?=$d->nomRecette?>'>
+                    <button type="submit" id='photo_tete' name="msg" value='<?=$d->idRecette?>'>
                         <img src="<?=$d->imgRecette?>">
                     </button>
                     <?=$d->nomRecette?> <br/>

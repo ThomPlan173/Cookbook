@@ -23,27 +23,27 @@ class CoobookDB extends PdoWrapper
         );
     }
 
-    public function getRecette($nom)
+    public function getRecette($id)
     {
-        return $this->exec("SELECT * FROM recette WHERE nomRecette = '$nom'", null);
+        return $this->exec("SELECT * FROM recette WHERE idRecette = '$id'", null);
     }
-    public function getIngredients()
+    public function getIngredients($id)
     {
         return $this->exec("SELECT i.imgIngredient, i.nomIngredient, c.quantite, c.unite FROM recette as r 
         INNER JOIN contenir as c
         ON r.idRecette = c.idRecette
         INNER JOIN ingredient as i
         ON c.idIngredient = i.idIngredient
-        WHERE nomRecette = 'Cookies'", null);
+        WHERE r.idRecette = '$id'", null);
     }
-    public function getTags()
+    public function getTags($id)
     {
         return $this->exec("SELECT t.nomTag FROM tag as t 
         INNER JOIN attribuer as a
         ON a.idTag = t.idTag
         INNER JOIN recette as r
         ON r.idRecette = a.idRecette
-        WHERE nomRecette = 'Cookies'", null);
+        WHERE r.idRecette = '$id'", null);
     }
 
     public function search($nom){

@@ -1,22 +1,22 @@
 <?php session_start();
-$msg = $_GET['image'] ;
-$name = htmlspecialchars($msg)  ;
+$msg = $_GET['msg'] ;
+$id = htmlspecialchars( utf8_encode($msg))  ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 
 $cb = new \cb\CoobookDB();
-$data = $cb->getRecette($name);
-$liste = $cb->getIngredients();
-$tags = $cb->getTags();
+$data = $cb->getRecette($id);
+$liste = $cb->getIngredients($id);
+$tags = $cb->getTags($id);
 
 ?>
 
 <?php ob_start() ?>
-<?php var_dump($msg); ?>
+
 <div id="nom">
-    <h1> <?= $data[0]->nomRecette ?></h1>
+    <h1> <?= utf8_encode( $data[0]->nomRecette ) ?></h1>
     <?php foreach ($tags as $t) {
         echo " - " . utf8_encode($t->nomTag) . "<br/>";
     } ?>
