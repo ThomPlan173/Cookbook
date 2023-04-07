@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c75364d-85cc-4862-a33f-5d984aa420af" name="Changes" comment="css index">
+    <list default="true" id="3c75364d-85cc-4862-a33f-5d984aa420af" name="Changes" comment="css index fini ?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Template/JS/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template/JS/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Template/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Template/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template/Header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680861996447</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="css index fini ?">
+      <created>1680862792718</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680862792718</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +113,7 @@
     <MESSAGE value="index css" />
     <MESSAGE value="header" />
     <MESSAGE value="css index" />
-    <option name="LAST_COMMIT_MESSAGE" value="css index" />
+    <MESSAGE value="css index fini ?" />
+    <option name="LAST_COMMIT_MESSAGE" value="css index fini ?" />
   </component>
 </project>
