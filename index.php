@@ -59,9 +59,6 @@ Autoloader::register();
     $data = $cb->search($_POST["nom"]);
     if (!empty($data)) {
         foreach ($data as $d) {
-            echo  "<div><img id='photo_tete' src='/Projet_Recettes/$d->imgRecette' >";
-            echo "-" . utf8_encode($d->nomRecette) . "<br/>";
-            echo "<input type='button' value='Détails de la recette'></div>";
             ?>
             <form method='get' action="pages/recette.php" >
                 <div>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c75364d-85cc-4862-a33f-5d984aa420af" name="Changes" comment="recette">
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/recette.php" afterDir="false" />
-    </list>
+    <list default="true" id="3c75364d-85cc-4862-a33f-5d984aa420af" name="Changes" comment="recette2h" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +37,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680850837142</updated>
-      <workItem from="1680850838468" duration="5455000" />
+      <workItem from="1680850838468" duration="5753000" />
     </task>
     <task id="LOCAL-00001" summary="recette">
       <created>1680854347442</created>
@@ -49,7 +46,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680854347442</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="recette2">
+      <created>1680856550344</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680856550344</updated>
+    </task>
+    <task id="LOCAL-00003" summary="recette2h">
+      <created>1680856629866</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680856629866</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -57,6 +68,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="recette" />
-    <option name="LAST_COMMIT_MESSAGE" value="recette" />
+    <MESSAGE value="recette2" />
+    <MESSAGE value="recette2h" />
+    <option name="LAST_COMMIT_MESSAGE" value="recette2h" />
   </component>
 </project>
