@@ -1,6 +1,6 @@
 <?php
 
-namespace AED;
+namespace Edit;
 
 class Edit
 {
@@ -8,16 +8,14 @@ class Edit
         <form method="get" action="" class="edit" >
             <legend style="text-align: center">Modification</legend>
             <div class="form-group">
-                <?php if($error==null):?>
-                Image : <input <?php if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; ?>
+                Image : <input <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                        type="file" name="image" accept="image/png, image/gif, image/jpeg" value="$img" autofocus>
-                Nom : <input <?php if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; ?>
+                Nom : <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="nom" placeholder="nom" value="<?php echo $nom ?>" autofocus>
-                Description : <input <?php if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; ?>
+                Description : <input <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="description" placeholder="description" value="<?php echo $descr ?>" autofocus>
-                Preparation : <input <?php if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; ?>
+                Preparation : <input <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="preparation" placeholder="preparation" value="<?php echo $prepa?>" autofocus>
-                <?php endif ?>
             </div>
             <button type="submit" class="submit">Modifier</button>
         </form>
