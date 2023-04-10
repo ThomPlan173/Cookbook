@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['page']="ingredients";
-require "..." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
+require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 ?>
@@ -16,7 +16,7 @@ Autoloader::register();
         foreach ($data as $d) {
 
             ?>
-            <form method='get' action="pages/recette.php" >
+            <form method='get' action="recette.php" >
                 <div>
                     <button type="submit" id='photo_tete' name="msg" value='<?=$d->idIngredient?>'>
                         <img src="<?=$d->imgIngredient?>">

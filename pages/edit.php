@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require "../../class/Autoloader.php";
-//require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
+require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 $cb = new \cb\CoobookDB();
@@ -14,7 +13,8 @@ $data = $cb->getRecette("3");
 $liste = $cb->getIngredients("3");
 $tags = $cb->getTags("3");
 
-$ed = new \AED\Edit();
+
+$ed = new \Edit\Edit();
 $ed->generateform($data[0]->nomRecette, $data[0]->imgRecette, $data[0]->Description, $data[0]->Preparation);
 var_dump($_POST );
 //if (isset($_POST['submit'])) {

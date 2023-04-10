@@ -27,7 +27,9 @@ class Template
 
         <body>
             <?php include "Template/Header.php" ?>
+
             <?php include "Template/sidebar.php" ?>
+            
             <div class="content">
 
                 <?= $content  ?>

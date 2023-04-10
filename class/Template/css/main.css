@@ -98,3 +98,10 @@ display: flex;
     margin-top: 10px;
 }
 
+/*_SIDEBAR___________________________________________________________________*/
+
+#sidebar{
+    margin-top: 4%;
+    position: center;
+    color: red;
+}
