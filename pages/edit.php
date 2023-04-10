@@ -15,9 +15,11 @@ $liste = $cb->getIngredients("3");
 $tags = $cb->getTags("3");
 
 
+
 $ed = new \Edit\Edit();
 $ed->generateform($data[0]->nomRecette, $data[0]->imgRecette, $data[0]->Description, $data[0]->Preparation);
-
+$id = $_GET["msg"];
+echo $id;
 if (isset($_POST['submit'])) {
     
    
@@ -36,7 +38,7 @@ if (isset($_POST['submit'])) {
 $data = $ed->verif($nom,$img, $description, $preparation);
 var_dump($data);
     if ($data["granted"] != false) {
-        $result = $cb->updateRecette($img,$nom,$description,$preparation);
+        $result = $cb->updateRecette($id,$img,$nom,$description,$preparation);
     }
        
     
