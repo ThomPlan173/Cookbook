@@ -9,7 +9,7 @@ $ls = new Browser\Liste();
 ?>
 
 <?php ob_start() ;
-    $sr->generatesearh();
+    $sr->generatesearch();
     $ls->generateRecettes();
 ?>
 

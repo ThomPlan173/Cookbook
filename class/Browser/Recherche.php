@@ -4,7 +4,7 @@ namespace Browser;
 
 class Recherche
 {
-    function generatesearh(): void{ ?>
+    function generatesearch(): void{ ?>
         <form action="./liste_recettes.php" method="post">
         <fieldset id="type_search">
             <legend>Type de recherche:</legend>

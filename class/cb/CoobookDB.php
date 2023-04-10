@@ -6,14 +6,16 @@ use \pdowrapper\PdoWrapper;
 
 include __DIR__ . "../../../db_credentials.php";
 
+// Classe utilisée pour la totalitée des requetes SQL nécéssaires
 class CoobookDB extends PdoWrapper
 {
-
+    //dir pour les images
     public const IMAGE_DIR = "images/";
 
+    //constructeur de classe et initialisateurs 
     public function __construct()
     {
-        // appel au constructeur de la classe mère
+        // appel au constructeur de la classe mère (PDOWrapper qui utilise PDO pour connecter la BD)
         parent::__construct(
             $GLOBALS['db_name'],
             $GLOBALS['db_host'],
@@ -23,10 +25,12 @@ class CoobookDB extends PdoWrapper
         );
     }
 
+    //Getter de recette pour un ID de recette spécifique, affichage des données de la recette ( recette.php )
     public function getRecette($id)
     {
         return $this->exec("SELECT * FROM recette WHERE idRecette = '$id'", null);
     }
+    //Getter des ingrédients pour un ID de recette spécifique, affichage d'une liste d'ingrédients ( recette.php )
     public function getIngredients($id)
     {
         return $this->exec("SELECT i.imgIngredient, i.nomIngredient, c.quantite, c.unite FROM recette as r 
@@ -36,6 +40,7 @@ class CoobookDB extends PdoWrapper
         ON c.idIngredient = i.idIngredient
         WHERE r.idRecette = '$id'", null);
     }
+    //Getter des tags pour un ID de recette spécifique, affichage d'un liste de tags
     public function getTags($id)
     {
         return $this->exec("SELECT t.nomTag FROM tag as t 
@@ -45,7 +50,22 @@ class CoobookDB extends PdoWrapper
         ON r.idRecette = a.idRecette
         WHERE r.idRecette = '$id'", null);
     }
+    //Getter de tout les tags 
+    public function getAllTags()
+    {
+        return $this->exec("SELECT DISTINCT nomTag FROM tag", null);
+    }
+    //Getter de tous le lesingrédients
+    public function getAllIngredients()
+    {
+        return $this->exec("SELECT DISTINCT nomIngredient FROM ingredient", null);
+    }
+    //Etabli une recherche en fonction de 3 paramètres :
+    // - $nom : valeur entrée dans la barre de recherche
+    // - $method : la methode de recherche, par nom, ingrédient ou tag
+    // - $pref : recherche selon préférence utilisateur ( Alphabetique ou inversé ) 
 
+    // => Susceptible d'être modifié
     public function search($nom, $method, $pref)
     {
 
@@ -72,6 +92,14 @@ class CoobookDB extends PdoWrapper
         }
     }
 
+// Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
+    /*
+    public function updateRecette (){
+        return $this.exec("UPDATE recette SET imgRecette, nomRecette, Description, Preparation VALUES ...");
+    }
+*/
+
+    //Création d'une nouvelle recette
     public function createRecette($name, $description = null, $imgFile = null)
     {
 
