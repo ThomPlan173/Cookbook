@@ -93,11 +93,11 @@ class CoobookDB extends PdoWrapper
     }
 
 // Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
-    /*
-    public function updateRecette (){
+    
+    public function updateRecette ($img,$nom,$description,$preparation){
         return $this.exec("UPDATE recette SET imgRecette, nomRecette, Description, Preparation VALUES ...");
     }
-*/
+
 
     //Création d'une nouvelle recette
     public function createRecette($name, $description = null, $imgFile = null)
