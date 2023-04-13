@@ -51,11 +51,12 @@ function generateRecettes(){ ?>
                 </svg>
             </button>
     </div>
+    <?php endif ?>
     <div>
         <h3><?= utf8_encode($d->nomRecette) ?> :</h3>
         <?= utf8_encode($d->Description) ?>
     </div>
-<?php endif ?>
+
 </div>
     </form>
 

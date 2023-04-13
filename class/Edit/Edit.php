@@ -13,9 +13,9 @@ class Edit
                 Nom : <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="nom" placeholder="nom" value="<?php echo $nom ?>" autofocus>
                 Description : <input <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="description" placeholder="description" value="<?php echo $descr ?>" autofocus>
+                        type="text" name="description" placeholder="description" value="<?php echo utf8_encode($descr)?>" autofocus>
                 Preparation : <input <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="preparation" placeholder="preparation" value="<?php echo $prepa?>" autofocus>
+                        type="text" name="preparation" placeholder="preparation" value="<?php echo utf8_encode($prepa)?>" autofocus>
             </div>
             <input type="submit" name="submit" class="submit" value="Modifier">
         </form>

@@ -23,6 +23,7 @@ class PdoWrapper
         $dsn = 'mysql:dbname=' . $this->db_name . ';host='. $this->db_host. ';port=' . $this->db_port;
         try{
             $this->pdo = new PDO($dsn, $this->db_user, $this->db_pwd);
+            $this->pdo->exec("set names utf8_general_ci");
         }catch (\Exception $ex){
             die('Error : ' . $ex->getMessage()) ;
         }
