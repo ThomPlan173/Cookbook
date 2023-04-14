@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     $preparation = $_POST['preparation'];
     $response = $ed->verif($nom,$img,$description,$preparation);
     if ($response['granted']){
-        $result = $cb->updateRecette($id,$img,$nom,htmlspecialchars($description, ENT_QUOTES),htmlspecialchars($preparation, ENT_QUOTES));
+        $result = $cb->updateRecette($id,$img,htmlspecialchars($nom,ENT_QUOTES),htmlspecialchars($description, ENT_QUOTES),htmlspecialchars($preparation, ENT_QUOTES));
         header("Location: "."/Projet_Recettes/index.php");
         exit() ;
     }
