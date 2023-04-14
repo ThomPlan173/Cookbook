@@ -9,7 +9,7 @@ class Edit
             <legend style="text-align: center">Modification</legend>
             <div class="form-group">
                 Image : <input <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                       type="file" name="image" accept="image/png, image/gif, image/jpeg" value=" <?=$img ?>" autofocus>
+                       type="file" name="image" accept="image/png, image/gif, image/jpeg" src="<?php echo $img?>" autofocus>
                 Nom : <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="nom" placeholder="nom" value="<?php echo $nom ?>" autofocus>
                 Description : <input <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
