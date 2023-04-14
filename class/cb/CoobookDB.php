@@ -66,30 +66,9 @@ class CoobookDB extends PdoWrapper
     // - $pref : recherche selon préférence utilisateur ( Alphabetique ou inversé ) 
 
     // => Susceptible d'être modifié
-    public function search($nom, $method, $pref)
+    public function search($nom, $pref)
     {
-
-        switch ($method) {
-            case 'nomRecette':
-                return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette
-                WHERE $method LIKE '%$nom%' ORDER BY nomRecette $pref", null);
-            case 'nomIngredient':
-                return $this->exec("SELECT r.idRecette,r.nomRecette, r.imgRecette, r.Description 
-                FROM recette as r
-                INNER JOIN contenir as c
-                ON r.idRecette = c.idRecette
-                INNER JOIN ingredient as i
-                ON c.idIngredient = i.idIngredient 
-                WHERE i.nomIngredient LIKE '%$nom%' ORDER BY r.nomRecette $pref", null);
-            case 'nomTag':
-                return $this->exec("SELECT r.idRecette,r.nomRecette, r.imgRecette, r.Description 
-                FROM recette as r
-                INNER JOIN attribuer as a
-                ON a.idRecette = r.idRecette
-                INNER JOIN tag as t
-                ON t.idTag = a.idTag
-                WHERE t.nomTag LIKE '%$nom%'ORDER BY r.nomRecette $pref", null);
-        }
+        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);      
     }
 
 // Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
@@ -100,7 +79,11 @@ class CoobookDB extends PdoWrapper
         return $this->exec($sql, null);
     }
 
-
+    public function addRecette($img,$nom,$description,$preparation){
+ 
+        $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' ";
+        return $this->exec($sql, null);
+    }
     //Création d'une nouvelle recette
     public function createRecette($name, $description = null, $imgFile = null)
     {
