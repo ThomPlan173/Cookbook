@@ -4,12 +4,13 @@ require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.
 Autoloader::register();
 $_SESSION['page'] = "tags";
 
+$cb = new \cb\CoobookDB;
 $sr  = new Browser\Recherche();
 $ls = new Browser\Liste();
 ?>
 
 <?php ob_start() ;
-    $sr->generatesearch();
+    $sr->generatesearch($cb);
     $ls->generateRecettes();
 ?>
 
