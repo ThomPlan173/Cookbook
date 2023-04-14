@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     
    
     $nom = $_POST['nom'];
-    $img = "images/" . $_POST['image'];
+    $img = "images/".$_POST['image'];
     $description = $_POST['description'];
     $preparation = $_POST['preparation'];
     $response = $ed->verif($nom,$img,$description,$preparation);

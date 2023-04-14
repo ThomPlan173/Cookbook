@@ -28,7 +28,7 @@ if (!isset($response)) :
     $ad->generateform();
 elseif (!$response['granted']) :
     echo "<div class='error'>" ."Empty !"."</div>" ;
-    $ad->generateform($response['error']);
+    $ad->generateform($response['error'],$nom,$img,$description,$preparation);
 endif;
          
 $code = ob_get_clean() ;
