@@ -58,7 +58,7 @@ class CoobookDB extends PdoWrapper
     //Getter de tous le lesingrédients
     public function getAllIngredients()
     {
-        return $this->exec("SELECT DISTINCT nomIngredient FROM ingredient", null);
+        return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient", null);
     }
     //Etabli une recherche en fonction de 3 paramètres :
     // - $nom : valeur entrée dans la barre de recherche
