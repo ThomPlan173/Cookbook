@@ -53,7 +53,7 @@ class CoobookDB extends PdoWrapper
     //Getter de tout les tags 
     public function getAllTags()
     {
-        return $this->exec("SELECT DISTINCT nomTag FROM tag", null);
+        return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag", null);
     }
     //Getter de tous le lesingrédients
     public function getAllIngredients()
@@ -81,35 +81,8 @@ class CoobookDB extends PdoWrapper
 
     public function addRecette($img,$nom,$description,$preparation){
  
-        $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' ";
+        $sql = "INSERT INTO recette (nomRecette,imgRecette, Description, Preparation) VALUES ('$nom','$img','$description','$preparation')";
         return $this->exec($sql, null);
     }
-    //Création d'une nouvelle recette
-    public function createRecette($name, $description = null, $imgFile = null)
-    {
-
-        /* $name = htmlspecialchars($name) ;
-        $description = htmlspecialchars($description) ;
-
-        $imgName = null ;
-        // enregistrement du fichier uploadé
-        if($imgFile != null){
-            $tmpName = $imgFile['tmp_name'] ;
-            $imgName = $imgFile['name'] ;
-            $imgName = urlencode(htmlspecialchars($imgName)) ;
-
-            $dirname = $GLOBALS['PHP_DIR'].self::IMAGE_DIR ;
-            if(!is_dir($dirname)) mkdir($dirname) ;
-            $uploaded = move_uploaded_file($tmpName, $dirname.$imgName) ;
-            if (!$uploaded) die("FILE NOT UPLOADED") ;
-        }else echo "NO IMAGE !!!!" ;
-
-        $query = 'INSERT INTO games(name, description, image) VALUES (:name, :description, :image)';
-        $params=[
-            'name' => htmlspecialchars($name),
-            'description' => htmlspecialchars($description),
-            'image' => $imgName
-        ] ;
-        return $this->exec($query, $params) ;*/
-    }
+    
 }

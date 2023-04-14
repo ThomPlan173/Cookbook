@@ -1,7 +1,6 @@
 <?php
 session_start();
-$msg = $_GET['msg'] ;
-$id = htmlspecialchars( $msg)  ;
+$id = $_GET['msg'] ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();

@@ -4,16 +4,9 @@ session_start();
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
-$id = $_GET['msg'];
 $cb = new \cb\CoobookDB();
-$data = $cb->getRecette($id);
-$liste = $cb->getIngredients($id);
-$tags = $cb->getTags($id);
-
-
-$ed = new \Edit\Edit();
-$ed->generateform($data[0]->nomRecette, $data[0]->imgRecette, $data[0]->Description, $data[0]->Preparation);
-$id = $_GET["msg"];
+$ad = new \Edit\Add();
+$ad->generateform();
 
 if (isset($_POST['submit'])) {
     
@@ -25,7 +18,7 @@ if (isset($_POST['submit'])) {
     
     //if ($data["granted"] != false) {
         if(!empty($nom) && !empty($img) && !empty($description) && !empty($preparation)){
-            $result = $cb->updateRecette($id,$img,htmlspecialchars($nom, ENT_QUOTES),htmlspecialchars($description, ENT_QUOTES),htmlspecialchars($preparation, ENT_QUOTES));
+            $result = $cb->addRecette($img,htmlspecialchars($nom,ENT_QUOTES),htmlspecialchars($description, ENT_QUOTES),htmlspecialchars($preparation, ENT_QUOTES));
         }else{
             echo "au moins 1 des champs est vide !";
         }
@@ -33,5 +26,3 @@ if (isset($_POST['submit'])) {
     //}
 
 }       
-    
-//}
