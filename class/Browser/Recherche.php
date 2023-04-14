@@ -1,14 +1,37 @@
 <?php
 namespace Browser;
+$cb = new \cb\CoobookDB;
 
 class Recherche
 {
     function generatesearch($cb): void{ ?>
+    <form action="./liste_recettes.php" method="post">
+        <fieldset id="type_search">
+            <legend>Type de recherche:</legend>
 
+            <?php
+            
+            $a = "checked";
+            $b = "";
+            $c = "";
+            if (isset($_POST["method"])) {
+                if ($_POST["method"] == "nomIngredient") {
+                    $a = "";
+                    $b = "checked";
+                    $c = "";
+                }
+                if ($_POST["method"] == "nomTag") {
+                    $a = "";
+                    $b = "";
+                    $c = "checked";
+                }
+            }
+        ?>  
         <div id="filtres">
             <div id="filtre_ingredients">
                 <form>
                     <input id="search_ingredient" type="text" placeholder="Quels ingerdients" >
+
 
                     <div class="checkbox_ingredient">
                         <?php $data = $cb->getAllIngredients();
