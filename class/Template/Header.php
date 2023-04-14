@@ -1,7 +1,7 @@
 <header>
     <div class="header">
         <div id="header2">
-            <img id="index" src=/Projet_Recettes/class/Template/img/index.png onclick="window.location.href = '../../index.php';">
+            <img id="index" src=/Projet_Recettes/class/Template/img/index.png onclick="window.location.href = 'index.php';">
             <div id="content_bouton_header">
                 <?php if(isset($_SESSION['login'])):
                     ?>

@@ -8,51 +8,35 @@ class Recherche
     { ?>
 
         <div id="filtres">
+
             <div id="filtre_ingredients">
                 <form>
-                    <input id="search_ingredient" type="text" placeholder="Quels ingrédients">
 
-                    <div class="checkbox_ingredient">
-                        <?php $dataIngr = $cb->getAllIngredients();
-                        var_dump($dataIngr);
-                        if (!empty($dataIngr)) {
-                            foreach ($dataIngr as $d) {
-                        ?>
+                    <input id="search_ingredient" type="text" placeholder="Quels ingrédients" name="ingredient">
 
-                                <input type="checkbox" name="<?= $d->nomIngredient ?>">
-                                <label for="<?= $d->nomIngredient ?>"><?= $d->nomIngredient ?></label><br>
-
-                        <?php }
-                        } ?>
+                    <div id="checkbox_ingredient">
+                        <?php $dataIngr = $cb->getAllIngredients() ; ?>
                     </div>
 
                 </form>
-
             </div>
+
             <div id="filtre_tags">
                 <form>
+
                     <input id="search_tag" type="text" placeholder="Quels tags">
 
-                    <div class="checkbox_tag">
-                        <?php $data = $cb->getAllTags("");
-                        if (!empty($data)) {
-                            foreach ($data as $d) {
-                        ?>
-
-                                <input type="checkbox" name="<?= $d->nomTag ?>">
-                                <label for="<?= $d->nomTag ?>"><?= $d->nomTag ?></label><br>
-
-                        <?php }
-                        } ?>
+                    <div id="checkbox_tag">
+                        <?php $dataTag = $cb->getAllTags() ; ?>
                     </div>
 
                 </form>
-
             </div>
+
         </div>
+
         <div id="reste_page">
             <form action="index.php" method="post">
-
 
                 <div class="search">
                     <div>
@@ -96,7 +80,7 @@ class Recherche
         </div>
         <script>
             var vardataIngr = <?php echo json_encode($dataIngr); ?>;
-           console.log(vardataIngr);
+            var vardataTag = <?php echo json_encode($dataTag); ?>;
         </script>
 <?php
     }
