@@ -17,7 +17,7 @@ if (isset($_POST['username']) and isset($_POST['password'])){
     $response = $logger->log(trim($username), trim($password)) ;
     if ($response['granted']){
         $_SESSION['login'] = 'true' ;
-        header("Location: "."/Projet_Recettes/liste_recettes.php");
+        header("Location: "."/Projet_Recettes/index.php");
         exit() ;
     }
 }
