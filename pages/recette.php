@@ -1,7 +1,7 @@
 <?php
 session_start();
 $msg = $_GET['msg'] ;
-$id = htmlspecialchars( utf8_encode($msg))  ;
+$id = htmlspecialchars( $msg)  ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();

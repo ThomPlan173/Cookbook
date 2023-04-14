@@ -1,6 +1,6 @@
 <?php
-
 namespace Browser;
+$cb = new \cb\CoobookDB;
 
 class Recherche
 {
@@ -10,6 +10,7 @@ class Recherche
             <legend>Type de recherche:</legend>
 
             <?php
+            
             $a = "checked";
             $b = "";
             $c = "";

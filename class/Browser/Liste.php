@@ -7,7 +7,7 @@ class Liste
 function generateRecettes(){ ?>
 <div id="liste_recette">
     <?php if (isset($_POST["nom"]) && isset($_POST["method"]) && isset($_POST["preference"])) {
-    $cb = new \cb\CoobookDB();
+    $cb = new \cb\CoobookDB;
     $data = $cb->search($_POST["nom"], $_POST["method"], $_POST["preference"]);
 
 
@@ -53,8 +53,8 @@ function generateRecettes(){ ?>
     </div>
     <?php endif ?>
     <div>
-        <h3><?= utf8_encode($d->nomRecette) ?> :</h3>
-        <?= utf8_encode($d->Description) ?>
+        <h3><?= htmlspecialchars_decode($d->nomRecette) ?> :</h3>
+        <?= htmlspecialchars_decode($d->Description) ?>
     </div>
 
 </div>

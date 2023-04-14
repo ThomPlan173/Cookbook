@@ -4,7 +4,6 @@ session_start();
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
-$cb = new \cb\CoobookDB();
 
 $ed = new \Edit\Edit();
 
