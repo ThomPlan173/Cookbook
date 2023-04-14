@@ -6,7 +6,6 @@ Autoloader::register();
 
 $cb = new \cb\CoobookDB();
 $ad = new \Edit\Add();
-$ad->generateform();
 
 if (isset($_POST['submit'])) {
 

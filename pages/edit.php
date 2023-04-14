@@ -29,7 +29,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ob_start() ;
-
 if (!isset($response)) :
     $ed->generateform($data[0]->nomRecette, $data[0]->imgRecette, $data[0]->Description, $data[0]->Preparation);
 elseif (!$response['granted']) :
