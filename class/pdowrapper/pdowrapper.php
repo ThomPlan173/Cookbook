@@ -12,7 +12,7 @@ class PdoWrapper
     private $db_host ;
     private $db_port ;
     private $pdo ;
-
+//constructeur qui instancie une connexion à la BDD
     public function __construct($db_name, $db_host='127.0.0.1', $db_port='3306', $db_user = 'root', $db_pwd=''){
         $this->db_name = $db_name ;
         $this->db_host = $db_host ;
@@ -29,7 +29,7 @@ class PdoWrapper
         }
 
     }
-
+    //fonction qui execute les commandes SQL
     public function exec($statement, $params, $classname=null){
         $res = $this->pdo->prepare($statement) ;
         $res->execute($params) or die(print_r($res->errorInfo()));
