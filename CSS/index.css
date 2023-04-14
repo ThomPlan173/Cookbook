@@ -20,7 +20,7 @@
     margin: 10px;
 }
 
-.checkbox_ingredient {
+#checkbox_ingredient {
     position: absolute;
     margin-left: 10px;
     margin-right: 10px;
@@ -44,7 +44,7 @@
     margin: 10px;
 }
 
-.checkbox_tag {
+#checkbox_tag {
     position: absolute;
     margin-left: 10px;
     margin-right: 10px;
