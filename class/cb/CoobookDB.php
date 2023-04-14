@@ -60,9 +60,12 @@ class CoobookDB extends PdoWrapper
     {
         return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient", null);
     }
-    //Etabli une recherche en fonction de 3 paramètres :
+    public function getAllRecettes()
+    {
+        return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient", null);
+    }
+    //Etabli une recherche en fonction de 2 paramètres :
     // - $nom : valeur entrée dans la barre de recherche
-    // - $method : la methode de recherche, par nom, ingrédient ou tag
     // - $pref : recherche selon préférence utilisateur ( Alphabetique ou inversé ) 
 
     // => Susceptible d'être modifié
@@ -85,4 +88,21 @@ class CoobookDB extends PdoWrapper
         return $this->exec($sql, null);
     }
     
+    public function getAllRIT(){
+        $sql = "SELECT r.idRecette,r.nomRecette,r.Description,
+        ( SELECT GROUP_CONCAT(a.idTag) 
+         FROM  attribuer as a
+         where r.idRecette = a.idRecette
+        ) AS liste_de_tags ,
+        ( SELECT GROUP_CONCAT(c.idIngredient ) 
+         FROM  contenir as c
+         where c.idRecette = r.idRecette
+        )  AS liste_de_ingredients
+        FROM recette as r" ;
+        return $this->exec($sql, null);
+    }
+    public function deleteRecette($id)
+    {
+        return $this->exec("DELETE FROM recette WHERE idRecette = '$id'", null);
+    }
 }
