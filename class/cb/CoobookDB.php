@@ -100,7 +100,7 @@ class CoobookDB extends PdoWrapper
         var_dump($description);
         var_dump($preparation);
         var_dump($id);
-        $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' WHERE idRecette = 4 ";
+        $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' WHERE idRecette = '{$id}'";
         return $this->exec($sql, null);
     }
 
