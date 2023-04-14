@@ -48,7 +48,7 @@ class Recherche
             </div>
         </div>
         <div id="reste_page">
-            <form action="./liste_recettes.php" method="post">
+            <form action="index.php" method="post">
 
 
             <div class="search">
