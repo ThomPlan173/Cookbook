@@ -95,8 +95,8 @@ class Recherche
             </form>
         </div>
         <script>
-            var variableRecuperee = <?php echo json_encode($dataIngr); ?>;
-           console.log(variableRecuperee);
+            var vardataIngr = <?php echo json_encode($dataIngr); ?>;
+           console.log(vardataIngr);
         </script>
 <?php
     }
