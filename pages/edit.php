@@ -5,14 +5,15 @@ require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader
 Autoloader::register();
 
 $cb = new \cb\CoobookDB();
-//$msg = $_POST['edit'] ;
-$ed = new \Edit\Edit();
-//$id = htmlspecialchars( utf8_encode($msg)) ;
 
+$ed = new \Edit\Edit();
+
+
+$id = $_GET['msg'];
 $cb = new \cb\CoobookDB();
-$data = $cb->getRecette("3");
-$liste = $cb->getIngredients("3");
-$tags = $cb->getTags("3");
+$data = $cb->getRecette($id);
+$liste = $cb->getIngredients($id);
+$tags = $cb->getTags($id);
 
 
 
@@ -30,7 +31,7 @@ if (isset($_POST['submit'])) {
     
     //if ($data["granted"] != false) {
         if(!empty($nom) && !empty($img) && !empty($description) && !empty($preparation)){
-            $result = $cb->updateRecette($id,$img,$nom,$description,$preparation);
+            $result = $cb->updateRecette($id,$img,$nom,htmlspecialchars($description, ENT_QUOTES),htmlspecialchars($preparation, ENT_QUOTES));
         }else{
             echo "au moins 1 des champs est vide !";
         }

@@ -4,7 +4,6 @@ namespace Logger;
 
 class Logger
 {
-
     public function generateLoginForm(string $username=null, $error=null): void{
         if (isset($response['error'])): ?>
             <div class="error">
