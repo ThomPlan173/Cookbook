@@ -14,7 +14,6 @@ class Recherche
 
                     <div class="checkbox_ingredient">
                         <?php $dataIngr = $cb->getAllIngredients();
-                        var_dump($dataIngr);
                         if (!empty($dataIngr)) {
                             foreach ($dataIngr as $d) {
                         ?>
@@ -52,7 +51,6 @@ class Recherche
         </div>
         <div id="reste_page">
             <form action="index.php" method="post">
-
 
                 <div class="search">
                     <div>
