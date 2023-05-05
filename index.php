@@ -9,11 +9,9 @@ $sr  = new Browser\Recherche();
 
 $d = new \Edit\Delete();
 
-
 if (isset($_POST["del"])) {
     $id = $_POST["del"];
 }
-
 
 ?>
 
