@@ -62,7 +62,6 @@ $sr->generateliste($cb); ?>
 <script>
     function recherche(){
 
-        removeAllChild(checkbox_rit);
                 let n_ingredient = 0;
                 for(let id of ingredient_select) {
                     if (rit.liste_de_ingredients != null) {

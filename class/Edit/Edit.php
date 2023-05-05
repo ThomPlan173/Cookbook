@@ -4,7 +4,7 @@ namespace Edit;
 
 class Edit
 {
-    function generateform(string $nom=null, string $img=null, string $descr=null, string $prepa=null, $error=null): void{ ?>
+    function generateformRecette(string $nom=null, string $img=null, string $descr=null, string $prepa=null, $error=null): void{ ?>
         <form method="post" action="" class="edit" >
             <legend style="text-align: center">Modification</legend>
             <img src="<?php echo "../".$img ?>" alt="" >
