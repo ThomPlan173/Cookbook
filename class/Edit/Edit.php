@@ -14,10 +14,10 @@ class Edit
                        
                 Nom : <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="nom" placeholder="nom" value="<?php echo $nom ?>" autofocus>
-                Description : <input <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="description" placeholder="description" value="<?php echo $descr?>" autofocus>
-                Preparation : <input <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="preparation" placeholder="preparation" value="<?php echo $prepa?>" autofocus>
+                Description : <textarea <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                        name="description" placeholder="description" value="<?php echo $descr?>" autofocus><?php echo $descr ?></textarea>
+                Preparation : <textarea <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                        name="preparation" placeholder="preparation" value="<?php echo $prepa?>" autofocus><?php echo $prepa ?></textarea>
             </div>
             <input type="submit" name="submit" class="submit" value="Modifier">
         </form>

@@ -1,6 +1,9 @@
 <?php
-session_start();
 
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location: "."/Projet_Recettes/index.php");
+}
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 

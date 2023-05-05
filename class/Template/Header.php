@@ -7,9 +7,6 @@
                     ?>
                     <button class="button_header" onclick="window.location.href = '/Projet_Recettes/pages/add.php';"><h2>Ajouter une Recette</h2></button>
 
-                    <button class="button_header" onclick="window.location.href = '/Projet_Recettes/pages/add.php';"><h2>Ajouter un Ingredient</h2></button>
-
-                    <button class="button_header" onclick="window.location.href = '/Projet_Recettes/pages/add.php';"><h2>Ajouter un Tag</h2></button>
                     <?php
                     endif;?>
             </div>
