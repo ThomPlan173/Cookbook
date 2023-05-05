@@ -36,18 +36,6 @@ class Liste
 
         </div>
 
-        <div id="reste_page">
-            <form>
-                <div class="search">
-
-
-                </div>
-            </form>
-
-            <div id="liste_recette">
-
-            </div>
-        </div>
 
 
         <script>

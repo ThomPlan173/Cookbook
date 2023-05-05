@@ -18,7 +18,7 @@ class Add
                                         name="description" placeholder="description"  autofocus></textarea>
 
                 Preparation : <textarea <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                                        name="preparation" placeholder="preparation" autofocus></textarea>S
+                                        name="preparation" placeholder="preparation" autofocus></textarea>
             </div>
             <input type="submit" name="submit" class="submit" value="Ajouter">
         </form>
