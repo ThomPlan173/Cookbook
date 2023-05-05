@@ -6,19 +6,25 @@ class Liste
 {
     function generateRecettes()
     { ?>
-        <?= var_dump($_GET) ?>
-        <?php if (isset($_GET["del"])){ ?>
+
+        <?php if (isset($_GET["del"])) { ?>
             <script>
                 alert("supprimer ?");
             </script>
         <?php }
-    ?>
+        ?>
         <div id="liste_recette">
             <?php if (isset($_POST["nom"]) && isset($_POST["preference"])) {
                 $cb = new \cb\CoobookDB;
                 $data = $cb->search($_POST["nom"], $_POST["preference"]);
-                echo "<div class='blabla'> Recettes similaires à " . "\"" . $_POST["nom"] . "\" :" . "</div>";
-
+                $nb = $cb->getnumberResult($_POST["nom"]);
+                var_dump($nb);
+                if ($_POST["nom"] != "") {
+                    echo "<div class='blabla'>" . $nb[0]->count . " Recette(s) pour " . "\"" . $_POST["nom"] . "\" :" . "</div>";
+                }else{
+                    echo "<div class='blabla'>" . $nb[0]->count . " Recette(s) trouvées :  " . "</div>";
+                }
+               
                 if (!empty($data)) {
                     foreach ($data as $d) {
 
@@ -47,7 +53,7 @@ class Liste
                                         </svg>
                                     </button>
                                 </form>
-                               
+
                         </div>
                     <?php endif ?>
                     <div>

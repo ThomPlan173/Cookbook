@@ -4,8 +4,6 @@ require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader
 Autoloader::register();
 
 $cb = new \cb\CoobookDB();
-
-var_dump($_GET);
 $id = $_GET["del"];
 
 $cb->deleteRecette($id);
