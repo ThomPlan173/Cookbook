@@ -7,11 +7,23 @@ $_SESSION['page'] = "tags";
 $cb = new \cb\CoobookDB;
 $sr  = new Browser\Recherche();
 $ls = new Browser\Liste();
+
+$d = new \Edit\Delete();
+
+
+if (isset($_POST["del"])) {
+    $id = $_POST["del"];
+}
+
+
 ?>
 
 <?php $dataRit = $cb->getAllRIT() ; ?>
 
 <?php ob_start() ;
+$d->generateform($id);
+var_dump($_POST);
+var_dump($id);
     $sr->generatesearch($cb); ?>
 
     <script>
@@ -142,8 +154,8 @@ $ls = new Browser\Liste();
 
 
                     let form2 = document.createElement('form');
-                    form2.method = "get";
-                    form2.action = "pages/delete.php";
+                    form2.method = "post";
+                    //form2.action = "pages/delete.php";
 
                     let bouton2 = document.createElement('button');
                     bouton2.type = "submit";
