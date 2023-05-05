@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="JS 3" />
+    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css index ...">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Browser/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Browser/Liste.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/test.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +31,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="2PEz0wcFCKvdaD4EdXcJOlsL9Vt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,6 +42,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Projet_Recettes&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -54,7 +61,7 @@
       <updated>1683036809843</updated>
       <workItem from="1683036810992" duration="15039000" />
       <workItem from="1683233323511" duration="4000" />
-      <workItem from="1683292969818" duration="956000" />
+      <workItem from="1683290969716" duration="4365000" />
     </task>
     <task id="LOCAL-00001" summary="JS2">
       <created>1683268858849</created>
@@ -91,14 +98,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683287798258</updated>
     </task>
-    <task id="LOCAL-00006" summary="JS 3">
-      <created>1683290650942</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1683290650942</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +122,6 @@
     <MESSAGE value="css login" />
     <MESSAGE value="css/js recettes" />
     <MESSAGE value="css index ..." />
-    <MESSAGE value="JS 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="JS 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="css index ..." />
   </component>
 </project>
