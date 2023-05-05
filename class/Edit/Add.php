@@ -7,20 +7,29 @@ class Add
     function generateformRecette( $error=null): void{ ?>
         <form method="post" action="" class="edit" >
             <legend id="legend">Ajout</legend>
-            <div class="form-group">
-                Image : <input <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                       type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
-
-                Nom : <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="nom" placeholder="nom" value="" autofocus>
-
-                Description : <textarea <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                                        name="description" placeholder="description"  autofocus></textarea>
-
-                Preparation : <textarea <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                                        name="preparation" placeholder="preparation" autofocus></textarea>
-            </div>
             <input type="submit" name="submit" class="submit" value="Ajouter">
+            <div class="form-group">
+                <div id="img">
+                    Image : <input id="input_img" <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                                   type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
+                </div>
+
+                <div id="nom">
+                Nom : <input id="input_nom" <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                             type="text" name="nom" placeholder="Nom de la recette" value="" autofocus>
+                </div>
+
+                <div id="desc">
+                Description : <br><textarea id="input_desc" <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                                        name="description" placeholder="Description de la recette"  autofocus></textarea>
+                </div>
+
+                <div id="prep">
+                Préparation : <br><textarea id="input_prep" <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                                        name="preparation" placeholder="Préparation de la recette" autofocus></textarea>
+                 </div>
+            </div>
+
         </form>
     <?php
     }

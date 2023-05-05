@@ -1,8 +1,149 @@
+#filtres {
+    position: absolute;
+    width: 300px;
+    height: 90%;
+
+    padding-bottom: 80px;
+
+    display: ruby;
+    border-right: solid powderblue;
+}
+
+/*__________Selection_ingredients__________*/
+#filtre_ingredients {
+    position: absolute;
+    height: 40%;
+    width: 100%;
+}
+
+#search_ingredient {
+    width: 90%;
+    height: 25px;
+    margin: 10px;
+}
+
+#checkbox_ingredient {
+    position: absolute;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 30vh;
+    width: 93%;
+
+
+    overflow: auto;
+}
+
+/*_____________Selection_tags______________*/
+#filtre_tags {
+    position: absolute;
+    top: 40%;
+    height: 35%;
+    width: 100%;
+
+}
+
+#search_tag {
+    width: 90%;
+    height: 25px;
+    margin: 10px;
+}
+
+#checkbox_tag {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 32vh;
+    width: 93%;
+
+    overflow: auto;
+
+}
+
+/*________________________________________________________________________________________*/
+#reste_page {
+    margin-left: 300px;
+    margin-bottom: 0px;
+}
+
 #legend {
     text-align: center;
+    font-size: 3em;
 
+    color: darkred;
+}
+
+.submit{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    font-size: 2.5em;
+    height: 75px;
+    width: 150px;
 }
 
 .form-group {
     display: ruby;
+    margin: 20px;
+    font-size: 1.5em;
+    margin-bottom: 90px;
+}
+/*____*/
+#img {
+    margin-top: 25px;
+    width: 100%;
+    display: block;
+    text-align: start;
+}
+
+#input_img {
+    font-size: 1.2em;
+    margin-left: 20px;
+    width: 60%;
+}
+
+/*____*/
+#nom {
+    margin-top: 25px;
+    width: 100%;
+    display: block;
+    text-align: start;
+}
+
+#input_nom {
+    font-size: 1.2em;
+    margin-left: 20px;
+    width: 70%;
+}
+
+
+/*____*/
+#desc {
+    margin-top: 25px;
+    width: 100%;
+    display: block;
+    text-align: start;
+}
+#input_desc {
+    resize: none;
+    font-size: 1.2em;
+    margin-top: 10px;
+    width: 99.3%;
+    height: 150px;
+}
+
+/*____*/
+#prep {
+    margin-top: 25px;
+    width: 100%;
+    display: block;
+    text-align: start;
+}
+#input_prep {
+    resize: none;
+    font-size: 1.2em;
+    margin-top: 10px;
+    width: 99.3%;
+    height: 300px;
 }
