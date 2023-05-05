@@ -13,10 +13,10 @@ class Add
                        
                 Nom : <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                         type="text" name="nom" placeholder="nom" value="" autofocus>
-                Description : <input <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="description" placeholder="description"  autofocus>
-                Preparation : <input <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                        type="text" name="preparation" placeholder="preparation" autofocus>
+                Description : <textarea <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                         name="description" placeholder="description"  autofocus></textarea>
+                Preparation : <textarea <?php if($error != null): if($error[3]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                         name="preparation" placeholder="preparation" autofocus></textarea>
             </div>
             <input type="submit" name="submit" class="submit" value="Modifier">
         </form>

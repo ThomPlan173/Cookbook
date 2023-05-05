@@ -37,8 +37,9 @@ function generateRecette($data,$tags,$liste): void{ ?>
     </div>
     <div id="flex">
         <div id="recette">
+            <?php $prep = str_replace("\n", "<br/>", $data[0]->Preparation); ?>
 
-            <?= htmlspecialchars_decode($data[0]->Preparation) ?>
+            <?= htmlspecialchars_decode($prep) ?>
         </div>
     </div>
 
