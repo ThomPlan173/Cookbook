@@ -6,7 +6,7 @@ class Add
 {
     function generateform( $error=null): void{ ?>
         <form method="post" action="" class="edit" >
-            <legend style="text-align: center">Modification</legend>
+            <legend id="legend">Modification</legend>
             <div class="form-group">
                 Image : <input <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                        type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>

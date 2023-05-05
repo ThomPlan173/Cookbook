@@ -6,7 +6,6 @@ $_SESSION['page'] = "tags";
 
 $cb = new \cb\CoobookDB;
 $sr  = new Browser\Recherche();
-$ls = new Browser\Liste();
 ?>
 
 <?php $dataRit = $cb->getAllRIT() ; ?>
