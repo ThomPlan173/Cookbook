@@ -16,7 +16,7 @@ if (isset($_POST['username']) and isset($_POST['password'])){
     $password = $_POST['password'] ;
     $response = $logger->log(trim($username), trim($password)) ;
     if ($response['granted']){
-        $_SESSION['login'] = 'true' ;
+        $_SESSION['login'] = true ;
         header("Location: "."/Projet_Recettes/index.php");
         exit() ;
     }
@@ -32,4 +32,11 @@ elseif (!$response['granted']) :
 endif;
 
 $code = ob_get_clean() ;
+
+ob_start();?>
+
+    <link rel="stylesheet" href="/Projet_Recettes/CSS/login.css">
+
+<?php
+$css = ob_get_clean();
 Template::render($code);

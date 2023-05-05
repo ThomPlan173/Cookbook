@@ -2,7 +2,6 @@
 
 class Template
 {
-
     public static function render(string $content, string $css = null, string $js = null): void
     { ?>
 

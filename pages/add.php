@@ -6,7 +6,6 @@ Autoloader::register();
 
 $cb = new \cb\CoobookDB();
 $ad = new \Edit\Add();
-$ad->generateform();
 
 if (isset($_POST['submit'])) {
 
@@ -32,4 +31,11 @@ elseif (!$response['granted']) :
 endif;
          
 $code = ob_get_clean() ;
+
+ob_start(); ?>
+
+    <link rel="stylesheet" href="/Projet_Recettes/CSS/add.css">
+
+<?php
+$css = ob_get_clean();
 Template::render($code);

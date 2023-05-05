@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="JS" />
+    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="JS2">
+      <change afterPath="$PROJECT_DIR$/CSS/add.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Browser/Liste.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Edit/Add.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Edit/Add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Template.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Template/sidebar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/cb/form_Recette.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/liste_ingredients.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/liste_tags.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +26,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,6 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -44,6 +69,14 @@
       <workItem from="1683036810992" duration="15039000" />
       <workItem from="1683233323511" duration="4000" />
     </task>
+    <task id="LOCAL-00001" summary="JS2">
+      <created>1683268858849</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683268858850</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,6 +95,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JS" />
-    <option name="LAST_COMMIT_MESSAGE" value="JS" />
+    <MESSAGE value="JS2" />
+    <option name="LAST_COMMIT_MESSAGE" value="JS2" />
   </component>
 </project>
