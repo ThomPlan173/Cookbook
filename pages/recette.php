@@ -14,9 +14,11 @@ $tags = $cb->getTags($id);
 $rc = new \Rec_Ig\Recette();
 ?>
 
-<?php ob_start() ;
-$rc->generateRecette($data,$tags,$liste);
-?>
+<?php ob_start() ?>
+
+<div id="corp">
+    <?php $rc->generateRecette($data,$tags,$liste) ?>
+</div>
 
 <?php $content = ob_get_clean() ?>
 
@@ -32,7 +34,7 @@ $rc->generateRecette($data,$tags,$liste);
 
 <?php ob_start() ?>
 
-<script src="../JS/recette.js"></script>
+<script src="/Projet_recettes/JS/recette.js"></script>
 
 <?php $js = ob_get_clean() ?>
 
