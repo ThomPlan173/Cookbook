@@ -115,8 +115,8 @@ $sr->generateliste($cb); ?>
 
 <?php Template::render($content, $css, $js) ?>
 
-<?php foreach ($data as $d) {
-    var_dump($d);
+<?php foreach ($tags as $t) {
+    var_dump($t);
 } ?>
 <script>
     
