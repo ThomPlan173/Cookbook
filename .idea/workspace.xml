@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css add">
-      <change afterPath="$PROJECT_DIR$/JS/edit_add.js" afterDir="false" />
+    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css add3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Browser/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Browser/Liste.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Template/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,7 @@
       <workItem from="1683036810992" duration="15039000" />
       <workItem from="1683233323511" duration="4000" />
       <workItem from="1683290969716" duration="5483000" />
+      <workItem from="1683298285426" duration="1952000" />
     </task>
     <task id="LOCAL-00001" summary="JS2">
       <created>1683268858849</created>
@@ -101,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683287798258</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="css add2">
+      <created>1683298300685</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683298300685</updated>
+    </task>
+    <task id="LOCAL-00007" summary="css add3">
+      <created>1683298395298</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683298395298</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +138,8 @@
     <MESSAGE value="css login" />
     <MESSAGE value="css/js recettes" />
     <MESSAGE value="css index ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="css index ..." />
+    <MESSAGE value="css add2" />
+    <MESSAGE value="css add3" />
+    <option name="LAST_COMMIT_MESSAGE" value="css add3" />
   </component>
 </project>

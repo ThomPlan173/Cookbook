@@ -1,7 +1,7 @@
 #filtres {
     position: absolute;
     width: 300px;
-    height: 90%;
+    height: 85%;
 
     padding-bottom: 80px;
 
@@ -97,7 +97,7 @@ label {
 
 #search_rit {
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 30px;
 
     height: 30px;
     width: 250px;
@@ -116,6 +116,7 @@ label {
 .recette {
     background-color: lightgray;
     border: black;
+    border-radius: 10px;
 
     margin: 20px;
     display: flex;
@@ -129,6 +130,8 @@ label {
 
 .image_recette {
     visibility: visible;
+    border-radius: 10px;
+
     height: 250px;
     width: 250px;
 

@@ -44,6 +44,7 @@
 .submit {
     background-color: cornflowerblue;
     border-color: blue;
+    border-radius: 100px;
 
     display: block;
     margin-left: auto;

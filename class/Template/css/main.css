@@ -86,12 +86,14 @@ display: flex;
     background-color: cornflowerblue;
     border-color: blue;
     margin-right: 20px;
+    border-radius: 15px;
 }
 
 #logout {
     background-color: darkgray;
     border-color: black;
     margin-right: 20px;
+    border-radius: 15px;
 }
 
 #copyright {
