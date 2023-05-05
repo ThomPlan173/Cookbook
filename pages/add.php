@@ -101,7 +101,7 @@ $sr->generateliste($cb); ?>
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="../CSS/index.css">
+<link rel="stylesheet" href="../CSS/add.css">
 
 <?php $css = ob_get_clean() ?>
 
