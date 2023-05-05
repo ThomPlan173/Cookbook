@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css index ...">
+      <change afterPath="$PROJECT_DIR$/JS/edit_add.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/Browser/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Browser/Liste.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/test.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -61,7 +64,7 @@
       <updated>1683036809843</updated>
       <workItem from="1683036810992" duration="15039000" />
       <workItem from="1683233323511" duration="4000" />
-      <workItem from="1683290969716" duration="4365000" />
+      <workItem from="1683290969716" duration="5483000" />
     </task>
     <task id="LOCAL-00001" summary="JS2">
       <created>1683268858849</created>

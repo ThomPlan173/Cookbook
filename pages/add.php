@@ -57,32 +57,10 @@ $sr->generateliste($cb); ?>
     }
 </script>
 
-<script src="../JS/index.js"></script>
+<script src="../JS/edit_add.js"></script>
 
 <script>
     function recherche(){
-
-        let n_ingredient = 0;
-        for(let id of ingredient_select) {
-            if (rit.liste_de_ingredients != null) {
-                if (rit.liste_de_ingredients.indexOf(id) != -1) {
-
-                    n_ingredient++;
-                }
-            }
-        }
-        if(n_ingredient == ingredient_select.length){
-            let n_tag = 0;
-            for(let id of tag_select) {
-                if(rit.liste_de_tags != null) {
-                    if (rit.liste_de_tags.indexOf(id) != -1) {
-                        n_tag++;
-                    }
-                }
-            }
-
-        }
-
     }
 
 </script>
