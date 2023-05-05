@@ -7,6 +7,5 @@ $cb = new \cb\CoobookDB();
 $d = new \Edit\Delete();
 
 $id = $_GET["del"];
-var_dump($id);
 $cb->deleteRecette($id);
 header("Location: "."/Projet_Recettes/index.php");
