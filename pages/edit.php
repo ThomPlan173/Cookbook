@@ -9,7 +9,6 @@ $data = $cb->getRecette($id);
 $liste = $cb->getIngredients($id);
 $tags = $cb->getTags($id);
 $sr  = new Browser\Liste();
-
 $ed = new \Edit\Edit();
 
 
@@ -92,10 +91,10 @@ $sr->generateliste($cb); ?>
     <?php
 
     if (!isset($response)) :
-        $ad->generateformRecette();
+        $ed->generateformRecette($data[0]->nomRecette,$data[0]->imgRecette, $data[0]->Description, $data[0]->Preparation);
     elseif (!$response['granted']) :
         echo "<div class='error'>" ."Empty !"."</div>" ;
-        $ad->generateformRecette($response['error']);
+        $ed->generateformRecette($response['error']);
     endif; ?>
 </div>
 
@@ -110,8 +109,15 @@ $sr->generateliste($cb); ?>
 <?php ob_start() ?>
 
 <script></script>
-
+<?php var_dump($tags); ?>
+<?php var_dump($liste); ?>
 <?php $js = ob_get_clean() ?>
 
 <?php Template::render($content, $css, $js) ?>
 
+<?php foreach ($data as $d) {
+    var_dump($d);
+} ?>
+<script>
+    
+</script>

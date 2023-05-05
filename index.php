@@ -279,7 +279,6 @@ $sr->generatesearch($cb); ?>
     }
 </script>
 
-
 <?php $content = ob_get_clean() ?>
 
 <?php ob_start() ?>
