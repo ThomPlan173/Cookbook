@@ -30,12 +30,15 @@ elseif (!$response['granted']) :
     $ad->generateform($response['error']);
 endif;
          
-$code = ob_get_clean() ;
+$code = ob_get_clean()?>
 
-ob_start(); ?>
+<?php ob_start() ?>
 
     <link rel="stylesheet" href="/Projet_Recettes/CSS/add.css">
 
-<?php
-$css = ob_get_clean();
-Template::render($code);
+<?php $css = ob_get_clean() ?>
+
+<?php ob_start() ?>
+<?php $js = ob_get_clean() ?>
+
+<?php Template::render($code, $css, $js) ?>
