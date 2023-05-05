@@ -29,6 +29,7 @@ class Template
             <div class="content">
 
                 <?= $content  ?>
+
                 <?php include "Template/Footer.php" ?>
             </div>
 

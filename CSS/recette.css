@@ -1,11 +1,17 @@
 #nom {
     margin-right: 20px;
     margin-left: 20px;
-    margin-bottom: 10px;
-
 
     display: flex;
     width: 100%;
+}
+#nbPersonne {
+    text-align: right;
+    margin-right: 20px;
+}
+
+#personne {
+    width: 33px;
 }
 
 #info {
@@ -14,16 +20,28 @@
     display: flex;
 }
 #photo_tete {
-    width: 50%;
+    width: 500px;
 }
 
 #ingredient {
     margin-right: 20px;
     margin-left: 20px;
+
+    display: ruby;
 }
 
+#liste_inrgredient {
+    position: absolute;
+    overflow: auto;
+
+    width: 635px;
+    height: 410px;
+}
+
+
 .image_ingredient {
-    width: 15%;
+    width: 45px;
+    height: 45px;
 }
 #flex {
     display: flex;

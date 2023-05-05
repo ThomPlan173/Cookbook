@@ -35,7 +35,7 @@ $rc->generateRecette($data,$tags,$liste);
 
 <?php ob_start() ?>
 
-<script src="../JS/recette.js"></script>
+<script src="/Projet_recettes/JS/recette.js"></script>
 
 <?php $js = ob_get_clean() ?>
 

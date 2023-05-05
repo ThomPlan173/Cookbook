@@ -9,28 +9,30 @@ function generateRecette($data,$tags,$liste): void{ ?>
 
     <div id="nom">
         <h1> <?= utf8_encode( $data[0]->nomRecette ) ?></h1>
-        <?php foreach ($tags as $t) {
-            echo " - " . htmlspecialchars_decode($t->nomTag) . "<br/>";
-        } ?>
     </div>
+
     <div id="info">
 
         <img id="photo_tete" src="/Projet_Recettes/<?= $data[0]->imgRecette ?>">
-        <span id="nbPersonne">
-        Cette recette est pour
-        <input type="number" id="personne" name="personne" max="20" min="1" value="1">
 
-    </span>
         <div id="ingredient">
+                <span id="nbPersonne">
+                    Cette recette est pour
+                    <input type="number" id="personne" name="personne" max="20" min="1" value="1">
+                    personnes
+                </span>
             <h3>Ingrédients :</h3>
-            <ul>
-                <?php foreach ($liste as $l) {
-                    echo "<li><div class='ingredient'><img class='image_ingredient' src='/Projet_Recettes/" . $l->imgIngredient
 
-                        . "'>" ?> <quantite><?=$l->quantite?></quantite> <?= $l->unite . " " .  $l->nomIngredient . "</div></li>";
+            <div id="liste_inrgredient">
+                <?php foreach ($liste as $l) {
+                    echo "<div class='ingredient'><img class='image_ingredient' src='/Projet_Recettes/" . $l->imgIngredient
+
+                        . "'>" ?> <span class="quantite" value="<?=$l->quantite?>"><?=$l->quantite?></span> <?= $l->unite . " " .  $l->nomIngredient . "</div>";
                 }
                 ?>
-            </ul>
+
+
+            </div>
         </div>
     </div>
     <div id="flex">

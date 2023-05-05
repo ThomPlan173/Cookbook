@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="refactor">
+    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Logger/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/recette.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/recette.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/recette.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/recette.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Rec_Ig/Recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Rec_Ig/Recette.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Template.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/recette.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683272565018</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="css login">
+      <created>1683275687369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683275687369</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +104,7 @@
     <MESSAGE value="JS" />
     <MESSAGE value="JS2" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="css login" />
+    <option name="LAST_COMMIT_MESSAGE" value="css login" />
   </component>
 </project>

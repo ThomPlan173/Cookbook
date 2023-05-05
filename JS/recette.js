@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', function (){
 
-    let number = document.getElementById("personne");
+    let input_number = document.getElementById("personne");
     let quantites = document.getElementsByClassName("quantite");
+    let q = [];
 
-    for(let quant of quantites){
-        var q = quant.innerHTML;
-        quanr.innerHTML = q * number.value;
+    for(let i = 0; i < quantites.length; i++){
+        q.push(quantites[i].innerHTML);
+        quantites.innerHTML = q[i] * input_number.value;
 
     }
-    number.addEventListener('input', function (event){
-        for(let quant of quantites){
-            var q = quant.innerHTML;
-            quanr.innerHTML = q * number.value;
+
+    input_number.addEventListener('input', function (event){
+        for(let i = 0; i < quantites.length; i++){
+
+            quantites[i].innerHTML = q[i] * input_number.value;
 
         }
     })
