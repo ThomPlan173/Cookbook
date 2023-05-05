@@ -34,7 +34,7 @@ class Recherche
             </div>
 
             <fieldset id="trie" type="submit">
-                <legend>Préférences de recherche:</legend>
+                <legend id="leg">Préférences de recherche:</legend>
 
                 <?php
 

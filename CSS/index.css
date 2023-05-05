@@ -1,12 +1,17 @@
 #filtres {
     position: absolute;
     width: 300px;
-    height: 90vh;
+    height: 100%;
+
+    padding-bottom: 80px;
 
     display: ruby;
     border-right: solid powderblue;
 }
 
+label {
+    margin-left: 5px;
+}
 
 /*__________Selection_ingredients__________*/
 #filtre_ingredients {
@@ -37,8 +42,9 @@
 #filtre_tags {
     position: absolute;
     top: 40%;
-    height: 40%;
+    height: 35%;
     width: 100%;
+
 }
 
 #search_tag {
@@ -62,7 +68,12 @@
 #trie {
     position: absolute;
     width: 268px;
-    top: 80%;
+    top:75%;
+    margin-left: 10px;
+}
+
+#leg {
+    font-size: 1.1em;
 }
 
 .tri{
@@ -79,17 +90,17 @@
 .search {
     display: flex;
 
+    padding-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
 #search_rit {
     margin-left: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
 
     height: 30px;
     width: 250px;
-
 }
 
 
@@ -113,10 +124,24 @@
 .bouton_image_recette {
     visibility: hidden;
     margin: 5px;
+    background-color: aqua;
 }
 
 .image_recette {
     visibility: visible;
     height: 250px;
     width: 250px;
+
+}
+
+.text_ingr {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.bouton_admin {
+    display: flex;
+
+    margin-top: 5px;
+    margin-right: 5px;
 }
