@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    for(let ingredient of vardataIngr){
+    for (let ingredient of vardataIngr) {
 
         let input = document.createElement('input')
         input.type = "checkbox";
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (event.currentTarget.checked) {
                 ingredient_select.push(ingredient.idIngredient);
             } else {
-                for(let i = 0; i < ingredient_select.length; i++) {
+                for (let i = 0; i < ingredient_select.length; i++) {
                     if (ingredient_select[i] == ingredient.idIngredient) {
                         let tempon = ingredient_select.splice(i, 1);
                     }
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    for(let tag of vardataTag){
+    for (let tag of vardataTag) {
 
         let input = document.createElement('input')
         input.type = "checkbox";
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (event.currentTarget.checked) {
                 tag_select.push(tag.idTag);
             } else {
-                for(let i = 0; i < tag_select.length; i++) {
+                for (let i = 0; i < tag_select.length; i++) {
                     if (tag_select[i] == tag.idTag) {
                         let tempon = tag_select.splice(i, 1);
                     }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    input_ingr.addEventListener('input', function (){
+    input_ingr.addEventListener('input', function () {
 
         removeAllChild(checkbox_ingr);
 
@@ -106,13 +106,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    input_tag.addEventListener('input', function (){
+    input_tag.addEventListener('input', function () {
 
         removeAllChild(checkbox_tag);
 
         for (let tag of vardataTag) {
 
-            if((tag.nomTag.toUpperCase().includes(input_tag.value.toUpperCase())) || (tag_select.indexOf(tag.idTag) != -1)){
+            if ((tag.nomTag.toUpperCase().includes(input_tag.value.toUpperCase())) || (tag_select.indexOf(tag.idTag) != -1)) {
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = tag.nomTag;
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (event.currentTarget.checked) {
                         tag_select.push(tag.idTag);
                     } else {
-                        for(let i = 0; i < tag_select.length; i++) {
+                        for (let i = 0; i < tag_select.length; i++) {
                             if (tag_select[i] == tag.idTag) {
                                 let tempon = tag_select.splice(i, 1);
                             }
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     recherche();
 
                 })
-                if(tag_select.indexOf(tag.idTag) != -1){
+                if (tag_select.indexOf(tag.idTag) != -1) {
                     input.checked = true;
                 }
 
@@ -150,20 +150,20 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 
-    input_rit.addEventListener('input', function (){
+    input_rit.addEventListener('input', function () {
         recherche();
 
     })
 
-    radio_alph.addEventListener('change', function (){
+    radio_alph.addEventListener('change', function () {
         var elems = radio_alph.querySelectorAll('input');
         for (var i = 0; i < elems.length; i++) {
             if (elems[i].checked === true) break;
         }
 
-        if(elems[i].value == 'true'){
+        if (elems[i].value == 'true') {
             alph = true;
-        }else{
+        } else {
             alph = false;
         }
         recherche();
