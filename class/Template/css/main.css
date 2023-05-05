@@ -40,9 +40,9 @@ display: flex;
 }
 
 .button_header {
-    color: white;
+    color: black;
     font-size: 1.5vh;
-    background-color: black;
+    background-color: powderblue;
     border: white;
     margin: 0;
 
@@ -72,6 +72,7 @@ display: flex;
 /*_FOOTER___________________________________________________________________*/
 .footer {
     position: absolute;
+    display: flex;
     bottom: 0; left: 0;
 
     width: 100%;
@@ -81,12 +82,26 @@ display: flex;
     color: black;
 }
 
-
-
-#copyright {
-    position: absolute;
-    margin: 20px;
-    bottom: 0;
-    right: 0;
+#login {
+    background-color: cornflowerblue;
+    border-color: blue;
+    margin-right: 20px;
 }
 
+#logout {
+    background-color: darkgray;
+    border-color: black;
+    margin-right: 20px;
+}
+
+#copyright {
+    margin-top: 10px;
+}
+
+/*_SIDEBAR___________________________________________________________________*/
+
+#sidebar{
+    margin-top: 4%;
+    position: center;
+    color: red;
+}

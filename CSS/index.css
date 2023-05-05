@@ -1,3 +1,81 @@
+#filtres {
+    position: absolute;
+    width: 300px;
+    height: 90vh;
+
+    display: ruby;
+    border-right: solid powderblue;
+}
+
+
+/*__________Selection_ingredients__________*/
+#filtre_ingredients {
+    position: absolute;
+    height: 40%;
+    width: 100%;
+}
+
+#search_ingredient {
+    width: 90%;
+    height: 25px;
+    margin: 10px;
+}
+
+#checkbox_ingredient {
+    position: absolute;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 30vh;
+    width: 93%;
+
+
+    overflow: auto;
+}
+
+/*_____________Selection_tags______________*/
+#filtre_tags {
+    position: absolute;
+    top: 40%;
+    height: 40%;
+    width: 100%;
+}
+
+#search_tag {
+    width: 90%;
+    height: 25px;
+    margin: 10px;
+}
+
+#checkbox_tag {
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 32vh;
+    width: 93%;
+
+    overflow: auto;
+
+}
+
+/*_____________Selection_trie______________*/
+#trie {
+    position: absolute;
+    width: 268px;
+    top: 80%;
+}
+
+.tri{
+    visibility: visible;
+}
+
+/*________________________________________________________________________________________*/
+#reste_page {
+    margin-left: 300px;
+    margin-bottom: 0px;
+}
+
+/*________________Recherche_________________*/
 .search {
     display: flex;
 
@@ -5,10 +83,40 @@
     margin-right: 20px;
 }
 
-.recherche {
-    height: 20px;
-    margin-left: 50px;
-    margin-top: 33px;
+#search_rit {
+    margin-left: 20px;
+    margin-top: 30px;
+
+    height: 30px;
+    width: 250px;
+
+}
 
 
+
+#liste_recette {
+    max-height: 78%;
+
+    position: absolute;
+    overflow: auto;
+
+}
+
+.recette {
+    background-color: lightgray;
+    border: black;
+
+    margin: 20px;
+    display: flex;
+}
+
+.bouton_image_recette {
+    visibility: hidden;
+    margin: 5px;
+}
+
+.image_recette {
+    visibility: visible;
+    height: 250px;
+    width: 250px;
 }
