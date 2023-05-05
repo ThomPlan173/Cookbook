@@ -10,7 +10,9 @@ class Logger
                 <?php echo $error ?>
             </div>
         <?php endif; ?>
+       
         <form method="post" action="" class="login" id="login-form">
+            <input type="hidden" name="url_referer" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
             <legend class="legend">Login</legend>
             <legend class="legend" id="admin">(Only for administrators)</legend>
             <div class="form-group">

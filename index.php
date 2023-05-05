@@ -2,7 +2,7 @@
 session_start();
 require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
-$_SESSION['page'] = "tags";
+
 
 $cb = new \cb\CoobookDB;
 $sr  = new Browser\Recherche();
@@ -20,7 +20,7 @@ $d = new \Edit\Delete();
 
 <?php ob_start() ;
 
-var_dump($_POST);
+
 if (isset($_POST["del"])) {
     $id = $_POST["del"];
     

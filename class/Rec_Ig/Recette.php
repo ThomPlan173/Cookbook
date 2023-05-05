@@ -5,6 +5,8 @@ namespace Rec_Ig;
 class Recette
 {
 function generateRecette($data,$tags,$liste): void{ ?>
+
+
     <div id="nom">
         <h1> <?= utf8_encode( $data[0]->nomRecette ) ?></h1>
         <?php foreach ($tags as $t) {

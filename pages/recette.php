@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $id = $_GET['idRecette'] ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
@@ -15,7 +16,9 @@ $rc = new \Rec_Ig\Recette();
 ?>
 
 <?php ob_start() ;
+
 $rc->generateRecette($data,$tags,$liste);
+
 ?>
 
 <?php $content = ob_get_clean() ?>

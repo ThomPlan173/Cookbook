@@ -5,7 +5,7 @@ Autoloader::register();
 
 $cb = new \cb\CoobookDB();
 $d = new \Edit\Delete();
-var_dump($_GET);
+
 $id = $_GET["del"];
 $d->generateform();
 //$cb->deleteRecette($id);
