@@ -9,18 +9,24 @@ $sr  = new Browser\Recherche();
 
 $d = new \Edit\Delete();
 
-if (isset($_POST["del"])) {
-    $id = $_POST["del"];
-}
+
 
 ?>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <?php $dataRit = $cb->getAllRIT() ; ?>
 
 <?php ob_start() ;
-$d->generateform($id);
+
 var_dump($_POST);
-var_dump($id);
+if (isset($_POST["del"])) {
+    $id = $_POST["del"];
+    
+    $d->generateform($id);
+}
+
     $sr->generatesearch($cb); ?>
 
     <script>
@@ -158,8 +164,10 @@ var_dump($id);
                     bouton2.type = "submit";
                     bouton2.id = "photo_tete";
                     bouton2.name = "del";
+                    bouton2.setAttribute("data-toggle","modal");
+                    bouton2.setAttribute("data-target","#exampleModal");
                     bouton2.value = rit.idRecette;
-
+                    
                     let svg2 = document.createElement('svg');
                     svg2.xmlns = "http://www.w3.org/2000/svg";
                     svg2.width = "16";
@@ -191,7 +199,31 @@ var_dump($id);
 
 
     </script>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1"  aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Voulez-vous vraiment supprimer la recette ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Confirmer ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#myModal').on('shown.bs.modal', function() {
+                $('#myInput').trigger('focus')
+            })
+        </script>
 
 
 <?php $content = ob_get_clean() ?>
