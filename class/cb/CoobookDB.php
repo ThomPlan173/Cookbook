@@ -53,12 +53,12 @@ class CoobookDB extends PdoWrapper
     //Getter de tout les tags 
     public function getAllTags()
     {
-        return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag", null);
+        return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag ORDER BY nomTag ASC", null);
     }
     //Getter de tous le lesingrédients
     public function getAllIngredients()
     {
-        return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient", null);
+        return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC", null);
     }
     public function getAllRecettes()
     {
