@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 14 avr. 2023 à 13:42
+-- Généré le : ven. 05 mai 2023 à 13:17
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `contenir` (
   PRIMARY KEY (`idContenir`),
   KEY `contenir_ibfk_1` (`idRecette`),
   KEY `contenir_ibfk_2` (`idIngredient`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `contenir`
@@ -71,7 +71,9 @@ CREATE TABLE IF NOT EXISTS `contenir` (
 INSERT INTO `contenir` (`idContenir`, `idRecette`, `idIngredient`, `quantite`, `unite`) VALUES
 (1, 3, 2, 1, NULL),
 (2, 3, 4, 50, 'g'),
-(3, 3, 5, 10, 'g');
+(3, 3, 5, 10, 'g'),
+(8, 1, 3, 1, NULL),
+(9, 1, 1, 100, 'g');
 
 -- --------------------------------------------------------
 

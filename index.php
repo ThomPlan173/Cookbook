@@ -12,9 +12,7 @@ $d = new \Edit\Delete();
 
 
 ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <?php $dataRit = $cb->getAllRIT() ; ?>
 
 <?php ob_start() ;
@@ -150,7 +148,7 @@ if (isset($_POST["del"])) {
                     edit.height = 25;
 
                     let form2 = document.createElement('form');
-                    form2.method = "post";
+                    form2.method = "get";
 
 
                     let bouton2 = document.createElement('button');
@@ -158,7 +156,7 @@ if (isset($_POST["del"])) {
                     bouton2.name = "del";
                     bouton2.value = rit_select[i].idRecette;
                     bouton2.addEventListener("click", function () {
-                        if (window.confirm("Voulais vous suprimer la recette :\n" +
+                        if (window.confirm("Voulez-vous suprimer la recette :\n" +
                             rit_select[i].nomRecette)) {
                             form2.action = "pages/delete.php";
                             bouton2.type = "submit";
