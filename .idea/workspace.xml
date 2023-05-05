@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css/js recettes">
+    <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css index ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/recette.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/recette.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/Browser/Recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Browser/Recherche.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Edit/Delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Edit/Delete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/delete.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683279572711</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="css index ...">
+      <created>1683287798258</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683287798258</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +118,7 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="css login" />
     <MESSAGE value="css/js recettes" />
-    <option name="LAST_COMMIT_MESSAGE" value="css/js recettes" />
+    <MESSAGE value="css index ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="css index ..." />
   </component>
 </project>

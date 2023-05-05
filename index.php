@@ -34,6 +34,7 @@ if (isset($_POST["del"])) {
         let input_ingr = document.getElementById("search_ingredient");
         let input_tag = document.getElementById("search_tag");
         let input_rit = document.getElementById("search_rit");
+        let radio_alph = document.getElementById("trie");
 
         let checkbox_ingr = document.getElementById("checkbox_ingredient");
         let checkbox_tag = document.getElementById("checkbox_tag");
@@ -42,6 +43,7 @@ if (isset($_POST["del"])) {
         let ingredient_select = [];
         let tag_select = [];
         let rit_select = vardataRit;
+        let alph = true;
 
         function removeAllChild(parent) {
             while (parent.firstChild) {
@@ -86,47 +88,49 @@ if (isset($_POST["del"])) {
                 }
             }
 
-            for(let rit of rit_select){
 
-                let recette = document.createElement('div');
-                recette.className = "recette";
+            if(alph) {
+                for (let i = 0; i < rit_select.length; i++) {
 
-                let form = document.createElement('form');
-                form.method = "get";
-                form.action = "pages/recette.php";
+                    let recette = document.createElement('div');
+                    recette.className = "recette";
 
-                let bouton = document.createElement('button');
-                bouton.className = "bouton_image_recette";
-                bouton.type = "submit";
-                bouton.id = "photo_tete";
-                bouton.name = "idRecette";
-                bouton.value = rit.idRecette;
+                    let form = document.createElement('form');
+                    form.method = "get";
+                    form.action = "pages/recette.php";
 
-                let image = document.createElement('img');
-                image.className = "image_recette";
-                image.src = rit.imgRecette;
+                    let bouton = document.createElement('button');
+                    bouton.className = "bouton_image_recette";
+                    bouton.type = "submit";
+                    bouton.id = "photo_tete";
+                    bouton.name = "idRecette";
+                    bouton.value = rit_select[i].idRecette;
+
+                    let image = document.createElement('img');
+                    image.className = "image_recette";
+                    image.src = rit_select[i].imgRecette;
 
 
-                let div = document.createElement('div');
-                div.className = "text_ingr";
+                    let div = document.createElement('div');
+                    div.className = "text_ingr";
 
-                let nom = document.createElement('h3');
-                nom.innerHTML = rit.nomRecette + " :";
+                    let nom = document.createElement('h3');
+                    nom.innerHTML = rit_select[i].nomRecette + " :";
 
-                let desc = document.createElement('p');
-                desc.innerHTML =  rit.Description;
+                    let desc = document.createElement('p');
+                    desc.innerHTML = rit_select[i].Description;
 
-                checkbox_rit.appendChild(recette);
+                    checkbox_rit.appendChild(recette);
 
-                recette.appendChild(form);
-                form.appendChild(bouton);
-                bouton.appendChild(image);
+                    recette.appendChild(form);
+                    form.appendChild(bouton);
+                    bouton.appendChild(image);
 
-                recette.appendChild(div);
-                div.appendChild(nom);
-                div.appendChild(desc);
+                    recette.appendChild(div);
+                    div.appendChild(nom);
+                    div.appendChild(desc);
 
-                <?php if (isset($_SESSION['login'])) : ?>
+                    <?php if (isset($_SESSION['login'])) : ?>
                     let admin = document.createElement('div');
                     admin.className = "bouton_admin"
 
@@ -138,12 +142,12 @@ if (isset($_POST["del"])) {
                     bouton1.type = "submit";
                     bouton1.id = "photo_tete";
                     bouton1.name = "idRecette";
-                    bouton1.value = rit.idRecette;
+                    bouton1.value = rit_select[i].idRecette;
 
                     let edit = document.createElement('img');
                     edit.src = "images/pencil-square.png";
-                    edit.width =  25 ;
-                    edit.height = 25 ;
+                    edit.width = 25;
+                    edit.height = 25;
 
                     let form2 = document.createElement('form');
                     form2.method = "post";
@@ -152,10 +156,10 @@ if (isset($_POST["del"])) {
                     let bouton2 = document.createElement('button');
                     bouton2.id = "photo_tete";
                     bouton2.name = "del";
-                    bouton2.value = rit.idRecette;
-                    bouton2.addEventListener("click", function (){
-                        if(window.confirm("Voulais vous suprimer la recette :\n" +
-                            rit.nomRecette)){
+                    bouton2.value = rit_select[i].idRecette;
+                    bouton2.addEventListener("click", function () {
+                        if (window.confirm("Voulais vous suprimer la recette :\n" +
+                            rit_select[i].nomRecette)) {
                             form2.action = "pages/delete.php";
                             bouton2.type = "submit";
                         }
@@ -163,8 +167,8 @@ if (isset($_POST["del"])) {
 
                     let del = document.createElement('img');
                     del.src = "images/trash-fill.png";
-                    del.width =  25 ;
-                    del.height = 25 ;
+                    del.width = 25;
+                    del.height = 25;
 
                     recette.appendChild(admin);
 
@@ -177,7 +181,102 @@ if (isset($_POST["del"])) {
                     bouton2.appendChild(del);
 
 
-                <?php endif ?>
+                    <?php endif ?>
+                }
+            }else{
+                for(let i = (rit_select.length - 1); i => 0; i--){
+
+                    let recette = document.createElement('div');
+                    recette.className = "recette";
+
+                    let form = document.createElement('form');
+                    form.method = "get";
+                    form.action = "pages/recette.php";
+
+                    let bouton = document.createElement('button');
+                    bouton.className = "bouton_image_recette";
+                    bouton.type = "submit";
+                    bouton.id = "photo_tete";
+                    bouton.name = "idRecette";
+                    bouton.value = rit_select[i].idRecette;
+
+                    let image = document.createElement('img');
+                    image.className = "image_recette";
+                    image.src = rit_select[i].imgRecette;
+
+
+                    let div = document.createElement('div');
+                    div.className = "text_ingr";
+
+                    let nom = document.createElement('h3');
+                    nom.innerHTML = rit_select[i].nomRecette + " :";
+
+                    let desc = document.createElement('p');
+                    desc.innerHTML = rit_select[i].Description;
+
+                    checkbox_rit.appendChild(recette);
+
+                    recette.appendChild(form);
+                    form.appendChild(bouton);
+                    bouton.appendChild(image);
+
+                    recette.appendChild(div);
+                    div.appendChild(nom);
+                    div.appendChild(desc);
+
+                    <?php if (isset($_SESSION['login'])) : ?>
+                    let admin = document.createElement('div');
+                    admin.className = "bouton_admin"
+
+                    let form1 = document.createElement('form');
+                    form1.method = "get";
+                    form1.action = "pages/edit.php";
+
+                    let bouton1 = document.createElement('button');
+                    bouton1.type = "submit";
+                    bouton1.id = "photo_tete";
+                    bouton1.name = "idRecette";
+                    bouton1.value = rit_select[i].idRecette;
+
+                    let edit = document.createElement('img');
+                    edit.src = "images/pencil-square.png";
+                    edit.width = 25;
+                    edit.height = 25;
+
+                    let form2 = document.createElement('form');
+                    form2.method = "post";
+
+
+                    let bouton2 = document.createElement('button');
+                    bouton2.id = "photo_tete";
+                    bouton2.name = "del";
+                    bouton2.value = rit_select[i].idRecette;
+                    bouton2.addEventListener("click", function () {
+                        if (window.confirm("Voulais vous suprimer la recette :\n" +
+                            rit_select[i].nomRecette)) {
+                            form2.action = "pages/delete.php";
+                            bouton2.type = "submit";
+                        }
+                    })
+
+                    let del = document.createElement('img');
+                    del.src = "images/trash-fill.png";
+                    del.width = 25;
+                    del.height = 25;
+
+                    recette.appendChild(admin);
+
+                    admin.appendChild(form1);
+                    form1.appendChild(bouton1);
+                    bouton1.appendChild(edit);
+
+                    admin.appendChild(form2);
+                    form2.appendChild(bouton2);
+                    bouton2.appendChild(del);
+
+
+                    <?php endif ?>
+                }
             }
         }
 

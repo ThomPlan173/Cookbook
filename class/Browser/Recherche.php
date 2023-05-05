@@ -33,7 +33,7 @@ class Recherche
                 </form>
             </div>
 
-            <fieldset id="trie" type="submit">
+            <form id="trie" type="submit">
                 <legend id="leg">Préférences de recherche:</legend>
 
                 <?php
@@ -48,14 +48,14 @@ class Recherche
                 }
                 ?>
                 <div class="tri">
-                    <input type="radio" id="huwey" name="preference" value="ASC" <?= $a ?>>
-                    <label for="huey">Alph(A-Z)</label>
+                    <input type="radio" id="huwey" name="preference" value="true" <?= $a ?>>
+                    <label for="true">Alph(A-Z)</label>
                 </div>
                 <div class="tri">
-                    <input type="radio" id="dewey" name="preference" value="DESC" <?= $b ?>>
-                    <label for="dewey">Alph inversée(Z-A)</label>
+                    <input type="radio" id="dewey" name="preference" value="false" <?= $b ?>>
+                    <label for="false">Alph inversée(Z-A)</label>
                 </div>
-            </fieldset>
+            </form>
 
         </div>
 

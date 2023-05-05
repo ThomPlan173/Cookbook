@@ -155,4 +155,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     })
 
+    radio_alph.addEventListener('change', function (){
+        var elems = radio_alph.querySelectorAll('input');
+        for (var i = 0; i < elems.length; i++) {
+            if (elems[i].checked === true) break;
+        }
+
+        if(elems[i].value == 'true'){
+            alph = true;
+        }else{
+            alph = false;
+        }
+        recherche();
+    })
+
 })
