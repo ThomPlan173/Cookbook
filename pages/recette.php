@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = $_GET['msg'] ;
+$id = $_GET['idRecette'] ;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();

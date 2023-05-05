@@ -85,7 +85,7 @@ $ls = new Browser\Liste();
                 bouton.className = "bouton_image_recette";
                 bouton.type = "submit";
                 bouton.id = "photo_tete";
-                bouton.name = "msg";
+                bouton.name = "idRecette";
                 bouton.value = rit.idRecette;
 
                 let image = document.createElement('img');
@@ -122,7 +122,7 @@ $ls = new Browser\Liste();
                     let bouton1 = document.createElement('button');
                     bouton1.type = "submit";
                     bouton1.id = "photo_tete";
-                    bouton1.name = "msg";
+                    bouton1.name = "idRecette";
                     bouton1.value = rit.idRecette;
 
                     let svg1 = document.createElement('svg');

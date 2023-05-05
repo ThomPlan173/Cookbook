@@ -4,7 +4,7 @@ session_start();
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
-$id = $_GET['msg'];
+$id = $_GET['idRecette'];
 $cb = new \cb\CoobookDB();
 $data = $cb->getRecette($id);
 $liste = $cb->getIngredients($id);
