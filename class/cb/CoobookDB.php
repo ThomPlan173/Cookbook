@@ -33,7 +33,7 @@ class CoobookDB extends PdoWrapper
     //Getter des ingrédients pour un ID de recette spécifique, affichage d'une liste d'ingrédients ( recette.php )
     public function getIngredients($id)
     {
-        return $this->exec("SELECT i.imgIngredient, i.nomIngredient, c.quantite, c.unite FROM recette as r 
+        return $this->exec("SELECT i.idIngredient, i.imgIngredient, i.nomIngredient, c.quantite, c.unite FROM recette as r 
         INNER JOIN contenir as c
         ON r.idRecette = c.idRecette
         INNER JOIN ingredient as i
@@ -43,7 +43,7 @@ class CoobookDB extends PdoWrapper
     //Getter des tags pour un ID de recette spécifique, affichage d'un liste de tags
     public function getTags($id)
     {
-        return $this->exec("SELECT t.nomTag FROM tag as t 
+        return $this->exec("SELECT t.idTag, t.nomTag FROM tag as t 
         INNER JOIN attribuer as a
         ON a.idTag = t.idTag
         INNER JOIN recette as r

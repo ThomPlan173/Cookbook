@@ -85,14 +85,43 @@ $sr->generateliste($cb); ?>
 <?php ob_start() ?>
 
 <script></script>
-<?php var_dump($tags); ?>
+
 <?php $js = ob_get_clean() ?>
 
 <?php Template::render($content, $css, $js) ?>
 
-<?php foreach ($tags as $t) {
-    echo $t->nomTag; ?>
-    <script>
-        document.getElementsByName("<?= $t->nomTag; ?>").checked = true;
-    </script>
-<?php  } ?>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        <?php foreach ($tags as $t) { ?>
+            FunctionTags("<?= $t->nomTag ?>","<?= $t->idTag ?>");
+        <?php  } ?>
+        <?php foreach ($liste as $l) { ?>
+            FunctionIngredients("<?= $l->nomIngredient ?>", "<?= $l->idIngredient ?>");
+        <?php  } ?>
+        console.log(tag_select);
+    })
+
+    function FunctionTags(tag, id) {
+        var x = document.getElementsByName(tag);
+        var i;
+        for (i = 0; i < x.length; i++) {
+
+            tag_select.push(id);
+            x[i].checked = true;
+
+        }
+    }
+
+    function FunctionIngredients(ingr, id) {
+        var x = document.getElementsByName(ingr);
+        var i;
+        for (i = 0; i < x.length; i++) {
+
+           ingredient_select.push(id);
+            x[i].checked = true;
+
+        }
+    }
+</script>
