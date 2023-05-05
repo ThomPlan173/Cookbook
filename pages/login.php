@@ -39,4 +39,7 @@ ob_start();?>
 
 <?php
 $css = ob_get_clean();
-Template::render($code);
+
+ob_start();
+$js = ob_get_clean();
+Template::render($code, $css, $js);

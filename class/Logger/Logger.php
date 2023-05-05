@@ -11,11 +11,11 @@ class Logger
             </div>
         <?php endif; ?>
         <form method="post" action="" class="login" id="login-form">
-            <legend style="text-align: center">Login</legend>
-            <legend style ="text-align: center;color: red;font-size: 0.5em">(Only for administrators)</legend>
+            <legend class="legend">Login</legend>
+            <legend class="legend" id="admin">(Only for administrators)</legend>
             <div class="form-group">
-                <input type="text" name="username" placeholder="username" value="<?php echo $username ?>" autofocus>
-                <input type="password" name="password" placeholder="password">
+                <input class="form" type="text" name="username" placeholder="Username" value="<?php echo $username ?>" autofocus>
+                <input class="form" id="formD" type="password" name="password" placeholder="Password">
             </div>
             <button type="submit" class="submit">LOGIN</button>
         </form>
@@ -30,9 +30,9 @@ class Logger
         $error = null ;
         $granted = false ;
         if (empty($username)){
-            $error = "username is empty" ;
+            $error = "Username is Empty" ;
         }elseif (empty($password)){
-            $error = "password is empty" ;
+            $error = "Password is Empty" ;
         }elseif ($user == $username and $pwd == $password){
             $granted = true ;
         }else{
