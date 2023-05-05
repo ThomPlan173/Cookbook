@@ -8,7 +8,7 @@ function generateRecette($data,$tags,$liste): void{ ?>
     <div id="nom">
         <h1> <?= utf8_encode( $data[0]->nomRecette ) ?></h1>
         <?php foreach ($tags as $t) {
-            echo " - " . utf8_encode($t->nomTag) . "<br/>";
+            echo " - " . htmlspecialchars_decode($t->nomTag) . "<br/>";
         } ?>
     </div>
     <div id="info">
@@ -34,7 +34,7 @@ function generateRecette($data,$tags,$liste): void{ ?>
     <div id="flex">
         <div id="recette">
 
-            <?= utf8_encode($data[0]->Preparation) ?>
+            <?= htmlspecialchars_decode($data[0]->Preparation) ?>
         </div>
     </div>
 
