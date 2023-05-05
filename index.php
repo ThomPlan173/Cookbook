@@ -140,21 +140,10 @@ if (isset($_POST["del"])) {
                     bouton1.name = "idRecette";
                     bouton1.value = rit.idRecette;
 
-                    let svg1 = document.createElement('svg');
-                    svg1.xmlns = "http://www.w3.org/2000/svg";
-                    svg1.width = "16";
-                    svg1.height = "16";
-                    svg1.fill = "currentColor";
-                    svg1.className = "bi bi-pencil-square";
-                    svg1.viewBox = "0 0 16 16";
-
-                    let path1 = document.createElement('path');
-                    path1.d = "M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z";
-
-                    let path2 = document.createElement('path');
-                    path2.fillrule = "evenodd";
-                    path2.d = "M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z";
-
+                    let edit = document.createElement('img');
+                    edit.src = "images/pencil-square.png";
+                    edit.width =  25 ;
+                    edit.height = 25 ;
 
                     let form2 = document.createElement('form');
                     form2.method = "post";
@@ -167,30 +156,21 @@ if (isset($_POST["del"])) {
                     bouton2.setAttribute("data-toggle","modal");
                     bouton2.setAttribute("data-target","#exampleModal");
                     bouton2.value = rit.idRecette;
-                    
-                    let svg2 = document.createElement('svg');
-                    svg2.xmlns = "http://www.w3.org/2000/svg";
-                    svg2.width = "16";
-                    svg2.height = "16";
-                    svg2.fill = "currentColor";
-                    svg2.className = "bi bi-trash3-fill";
-                    svg2.viewBox = "0 0 16 16";
 
-                    let path3 = document.createElement('path');
-                    path3.d = "M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z";
+                    let del = document.createElement('img');
+                    del.src = "images/trash-fill.png";
+                    del.width =  25 ;
+                    del.height = 25 ;
 
                     recette.appendChild(admin);
 
                     admin.appendChild(form1);
                     form1.appendChild(bouton1);
-                    bouton1.appendChild(svg1);
-                    svg1.appendChild(path1);
-                    svg1.appendChild(path2);
+                    bouton1.appendChild(edit);
 
                     admin.appendChild(form2);
                     form2.appendChild(bouton2);
-                    bouton2.appendChild(svg2);
-                    svg2.appendChild(path3);
+                    bouton2.appendChild(del);
 
 
                 <?php endif ?>
