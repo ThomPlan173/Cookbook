@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    let add_form_ingredient = document.createElement('form')
-    let add_button_ingredient = document.createElement('button');
-    add_button_ingredient.textContent = " + Ajouter un Ingredient";
+    let add_form_ingredient = document.createElement('form');
+    add_form_ingredient.id = "add_form_ingredient";
+
+    let add_button_ingredient = document.createElement('input');
+    add_button_ingredient.value = " + Ajouter un Ingredient";
+    add_button_ingredient.type = "button";
+    add_button_ingredient.setAttribute('onclick', 'add_ingredient()');
+
 
     add_form_ingredient.appendChild(add_button_ingredient);
 
@@ -90,6 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     checkbox_tag.appendChild(add_form_tag);
 
+
+
     for (let tag of vardataTag) {
 
 
@@ -171,9 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         removeAllChild(checkbox_ingr);
 
-        let add_form_ingredient = document.createElement('form')
-        let add_button_ingredient = document.createElement('button');
-        add_button_ingredient.textContent = " + Ajouter un Ingredient";
+        let add_form_ingredient = document.createElement('form');
+        add_form_ingredient.id = "add_form_ingredient";
+
+        let add_button_ingredient = document.createElement('input');
+        add_button_ingredient.value = " + Ajouter un Ingredient";
+        add_button_ingredient.type = "button";
+
+        add_button_ingredient.setAttribute('onclick', 'add_ingredient()');
 
         add_form_ingredient.appendChild(add_button_ingredient);
 

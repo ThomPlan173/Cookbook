@@ -87,7 +87,18 @@ class CoobookDB extends PdoWrapper
         $sql = "INSERT INTO recette (nomRecette,imgRecette, Description, Preparation) VALUES ('$nom','$img','$description','$preparation')";
         return $this->exec($sql, null);
     }
-    
+
+    public function addIngredient($img,$nom){
+
+        $sql = "INSERT INTO ingredient (nomIngredient,imgIngredient) VALUES ('$nom','$img')";
+        return $this->exec($sql, null);
+    }
+
+    public function addTag($nom){
+
+        $sql = "INSERT INTO tag (nomTag) VALUES ('$nom')";
+        return $this->exec($sql, null);
+    }
     public function getAllRIT(){
         $sql = "SELECT r.idRecette,r.nomRecette,r.Description,r.imgRecette,
         ( SELECT GROUP_CONCAT(a.idTag) 

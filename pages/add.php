@@ -47,6 +47,8 @@ $sr->generateliste($cb); ?>
     let tag_select = [];
     let rit_select = vardataRit;
 
+    let testadd = false;
+
     function removeAllChild(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -56,6 +58,64 @@ $sr->generateliste($cb); ?>
 
 <script src="../JS/edit_add.js"></script>
 
+<script>
+
+    function add_true(){
+        testadd = true;
+    }
+
+    function add_ingredient(){
+        let form = document.createElement("form");
+        form.method = "post";
+        form.action = "EditIngr/addIngr.php";
+
+        let inputNom = document.createElement("input");
+        inputNom.placeholder = "nom";
+        inputNom.type = "text";
+        inputNom.name = "nom";
+        inputNom.autofocus = true ;
+
+        let inputImg = document.createElement("input");
+        inputImg.type = "file";
+        inputImg.name = "image";
+        inputImg.accept = "image/png, image/gif, image/jpeg";
+        inputImg.autofocus = true ;
+
+        let inputSubmit = document.createElement("input");
+        inputSubmit.type = "submit";
+        inputSubmit.name = "submit";
+        inputSubmit.value = "Valider";
+
+        let add_form_ingredient = document.getElementById("add_form_ingredient");
+        form.appendChild(inputNom);
+        form.appendChild(inputImg);
+        form.appendChild(inputSubmit);
+        add_form_ingredient.appendChild(form);
+
+    }
+
+    function add_tag(){
+        let form = document.createElement("form");
+        form.method = "post";
+
+        let inputNom = document.createElement("input");
+        inputNom.placeholder = "nom";
+        inputNom.type = "text";
+        inputNom.nom = "nom";
+        inputNom.autofocus = true ;
+
+        let inputSubmit = document.createElement("input");
+        inputSubmit.type = "submit";
+        inputSubmit.name = "submit";
+        inputSubmit.value = "Valider";
+
+        form.appendChild(inputNom);
+        form.appendChild(inputImg);
+        form.appendChild(inputSubmit);
+        checkbox_tag.appendChild(form);
+
+    }
+</script>
 
 <div id = "reste_page" >
     <?php
