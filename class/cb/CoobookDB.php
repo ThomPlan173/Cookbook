@@ -106,6 +106,14 @@ class CoobookDB extends PdoWrapper
     {
         return $this->exec("DELETE FROM recette WHERE idRecette = '$id'", null);
     }
+    public function deleteIngredient($id)
+    {
+        return $this->exec("DELETE FROM ingredient WHERE idIngredient = '$id'", null);
+    }
+    public function deleteTag($id)
+    {
+        return $this->exec("DELETE FROM tag WHERE idTag = '$id'", null);
+    }
     public function searchCount($nom, $pref)
     {
         return $this->exec("SELECT COUNT(idRecette) FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);      

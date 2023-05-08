@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css add3">
+      <change afterPath="$PROJECT_DIR$/pages/EditIngr/deleteIngr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_13_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_13_11__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_15_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_15_38__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/Template/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/class/Template/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/edit_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/edit_add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/cb/CoobookDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/cb/CoobookDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pencil-square.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/trash-fill.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/add.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +44,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Projet_Recettes&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/Projet_Recettes",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ],
+    "RunConfigurationTargetLRU": [
+      "da710911-ba90-456b-a6e3-e59b96aabc6b"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="cookbook (1).sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/cookbook (1).sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="da710911-ba90-456b-a6e3-e59b96aabc6b" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.cookbook (1).sql" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +92,7 @@
       <workItem from="1683233323511" duration="4000" />
       <workItem from="1683290969716" duration="5483000" />
       <workItem from="1683298285426" duration="1952000" />
+      <workItem from="1683546357803" duration="13723000" />
     </task>
     <task id="LOCAL-00001" summary="JS2">
       <created>1683268858849</created>

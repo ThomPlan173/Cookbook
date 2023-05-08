@@ -42,7 +42,6 @@ $sr->generateliste($cb); ?>
 
     let checkbox_ingr = document.getElementById("checkbox_ingredient");
     let checkbox_tag = document.getElementById("checkbox_tag");
-    let checkbox_rit = document.getElementById("liste_recette");
 
     let ingredient_select = [];
     let tag_select = [];
@@ -55,36 +54,8 @@ $sr->generateliste($cb); ?>
     }
 </script>
 
-<script src="../JS/index.js"></script>
+<script src="../JS/edit_add.js"></script>
 
-<script>
-    function recherche(){
-
-        removeAllChild(checkbox_rit);
-        let n_ingredient = 0;
-        for(let id of ingredient_select) {
-            if (rit.liste_de_ingredients != null) {
-                if (rit.liste_de_ingredients.indexOf(id) != -1) {
-
-                    n_ingredient++;
-                }
-            }
-        }
-        if(n_ingredient == ingredient_select.length){
-            let n_tag = 0;
-            for(let id of tag_select) {
-                if(rit.liste_de_tags != null) {
-                    if (rit.liste_de_tags.indexOf(id) != -1) {
-                        n_tag++;
-                    }
-                }
-            }
-
-        }
-
-    }
-
-</script>
 
 <div id = "reste_page" >
     <?php
