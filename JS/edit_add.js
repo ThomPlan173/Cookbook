@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let ingredient of vardataIngr) {
 
+        let div = document.createElement('div');
+        div.id = "ingr"+ingredient.idIngredient;
         let input = document.createElement('input')
         input.type = "checkbox";
         input.name = ingredient.nomIngredient;
@@ -40,11 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
         let form_edit_ingredient = document.createElement('form');
         form_edit_ingredient.method = "get";
 
-        let bouton_edit_ingredient = document.createElement('button');
-        bouton_edit_ingredient.type = "submit";
+        let bouton_edit_ingredient = document.createElement('input');
+        bouton_edit_ingredient.type = "button";
         bouton_edit_ingredient.id = "photo_tete";
-        bouton_edit_ingredient.name = "idIngredient";
-        bouton_edit_ingredient.value = ingredient.idIngredient;
+        bouton_edit_ingredient.addEventListener("click", function (){
+            edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
+        })
 
         let edit = document.createElement('img');
         edit.src = "/Projet_Recettes/images/pencil-square.png";
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bouton_delete_ingredient.addEventListener("click", function() {
             if (window.confirm("Voulais vous suprimer l'ingredient :\n" +
                 ingredient.nomIngredient)) {
-                form_delete_ingredient.action = "EditIngr/deleteIngr.php";
+                form_delete_ingredient.action = "/Projet_Recettes/pages/EditIngr/deleteIngr.php";
                 bouton_delete_ingredient.type = "submit" ;
             }
         })
@@ -80,11 +83,13 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_ingredient.appendChild(bouton_delete_ingredient);
         bouton_delete_ingredient.appendChild(del);
 
-        checkbox_ingr.appendChild(input);
-        checkbox_ingr.appendChild(label);
-        checkbox_ingr.appendChild(form_edit_ingredient);
-        checkbox_ingr.appendChild(form_delete_ingredient);
-        checkbox_ingr.appendChild(br);
+        div.appendChild(input);
+        div.appendChild(label);
+        div.appendChild(form_edit_ingredient);
+        div.appendChild(form_delete_ingredient);
+        div.appendChild(br);
+
+        checkbox_ingr.appendChild(div);
     }
 
     let add_form_tag = document.createElement('form')
@@ -149,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bouton_delete_tag.addEventListener("click", function() {
             if (window.confirm("Voulais vous suprimer le tag :\n" +
                 tag.nomTag)) {
-                form_delete_tag.action = "EditTag/deleteTag.php";
+                form_delete_tag.action = "/Projet_Recettes/pages/EditTag/deleteTag.php";
             }
         })
 
@@ -195,6 +200,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if ((ingredient.nomIngredient.toUpperCase().includes(input_ingr.value.toUpperCase())) || (ingredient_select.indexOf(ingredient.idIngredient) != -1)) {
 
+                let div = document.createElement('div');
+                div.id = "ingr"+ingredient.idIngredient;
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = ingredient.nomIngredient;
@@ -223,11 +231,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 let form_edit_ingredient = document.createElement('form');
                 form_edit_ingredient.method = "get";
 
-                let bouton_edit_ingredient = document.createElement('button');
+                let bouton_edit_ingredient = document.createElement('input');
                 bouton_edit_ingredient.type = "submit";
                 bouton_edit_ingredient.id = "photo_tete";
-                bouton_edit_ingredient.name = "idIngredient";
-                bouton_edit_ingredient.value = ingredient.idIngredient;
+                bouton_edit_ingredient.addEventListener("click", function (){
+                    edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
+                })
 
                 let edit = document.createElement('img');
                 edit.src = "/Projet_Recettes/images/pencil-square.png";
@@ -250,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 bouton_delete_ingredient.addEventListener("click", function() {
                     if (window.confirm("Voulais vous suprimer l'ingredient :\n" +
                         ingredient.nomIngredient)) {
-                        form_delete_ingredient.action = "EditIngr/deleteIngr.php";
+                        form_delete_ingredient.action = "/Projet_Recettes/pages/EditIngr/deleteIngr.php";
                         bouton_delete_ingredient.type = "submit" ;
                     }
                 })
@@ -263,11 +272,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_delete_ingredient.appendChild(bouton_delete_ingredient);
                 bouton_delete_ingredient.appendChild(del);
 
-                checkbox_ingr.appendChild(input);
-                checkbox_ingr.appendChild(label);
-                checkbox_ingr.appendChild(form_edit_ingredient);
-                checkbox_ingr.appendChild(form_delete_ingredient);
-                checkbox_ingr.appendChild(br);
+                div.appendChild(input);
+                div.appendChild(label);
+                div.appendChild(form_edit_ingredient);
+                div.appendChild(form_delete_ingredient);
+                div.appendChild(br);
+
+                checkbox_ingr.appendChild(div);
 
             }
         }
@@ -345,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 bouton_delete_tag.addEventListener("click", function() {
                         if (window.confirm("Voulais vous suprimer le tag :\n" +
                                 tag.nomTag)) {
-                                form_delete_tag.action = "EditTag/deleteTag.php";
+                                form_delete_tag.action = "/Projet_Recettes/pages/EditTag/deleteTag.php";
                             }
                          })
 

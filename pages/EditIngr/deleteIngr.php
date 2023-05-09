@@ -8,4 +8,4 @@ $d = new \Edit\Delete();
 
 $id = $_GET["del"];
 $cb->deleteIngredient($id);
-header("Location: "."/Projet_Recettes/pages/add.php");
+header("Location: "."/Projet_Recettes/pages/EditRec/add.php");

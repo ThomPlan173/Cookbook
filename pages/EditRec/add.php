@@ -1,36 +1,18 @@
 <?php
 session_start();
-require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
+require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
 
 $cb = new \cb\CoobookDB();
 $sr  = new Browser\Liste();
-
 $ad = new \Edit\Add();
-
-if (isset($_POST['submit'])) {
-
-    $nom = $_POST['nom'];
-    $img = "images/" . $_POST['image'];
-    $description = $_POST['description'];
-    $preparation = $_POST['preparation'];
-    $response = $ad->verifRecette($nom,$img,$description,$preparation);
-    if ($response['granted']){
-        $result = $cb->addRecette($img,htmlspecialchars($nom,ENT_QUOTES),htmlspecialchars($description, ENT_QUOTES),htmlspecialchars($preparation, ENT_QUOTES));
-        header("Location: "."/Projet_Recettes/index.php");
-        exit() ;
-    }
-}
-
-
 
 ?>
 
 <?php $dataRit = $cb->getAllRIT() ; ?>
 
 <?php ob_start() ;
-
 $sr->generateliste($cb); ?>
 
 <script>
@@ -47,8 +29,6 @@ $sr->generateliste($cb); ?>
     let tag_select = [];
     let rit_select = vardataRit;
 
-    let testadd = false;
-
     function removeAllChild(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -56,18 +36,15 @@ $sr->generateliste($cb); ?>
     }
 </script>
 
-<script src="../JS/edit_add.js"></script>
+<script src="../../JS/edit_add.js"></script>
 
 <script>
-
-    function add_true(){
-        testadd = true;
-    }
 
     function add_ingredient(){
         let form = document.createElement("form");
         form.method = "post";
-        form.action = "EditIngr/addIngr.php";
+        form.action = "../EditIngr/addIngr.php";
+        form.enctype="multipart/form-data";
 
         let inputNom = document.createElement("input");
         inputNom.placeholder = "nom";
@@ -95,36 +72,59 @@ $sr->generateliste($cb); ?>
     }
 
     function add_tag(){
+    }
+
+    function edit_ingredient(id,nom){
         let form = document.createElement("form");
         form.method = "post";
+        form.action = "../EditIngr/editIngr.php";
+        form.enctype="multipart/form-data";
+
+        let inputId = document.createElement("input");
+        inputId.hidden = true;
+        inputId.type = "text";
+        inputId.name = "id";
+        inputId.value = id;
 
         let inputNom = document.createElement("input");
         inputNom.placeholder = "nom";
         inputNom.type = "text";
-        inputNom.nom = "nom";
+        inputNom.name = "nom";
+        inputNom.value = nom ;
         inputNom.autofocus = true ;
+
+        let inputImg = document.createElement("input");
+        inputImg.type = "file";
+        inputImg.name = "image";
+        inputImg.accept = "image/png, image/gif, image/jpeg";
+        inputImg.autofocus = true ;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.type = "submit";
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
 
+        let edit_form_ingredient = document.getElementById("ingr"+id);
         form.appendChild(inputNom);
         form.appendChild(inputImg);
+        form.appendChild(inputId);
         form.appendChild(inputSubmit);
-        checkbox_tag.appendChild(form);
-
+        edit_form_ingredient.appendChild(form);
     }
 </script>
 
 <div id = "reste_page" >
     <?php
 
-    if (!isset($response)) :
+    if (!isset($_SESSION['response'])) :
         $ad->generateformRecette();
-    elseif (!$response['granted']) :
-        echo "<div class='error'>" ."Empty !"."</div>" ;
-        $ad->generateformRecette($response['error']);
+    elseif (isset($_SESSION['response'])) :
+        $response = $_SESSION['response'];
+        if(!$response['granted'] || !isset($_SESSION['upload'])):
+        $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
+        elseif($_SESSION['upload']=""):
+            $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
+        endif;
     endif; ?>
 </div>
 
@@ -132,7 +132,7 @@ $sr->generateliste($cb); ?>
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="../CSS/add.css">
+<link rel="stylesheet" href="../../CSS/add.css">
 
 <?php $css = ob_get_clean() ?>
 

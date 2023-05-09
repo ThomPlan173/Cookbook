@@ -134,7 +134,7 @@ $sr->generatesearch($cb); ?>
 
                     let form1 = document.createElement('form');
                     form1.method = "get";
-                    form1.action = "pages/edit.php";
+                    form1.action = "pages/EditRec/edit.php";
 
                     let bouton1 = document.createElement('button');
                     bouton1.type = "submit";
@@ -158,7 +158,7 @@ $sr->generatesearch($cb); ?>
                     bouton2.addEventListener("click", function() {
                         if (window.confirm("Voulez-vous suprimer la recette :\n" +
                                 rit_select[i].nomRecette)) {
-                            form2.action = "pages/delete.php";
+                            form2.action = "pages/EditRec/delete.php";
                             bouton2.type = "submit";
                         }
                     })
@@ -228,7 +228,7 @@ $sr->generatesearch($cb); ?>
 
                     let form1 = document.createElement('form');
                     form1.method = "get";
-                    form1.action = "pages/edit.php";
+                    form1.action = "pages/EditRec/edit.php";
 
                     let bouton1 = document.createElement('button');
                     bouton1.type = "submit";
@@ -252,7 +252,7 @@ $sr->generatesearch($cb); ?>
                     bouton2.addEventListener("click", function() {
                         if (window.confirm("Voulais vous suprimer la recette :\n" +
                                 rit_select[i].nomRecette)) {
-                            form2.action = "pages/delete.php";
+                            form2.action = "pages/EditRec/delete.php";
                             bouton2.type = "submit";
                         }
                     })

@@ -82,6 +82,18 @@ class CoobookDB extends PdoWrapper
         return $this->exec($sql, null);
     }
 
+    public function updateIngredient($id,$img,$nom){
+
+        $sql = "UPDATE ingredient SET nomIngredient = '{$nom}',imgIngredient = '{$img}' WHERE idIngredient = '{$id}'";
+        return $this->exec($sql, null);
+    }
+
+    public function updateTag($id,$img,$nom){
+
+        $sql = "UPDATE tag SET nomTag = '{$nom}' WHERE idIngredient = '{$id}'";
+        return $this->exec($sql, null);
+    }
+
     public function addRecette($img,$nom,$description,$preparation){
  
         $sql = "INSERT INTO recette (nomRecette,imgRecette, Description, Preparation) VALUES ('$nom','$img','$description','$preparation')";
