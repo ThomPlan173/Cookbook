@@ -55,7 +55,7 @@ class CoobookDB extends PdoWrapper
     {
         return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag ORDER BY nomTag ASC", null);
     }
-    //Getter de tous le lesingrédients
+    //Getter de tous le les ingrédients
     public function getAllIngredients()
     {
         return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC", null);
@@ -128,5 +128,8 @@ class CoobookDB extends PdoWrapper
     public function searchCount($nom, $pref)
     {
         return $this->exec("SELECT COUNT(idRecette) FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);      
+    }
+    public function getIngrQuantities($idIngr, $idRecette){
+        return $this->exec("SELECT quantite,unite FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
     }
 }

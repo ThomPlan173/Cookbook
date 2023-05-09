@@ -116,11 +116,11 @@ $sr->generateliste($cb); ?>
 
     function FunctionIngredients(ingr, id) {
         var x = document.getElementsByName(ingr);
-        var i;
-        for (i = 0; i < x.length; i++) {
+        var j;
+        for (j = 0; j < x.length; j++) {
 
            ingredient_select.push(id);
-            x[i].checked = true;
+            x[j].checked = true;
 
         }
     }
