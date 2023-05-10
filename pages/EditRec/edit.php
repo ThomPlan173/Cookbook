@@ -10,11 +10,11 @@ $liste = $cb->getIngredients($id);
 $tags = $cb->getTags($id);
 $sr  = new Browser\Liste();
 $ed = new \Edit\Edit();
+$img = false;
 
-$_SESSION['id'] = $_GET['idRecette'];
-$_SESSION['nom'] = $data[0]->nomRecette;
-$_SESSION['description'] = $data[0]->Description;
-$_SESSION['preparation'] = $data[0]->Preparation;
+$nom = $data[0]->nomRecette;
+$desc = $data[0]->Description;
+$prepa = $data[0]->Preparation;
 ?>
 
 <?php $dataRit = $cb->getAllRIT(); ?>
@@ -143,13 +143,14 @@ $sr->generateliste($cb); ?>
     <?php
 
     if (!isset($_SESSION['response'])) :
-        $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation']);
+        $ed->generateformRecette($nom, $desc, $prepa);
     elseif (isset($_SESSION['response'])) :
         $response = $_SESSION['response'];
-        if(!$response['granted'] || !isset($_SESSION['upload'])):
+        if(!$response['granted']):
             $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
-        elseif($_SESSION['upload']=""):
-            $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
+        elseif(!isset($_SESSION['upload'])):
+            $img = true;
+            $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error'], $img);
         endif;
     endif; ?>
 </div>
@@ -158,7 +159,7 @@ $sr->generateliste($cb); ?>
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="../../CSS/index.css">
+<link rel="stylesheet" href="../../CSS/add.css">
 
 <?php $css = ob_get_clean() ?>
 

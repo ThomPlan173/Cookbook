@@ -147,3 +147,12 @@
     width: 99.3%;
     height: 300px;
 }
+
+/*_____________Erreurs______________*/
+.error{
+    border-color: indianred;
+}
+
+.errortext{
+    color : orangered;
+}

@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
         bouton_edit_ingredient.type = "button";
         bouton_edit_ingredient.id = "photo_tete";
         bouton_edit_ingredient.addEventListener("click", function (){
+            form_edit_ingredient.hidden = true;
+            form_delete_ingredient.hidden = true;
+            label.hidden = true;
+            input.hidden = true;
             edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
         })
 
@@ -232,9 +236,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_edit_ingredient.method = "get";
 
                 let bouton_edit_ingredient = document.createElement('input');
-                bouton_edit_ingredient.type = "submit";
+                bouton_edit_ingredient.type = "button";
                 bouton_edit_ingredient.id = "photo_tete";
                 bouton_edit_ingredient.addEventListener("click", function (){
+                    form_edit_ingredient.hidden = true;
+                    form_delete_ingredient.hidden = true;
+                    label.hidden = true;
+                    input.hidden = true;
                     edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
                 })
 

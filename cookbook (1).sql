@@ -94,11 +94,11 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
 --
 
 INSERT INTO `ingredient` (`idIngredient`, `nomIngredient`, `imgIngredient`) VALUES
-(1, 'oignon', 'images/oignon.jpg'),
-(2, 'tablette de chocolat', 'images/chocolat.jpg'),
-(3, 'tomate', 'images/tomate.jpg'),
-(4, 'sucre', 'images/sucre.jpg'),
-(5, 'farine', 'images/farine.jpg');
+(1, 'oignon', 'images/Ingredient/oignon.jpg'),
+(2, 'tablette de chocolat', 'images/Ingredient/chocolat.jpg'),
+(3, 'tomate', 'images/Ingredient/tomate.jpg'),
+(4, 'sucre', 'images/Ingredient/sucre.jpg'),
+(5, 'farine', 'images/Ingredient/farine.jpg');
 
 -- --------------------------------------------------------
 
@@ -121,8 +121,8 @@ CREATE TABLE IF NOT EXISTS `recette` (
 --
 
 INSERT INTO `recette` (`idRecette`, `nomRecette`, `imgRecette`, `Description`, `Preparation`) VALUES
-(1, 'Spaghettis ', 'images/spaghettis.jpg', 'Une recette facile et rapide de spaghettis en 10 minutes !', 'Faites cuire les spaghetti dans une grande casserole d&#039;eau salée en suivant le temps indiqué sur le paquet.Égouttez et émiettez le thon dans un saladier. Épluchez et hachez l’ail. Mélangez le thon avec l&#039;ail, ajoutez la crème.Faites chauffer le mélange à feu doux pendant 3 minutes à la poêle. Salez, poivrez.Dans un saladier, mettez les spaghetti égouttés et versez dessus la sauce au thon. Mélangez et servez chaud.'),
-(3, 'Cookies', 'images\\cookies.jpg', 'Une recette très recherchée : comment avoir ces fameux cookies authentiques qui sont bien moelleux au centre et dorés sur les bords? (comme au Subway disent certains…). Il faut bien respecter les ingrédients sans quoi cela peut modifier la texture du cookie.', 'Préchauffez votre four à 140°C. Sortez la grille.\r\nMélangez le beurre mou avec les sucres, et l’oeuf, jusqu’à une pâte souple et homogène.\r\nA part, mélangez la farine, la levure, le bicarbonate, la pincée de sel et la vanille.\r\nAjoutez ce dernier mélange au premier. Bien mélangez pour avoir une pâte épaisse et qui sera malléable à la main.\r\nAjoutez 1/3 des pépites.\r\nSur la grille du four déjà sortie, mettez du papier cuisson.\r\n\r\nFormez des boules de pâte juste légèrement aplaties et disposez-les bien espacées les unes des autres.\r\nRépartissez sur chaque boule les pépites restantes\r\nEnfournez pour 15 minutes, 17 max. IMPORTANT : En fin de cuisson, les cookies n’ont pas l’air cuit, c’est normal ! Ne tombez pas dans la piège de les remettre. Le bord doit être à peine doré, et le centre tout mou.\r\nIl faut les laisser refroidir et ça va durcir. Ils seront parfaits. Refroidir une demi-heure au moins. Enjoy ! Mais notez que c’est 450 calories les 100 grammes, donc plutôt au petit déj si vous en faites des gros. Le chocolat, sortant du frigo, le casser en pépites, dans un sac congélation, lui-même entouré d’un torchon, en frappant avec le rouleau à pâtisserie. C’est meilleur et ça défoule. Les pépites déjà achetées toutes prêtes n’ont pas très bon goût et sont faites avec du faux chocolat (beaucoup de sucre, peu de cacao, et du colorant, bref, pas bon)');
+(1, 'Spaghettis ', 'images/Recette/spaghettis.jpg', 'Une recette facile et rapide de spaghettis en 10 minutes !', 'Faites cuire les spaghetti dans une grande casserole d&#039;eau salée en suivant le temps indiqué sur le paquet.Égouttez et émiettez le thon dans un saladier. Épluchez et hachez l’ail. Mélangez le thon avec l&#039;ail, ajoutez la crème.Faites chauffer le mélange à feu doux pendant 3 minutes à la poêle. Salez, poivrez.Dans un saladier, mettez les spaghetti égouttés et versez dessus la sauce au thon. Mélangez et servez chaud.'),
+(3, 'Cookies', 'images/Recette/cookies.jpg', 'Une recette très recherchée : comment avoir ces fameux cookies authentiques qui sont bien moelleux au centre et dorés sur les bords? (comme au Subway disent certains…). Il faut bien respecter les ingrédients sans quoi cela peut modifier la texture du cookie.', 'Préchauffez votre four à 140°C. Sortez la grille.\r\nMélangez le beurre mou avec les sucres, et l’oeuf, jusqu’à une pâte souple et homogène.\r\nA part, mélangez la farine, la levure, le bicarbonate, la pincée de sel et la vanille.\r\nAjoutez ce dernier mélange au premier. Bien mélangez pour avoir une pâte épaisse et qui sera malléable à la main.\r\nAjoutez 1/3 des pépites.\r\nSur la grille du four déjà sortie, mettez du papier cuisson.\r\n\r\nFormez des boules de pâte juste légèrement aplaties et disposez-les bien espacées les unes des autres.\r\nRépartissez sur chaque boule les pépites restantes\r\nEnfournez pour 15 minutes, 17 max. IMPORTANT : En fin de cuisson, les cookies n’ont pas l’air cuit, c’est normal ! Ne tombez pas dans la piège de les remettre. Le bord doit être à peine doré, et le centre tout mou.\r\nIl faut les laisser refroidir et ça va durcir. Ils seront parfaits. Refroidir une demi-heure au moins. Enjoy ! Mais notez que c’est 450 calories les 100 grammes, donc plutôt au petit déj si vous en faites des gros. Le chocolat, sortant du frigo, le casser en pépites, dans un sac congélation, lui-même entouré d’un torchon, en frappant avec le rouleau à pâtisserie. C’est meilleur et ça défoule. Les pépites déjà achetées toutes prêtes n’ont pas très bon goût et sont faites avec du faux chocolat (beaucoup de sucre, peu de cacao, et du colorant, bref, pas bon)');
 
 -- --------------------------------------------------------
 

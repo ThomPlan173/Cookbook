@@ -4,25 +4,29 @@ namespace Edit;
 
 class Add
 {
-    function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null): void{ ?>
+    function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img = false): void{ ?>
         <form method="post" action="../UploadRec/add_upload_recette.php" class="edit" enctype="multipart/form-data" >
             <legend id = "legend">Ajout</legend>
             <input type="submit" name="submit" class="submit" value="Ajouter">
             <div class="form-group">
-                <div id = "">
-                    Image : <input id="input_img" class = "error"  class = "input"
+                <div id = "img">
+                    Image : <input id="input_img"  class = "input"
                                    type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
+                    <?php if($img):?><span class = "errortext">IMG !</span> <?php endif; ?>
                 </div>
-                <div id = "">
-                    Nom : <input id="input_nom" <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                <div id = "nom">
+                    Nom : <input id="input_nom" <?php if($error != null): if($error[0]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif; ?>
                                  type="text" name="nom" placeholder="Nom de la recette" value="<?php echo $nom ?>" autofocus>
+                    <?php if($error!= null): if($error[0]) : ?><span class = "errortext">Nom !</span> <?php endif; endif; ?>
                 </div>
-                <div id = "">
-                    Description : <br><textarea id="input_desc" <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                <div id = "desc">
+                    Description : <?php if($error!= null): if($error[1]) : ?><span class = "errortext">Ajouter une Description !</span> <?php endif; endif; ?>
+                    <br><textarea id="input_desc" <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif; ?>
                         name="description" placeholder="Description de la recette" value="<?php echo $descr?>" autofocus><?php echo $descr ?></textarea>
                 </div>
-                <div id = "">
-                    Preparation : <br><textarea id="input_prep" <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
+                <div id = "prep">
+                    Preparation : <?php if($error!= null): if($error[2]) : ?><span class = "errortext">Ajouter une Preparation !</span> <?php endif; endif; ?>
+                    <br><textarea id="input_prep" <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif; ?>
                         name="preparation" placeholder="Préparation de la recette" value="<?php echo $prepa?>" autofocus><?php echo $prepa ?></textarea>
                 </div>
 
@@ -59,7 +63,7 @@ function generateformIngredient( $error=null): void{ ?>
             <div class="form-group">
                 <input <?php if($error != null): if($error) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
                              type="text" name="nom" placeholder="nom" value="" autofocus>
-                <input class = "error"  class = "input"
+                <input class = "input"
                        type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
             </div>
             <input type="submit" name="submit" class="submit" value="Valider">

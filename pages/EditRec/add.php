@@ -7,7 +7,7 @@ Autoloader::register();
 $cb = new \cb\CoobookDB();
 $sr  = new Browser\Liste();
 $ad = new \Edit\Add();
-
+$img = false;
 ?>
 
 <?php $dataRit = $cb->getAllRIT() ; ?>
@@ -120,10 +120,11 @@ $sr->generateliste($cb); ?>
         $ad->generateformRecette();
     elseif (isset($_SESSION['response'])) :
         $response = $_SESSION['response'];
-        if(!$response['granted'] || !isset($_SESSION['upload'])):
+        if(!$response['granted']):
         $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
-        elseif($_SESSION['upload']=""):
-            $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
+        elseif(!isset($_SESSION['upload'])):
+            $img = true;
+            $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error'], $img);
         endif;
     endif; ?>
 </div>

@@ -19,11 +19,13 @@ if($response['granted']){
     if($upload!=""):
         $_SESSION['image'] = $upload;
         $cb->addRecette($_SESSION['image'],htmlspecialchars($_SESSION['nom'],ENT_QUOTES),htmlspecialchars($_SESSION['description'], ENT_QUOTES),htmlspecialchars($_SESSION['preparation'], ENT_QUOTES));
-        header("Location: "."/Projet_Recettes/index.php");
+        $_SESSION['response'] = null;
         $_SESSION['nom'] = null;
         $_SESSION['image'] =  null;
         $_SESSION['description'] = null;
         $_SESSION['preparation'] =  null;
+        header("Location: "."/Projet_Recettes/index.php");
+
         exit() ;
         endif;
 }
