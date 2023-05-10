@@ -6,9 +6,8 @@ Autoloader::register();
 
 $cb = new \cb\CoobookDB;
 $sr  = new Browser\Recherche();
-
-$d = new \Edit\Delete();
-
+$ss = new \Session\Session();
+$ss->cleanSession();
 
 
 ?>
@@ -16,14 +15,6 @@ $d = new \Edit\Delete();
 <?php $dataRit = $cb->getAllRIT(); ?>
 
 <?php ob_start();
-/*
-
-if (isset($_POST["del"])) {
-    $id = $_POST["del"];
-    
-    //$d->generateform($id);
-}
-*/
 $sr->generatesearch($cb); ?>
 
 <script>

@@ -88,9 +88,9 @@ class CoobookDB extends PdoWrapper
         return $this->exec($sql, null);
     }
 
-    public function updateTag($id,$img,$nom){
+    public function updateTag($id,$nom){
 
-        $sql = "UPDATE tag SET nomTag = '{$nom}' WHERE idIngredient = '{$id}'";
+        $sql = "UPDATE tag SET nomTag = '{$nom}' WHERE idTag = '{$id}'";
         return $this->exec($sql, null);
     }
 

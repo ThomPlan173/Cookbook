@@ -24,6 +24,7 @@ if($response['granted']){
         $_SESSION['description'] = null;
         $_SESSION['preparation'] =  null;
         $_SESSION['id'] = null;
+        $_SESSION['errortext']=null;
         header("Location: "."/Projet_Recettes/index.php");
         exit() ;
     endif;

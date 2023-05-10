@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111ce64f-e780-4dd0-a872-9547a25e7eb3" name="Changes" comment="css add3">
+      <change afterPath="$PROJECT_DIR$/class/Session/Session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/add.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/add.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JS/edit_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/edit_add.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/Edit/Add.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Edit/Add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/Edit/Delete.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/class/Edit/Edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Edit/Edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookbook (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/cookbook (1).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/cb/CoobookDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/cb/CoobookDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/EditIngr/addIngr.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditIngr/addIngr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/EditIngr/deleteIngr.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditIngr/deleteIngr.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/EditIngr/editIngr.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditIngr/editIngr.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/EditRec/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditRec/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/EditRec/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditRec/delete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/EditRec/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditRec/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/UploadIngr/add_upload_ingredient.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/UploadIngr/edit_upload_ingredient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/EditTag/addTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditTag/addTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/EditTag/deleteTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditTag/deleteTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/EditTag/editTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditTag/editTag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/UploadRec/add_upload_recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/UploadRec/add_upload_recette.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/UploadRec/edit_upload_recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/UploadRec/edit_upload_recette.php" afterDir="false" />
     </list>
@@ -48,29 +53,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ordinateur/Documents/_Cours ULCO/L2/Web/Javascript/TP1/ex9&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Ordinateur/Documents/_Cours ULCO/L2/Web/Javascript/TP1/ex9",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ],
-    &quot;RunConfigurationTargetLRU&quot;: [
-      &quot;da710911-ba90-456b-a6e3-e59b96aabc6b&quot;
+    "RunConfigurationTargetLRU": [
+      "da710911-ba90-456b-a6e3-e59b96aabc6b"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Projet_Recettes\pages\Login" />
@@ -106,7 +112,8 @@
       <workItem from="1683290969716" duration="5483000" />
       <workItem from="1683298285426" duration="1952000" />
       <workItem from="1683546357803" duration="24482000" />
-      <workItem from="1683640273332" duration="36318000" />
+      <workItem from="1683640273332" duration="36680000" />
+      <workItem from="1683725029945" duration="17256000" />
     </task>
     <task id="LOCAL-00001" summary="JS2">
       <created>1683268858849</created>

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let form_edit_ingredient = document.createElement('form');
         form_edit_ingredient.method = "get";
 
-        let bouton_edit_ingredient = document.createElement('input');
+        let bouton_edit_ingredient = document.createElement('button');
         bouton_edit_ingredient.type = "button";
         bouton_edit_ingredient.id = "photo_tete";
         bouton_edit_ingredient.addEventListener("click", function (){
@@ -96,19 +96,24 @@ document.addEventListener('DOMContentLoaded', function () {
         checkbox_ingr.appendChild(div);
     }
 
-    let add_form_tag = document.createElement('form')
-    let add_button_tag = document.createElement('button');
-    add_button_tag.textContent = " + Ajouter un Tag";
+
+    let add_form_tag = document.createElement('form');
+    add_form_tag.id = "add_form_tag";
+
+    let add_button_tag = document.createElement('input');
+    add_button_tag.value = " + Ajouter un Tag";
+    add_button_tag.type = "button";
+    add_button_tag.setAttribute('onclick', 'add_tag()');
+
 
     add_form_tag.appendChild(add_button_tag);
 
     checkbox_tag.appendChild(add_form_tag);
 
-
-
     for (let tag of vardataTag) {
 
-
+        let div = document.createElement('div');
+        div.id = "tag"+tag.idTag;
 
         let input = document.createElement('input')
         input.type = "checkbox";
@@ -135,10 +140,15 @@ document.addEventListener('DOMContentLoaded', function () {
         form_edit_tag.method = "get";
 
         let bouton_edit_tag = document.createElement('button');
-        bouton_edit_tag.type = "submit";
+        bouton_edit_tag.type = "button";
         bouton_edit_tag.id = "photo_tete";
-        bouton_edit_tag.name = "idTag";
-        bouton_edit_tag.value = tag.idTag;
+        bouton_edit_tag.addEventListener("click", function (){
+            form_edit_tag.hidden = true;
+            form_delete_tag.hidden = true;
+            label.hidden = true;
+            input.hidden = true;
+            edit_tag(tag.idTag, tag.nomTag);
+        })
 
         let edit = document.createElement('img');
         edit.src = "/Projet_Recettes/images/pencil-square.png";
@@ -170,13 +180,13 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_tag.appendChild(bouton_delete_tag);
         bouton_delete_tag.appendChild(del);
 
+        div.appendChild(input);
+        div.appendChild(label);
+        div.appendChild(form_edit_tag);
+        div.appendChild(form_delete_tag);
+        div.appendChild(br);
 
-
-        checkbox_tag.appendChild(input);
-        checkbox_tag.appendChild(label);
-        checkbox_tag.appendChild(form_edit_tag);
-        checkbox_tag.appendChild(form_delete_tag);
-        checkbox_tag.appendChild(br);
+        checkbox_tag.appendChild(div);
     }
 
     ;
@@ -235,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let form_edit_ingredient = document.createElement('form');
                 form_edit_ingredient.method = "get";
 
-                let bouton_edit_ingredient = document.createElement('input');
+                let bouton_edit_ingredient = document.createElement('button');
                 bouton_edit_ingredient.type = "button";
                 bouton_edit_ingredient.id = "photo_tete";
                 bouton_edit_ingredient.addEventListener("click", function (){
@@ -299,9 +309,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         removeAllChild(checkbox_tag);
 
-        let add_form_tag = document.createElement('form')
-        let add_button_tag = document.createElement('button');
-        add_button_tag.textContent = " + Ajouter un Tag";
+        let add_form_tag = document.createElement('form');
+        add_form_tag.id = "add_form_tag";
+
+        let add_button_tag = document.createElement('input');
+        add_button_tag.value = " + Ajouter un Tag";
+        add_button_tag.type = "button";
+        add_button_tag.setAttribute('onclick', 'add_tag()');
+
 
         add_form_tag.appendChild(add_button_tag);
 
@@ -310,6 +325,10 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let tag of vardataTag) {
 
             if ((tag.nomTag.toUpperCase().includes(input_tag.value.toUpperCase())) || (tag_select.indexOf(tag.idTag) != -1)) {
+
+                let div = document.createElement('div');
+                div.id = "tag"+tag.idTag;
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = tag.nomTag;
@@ -341,10 +360,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_edit_tag.method = "get";
 
                 let bouton_edit_tag = document.createElement('button');
-                bouton_edit_tag.type = "submit";
+                bouton_edit_tag.type = "button";
                 bouton_edit_tag.id = "photo_tete";
-                bouton_edit_tag.name = "idTag";
-                bouton_edit_tag.value = tag.idTag;
+                bouton_edit_tag.addEventListener("click", function (){
+                    form_edit_tag.hidden = true;
+                    form_delete_tag.hidden = true;
+                    label.hidden = true;
+                    input.hidden = true;
+                    edit_tag(tag.idTag, tag.nomTag);
+                })
 
                 let edit = document.createElement('img');
                 edit.src = "/Projet_Recettes/images/pencil-square.png";
@@ -378,11 +402,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-                checkbox_tag.appendChild(input);
-                checkbox_tag.appendChild(label);
-                checkbox_tag.appendChild(form_edit_tag);
-                checkbox_tag.appendChild(form_delete_tag);
-                checkbox_tag.appendChild(br);
+                div.appendChild(input);
+                div.appendChild(label);
+                div.appendChild(form_edit_tag);
+                div.appendChild(form_delete_tag);
+                div.appendChild(br);
+
+                checkbox_tag.appendChild(div);
 
             }
         }
