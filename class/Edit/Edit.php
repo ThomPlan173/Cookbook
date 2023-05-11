@@ -85,23 +85,6 @@ class Edit
             'error' => $error
         );
     }
-    public function verifRecette(string $nom, string $descr, string $prepa) : array
-{
-    $error = [false, false, false];
-    $granted = false;
-    $tabParams = [$nom, $descr, $prepa];
-    $c = 0;
-    for ($i = 0; $i < 3; $i++) {
-        if ($tabParams[$i] == null) {
-            $c += 1;
-            $error[$i] = true;
-        }
-    }
-    if ($c == 0):$granted = true; endif;
-    return array(
-        'granted' => $granted,
-        'error' => $error
-    );
-}
+    
 }
 ?>
