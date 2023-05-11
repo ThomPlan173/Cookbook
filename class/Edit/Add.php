@@ -57,20 +57,6 @@ public function verifRecette(string $nom, string $descr, string $prepa) : array
     );
 }
 
-
-function generateformIngredient( $error=null): void{ ?>
-        <form method="post" action="../UploadIngr/add_upload_ingredient" class="edit" >
-            <div class="form-group">
-                <input <?php if($error != null): if($error) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                             type="text" name="nom" placeholder="nom" value="" autofocus>
-                <input class = "input"
-                       type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
-            </div>
-            <input type="submit" name="submit" class="submit" value="Valider">
-        </form>
-        <?php
-    }
-
     public function verifIngredient(string $nom) : array
     {
         $error = false;
@@ -85,17 +71,6 @@ function generateformIngredient( $error=null): void{ ?>
             'error' => $error
         );
     }
-
-function generateformTag( $error=null): void{ ?>
-    <form method="post" action="" class="edit" >
-        <div class="form-group">
-            <input <?php if($error != null): if($error[1]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif ?>
-                         type="text" name="nom" placeholder="nom" value="" autofocus>
-        </div>
-        <input type="submit" name="submit" class="submit" value="Valider">
-    </form>
-    <?php
-}
 
 public function verifTag(string $nom) : array
 {

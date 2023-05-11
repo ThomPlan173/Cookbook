@@ -3,25 +3,30 @@ session_start();
 require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
-$id = $_GET['idRecette'];
+if(!isset($_SESSION['id'])):
+    $_SESSION['id'] = $_GET['idRecette'];
+endif;
 $cb = new \cb\CoobookDB();
-$data = $cb->getRecette($id);
-$liste = $cb->getIngredients($id);
-$tags = $cb->getTags($id);
+$data = $cb->getRecette($_SESSION['id']);
+$nom = $data[0]->nomRecette;
+$desc = $data[0]->Description;
+$prepa = $data[0]->Preparation;
+$liste = $cb->getIngredients($_SESSION['id']);
+$tags = $cb->getTags($_SESSION['id']);
 $sr  = new Browser\Liste();
 $ed = new \Edit\Edit();
 $img = false;
 
-$nom = $data[0]->nomRecette;
-$desc = $data[0]->Description;
-$prepa = $data[0]->Preparation;
 ?>
 
 <?php $dataRit = $cb->getAllRIT(); ?>
 
-<?php ob_start();
-
+<?php ob_start() ;
 $sr->generateliste($cb); ?>
+<?php if(isset($_SESSION['errortext'])){
+    ?> <span class = "errortext"><?php echo $_SESSION['errortext']?> </span> <?php
+}
+?>
 
 <script>
     let vardataRit = <?php echo json_encode($dataRit); ?>;
@@ -53,11 +58,12 @@ $sr->generateliste($cb); ?>
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/addIngr.php";
+        form.enctype="multipart/form-data";
 
         let inputNom = document.createElement("input");
         inputNom.placeholder = "nom";
         inputNom.type = "text";
-        inputNom.name = "nom";
+        inputNom.name = "nomIngr";
         inputNom.autofocus = true ;
 
         let inputImg = document.createElement("input");
@@ -82,11 +88,12 @@ $sr->generateliste($cb); ?>
     function add_tag(){
         let form = document.createElement("form");
         form.method = "post";
+        form.action = "../EditTag/addTag.php";
 
         let inputNom = document.createElement("input");
         inputNom.placeholder = "nom";
         inputNom.type = "text";
-        inputNom.nom = "nom";
+        inputNom.name = "nomTag";
         inputNom.autofocus = true ;
 
         let inputSubmit = document.createElement("input");
@@ -94,28 +101,29 @@ $sr->generateliste($cb); ?>
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
 
+        let add_form_tag = document.getElementById("add_form_tag");
         form.appendChild(inputNom);
-        form.appendChild(inputImg);
         form.appendChild(inputSubmit);
-        checkbox_tag.appendChild(form);
+        add_form_tag.appendChild(form);
 
     }
 
-    function edit_ingredient(id,nom,img){
+    function edit_ingredient(id,nom){
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/editIngr.php";
+        form.enctype="multipart/form-data";
 
         let inputId = document.createElement("input");
         inputId.hidden = true;
         inputId.type = "text";
-        inputId.name = "id";
+        inputId.name = "idIngr";
         inputId.value = id;
 
         let inputNom = document.createElement("input");
         inputNom.placeholder = "nom";
         inputNom.type = "text";
-        inputNom.name = "nom";
+        inputNom.name = "nomIngr";
         inputNom.value = nom ;
         inputNom.autofocus = true ;
 
@@ -137,6 +145,37 @@ $sr->generateliste($cb); ?>
         form.appendChild(inputSubmit);
         edit_form_ingredient.appendChild(form);
     }
+    function edit_tag(id,nom){
+        let form = document.createElement("form");
+        form.method = "post";
+        form.action = "../EditTag/editTag.php";
+
+        let inputId = document.createElement("input");
+        inputId.hidden = true;
+        inputId.type = "text";
+        inputId.name = "idTag";
+        inputId.value = id;
+
+        let inputNom = document.createElement("input");
+        inputNom.placeholder = "nom";
+        inputNom.type = "text";
+        inputNom.name = "nomTag";
+        inputNom.autofocus = true ;
+        inputNom.value = nom;
+
+        let inputSubmit = document.createElement("input");
+        inputSubmit.type = "submit";
+        inputSubmit.name = "submit";
+        inputSubmit.value = "Valider";
+
+        let edit_form_tag = document.getElementById("tag"+id);
+        form.appendChild(inputNom);
+        form.appendChild(inputId);
+        form.appendChild(inputSubmit);
+        edit_form_tag.appendChild(form);
+
+    }
+
 </script>
 
 <div id="reste_page">

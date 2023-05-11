@@ -4,8 +4,8 @@ require  ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIR
 Autoloader::register();
 
 $cb = new \cb\CoobookDB();
-$d = new \Edit\Delete();
 
 $id = $_GET["del"];
 $cb->deleteIngredient($id);
-header("Location: "."/Projet_Recettes/pages/EditRec/add.php");
+$_SESSION['errortext']=null;
+header("Location: ".$_SERVER['HTTP_REFERER']);
