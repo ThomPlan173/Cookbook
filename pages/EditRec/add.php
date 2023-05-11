@@ -72,6 +72,20 @@ $sr->generateliste($cb); ?>
     }
 
     function add_tag(){
+        let form = document.createElement("form");
+        form.method = "post";
+        form.action = "../EditTag/addTag.php";
+        form.enctype="multipart/form-data";
+
+        let inputNom = document.createElement("input");
+        inputNom.placeholder = "nom";
+        inputNom.type = "text";
+        inputNom.name = "nom";
+        inputNom.autofocus = true ;
+
+        let add_form_tag = document.getElementById("add_form_tag");
+        form.appendChild(inputNom);
+        add_form_tag.appendChild(form);
     }
 
     function edit_ingredient(id,nom){

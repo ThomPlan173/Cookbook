@@ -97,9 +97,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let add_form_tag = document.createElement('form')
-    let add_button_tag = document.createElement('button');
-    add_button_tag.textContent = " + Ajouter un Tag";
-
+    let add_button_tag = document.createElement('input');
+    add_button_tag.value = " + Ajouter un Tag";
+    add_button_tag.type = "button";
+    add_button_tag.setAttribute('onclick', 'add_tag()');
     add_form_tag.appendChild(add_button_tag);
 
     checkbox_tag.appendChild(add_form_tag);

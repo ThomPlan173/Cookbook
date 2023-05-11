@@ -144,4 +144,14 @@ class CoobookDB extends PdoWrapper
     public function getIngrQuantities($idIngr, $idRecette){
         return $this->exec("SELECT quantite,unite FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
     }
+    
+    public function updateRecetteTags($boolChecked, $idTag, $idRecette){
+        if($boolChecked == true && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
+        ",null) == null  ){
+            return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( {$idRecette}','{$idTag}'", null);
+        }else if($boolChecked == false && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
+        ",null) != null){
+            return $this->exec("DELETE FROM attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}' ", null);
+        }
+    }
 }

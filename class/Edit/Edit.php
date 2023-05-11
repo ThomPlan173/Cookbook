@@ -5,8 +5,9 @@ namespace Edit;
 class Edit
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img=false): void{ ?>
-        <form method="post" action="../UploadRec/add_upload_recette.php" class="edit" enctype="multipart/form-data" >
+        <form method="post" action="../UploadRec/edit_upload_recette.php" class="edit" enctype="multipart/form-data" >
             <legend id = "legend">Modification</legend>
+            <input type="hidden" name="id" value="<?php echo $_GET["idRecette"] ?>">
             <input type="submit" name="submit" class="submit" value="Modifier">
             <div class="form-group">
                 <div id = "img">
@@ -91,5 +92,23 @@ class Edit
             'error' => $error
         );
     }
+    public function verifRecette(string $nom, string $descr, string $prepa) : array
+{
+    $error = [false, false, false];
+    $granted = false;
+    $tabParams = [$nom, $descr, $prepa];
+    $c = 0;
+    for ($i = 0; $i < 3; $i++) {
+        if ($tabParams[$i] == null) {
+            $c += 1;
+            $error[$i] = true;
+        }
+    }
+    if ($c == 0):$granted = true; endif;
+    return array(
+        'granted' => $granted,
+        'error' => $error
+    );
+}
 }
 ?>
