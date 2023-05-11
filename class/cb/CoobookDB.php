@@ -162,5 +162,8 @@ class CoobookDB extends PdoWrapper
         ",null) != null){
             return $this->exec("DELETE FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
         }
+        else {
+            return $this->exec("UPDATE contenir SET quantite = '{$quantite}'j, unite = '{$unite}' WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
+        }  
     }
 }
