@@ -1,8 +1,6 @@
 <?php
 
 session_start() ;
-
+header("Location: ".$_SESSION['page']);
 session_destroy();
-header("Location: ".$_SERVER['HTTP_REFERER']);
-
 exit() ;

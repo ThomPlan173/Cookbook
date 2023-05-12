@@ -17,7 +17,7 @@ if (isset($_POST['username']) and isset($_POST['password'])){
     $response = $logger->log(trim($username), trim($password)) ;
     if ($response['granted']){
         $_SESSION['login'] = true ;
-        header("Location: ".$_POST['url_referer']);
+        header("Location: ".$_SESSION['page']);
         exit() ;
     }
 }

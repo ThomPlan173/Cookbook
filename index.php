@@ -9,7 +9,7 @@ $sr  = new Browser\Recherche();
 $ss = new \Session\Session();
 $ss->cleanSession();
 
-
+$_SESSION['page'] =$_SERVER['REQUEST_URI'];
 ?>
 
 <?php $dataRit = $cb->getAllRIT(); ?>

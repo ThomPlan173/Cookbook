@@ -8,6 +8,7 @@ $cb = new \cb\CoobookDB();
 $sr  = new Browser\Liste();
 $ad = new \Edit\Add();
 $img = false;
+$_SESSION['page'] = "http://localhost/Projet_Recettes/";
 ?>
 
 <?php $dataRit = $cb->getAllRIT() ; ?>
