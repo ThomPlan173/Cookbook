@@ -6,7 +6,7 @@ Autoloader::register();
 if (!isset($_SESSION['id'])) :
     $_SESSION['id'] = $_GET['idRecette'];
 endif;
-$cb = new \cb\CoobookDB();
+$cb = new \cb\cookbookDB();
 $data = $cb->getRecette($_SESSION['id']);
 $nom = $data[0]->nomRecette;
 $desc = $data[0]->Description;
@@ -236,7 +236,7 @@ $sr->generateliste($cb); ?>
         <?php foreach ($liste as $l) { ?>
             FunctionIngredients("<?= $l->nomIngredient ?>", "<?= $l->idIngredient ?>");
         <?php  } ?>
-        console.log(tag_select);
+        
     })
 
     function FunctionTags(tag, id) {

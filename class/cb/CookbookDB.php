@@ -7,7 +7,7 @@ use \pdowrapper\PdoWrapper;
 include __DIR__ . "../../../db_credentials.php";
 
 // Classe utilisée pour la totalitée des requetes SQL nécéssaires
-class CoobookDB extends PdoWrapper
+class cookbookDB extends PdoWrapper
 {
     //dir pour les images
     public const IMAGE_DIR = "images/";

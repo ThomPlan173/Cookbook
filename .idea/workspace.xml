@@ -12,7 +12,7 @@
       <change beforePath="$PROJECT_DIR$/class/Edit/Add.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Edit/Add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/Edit/Delete.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/class/Edit/Edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/Edit/Edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/cb/CoobookDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/cb/CoobookDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/cb/cookbookDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/cb/cookbookDB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/EditIngr/addIngr.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditIngr/addIngr.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/EditIngr/deleteIngr.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/EditIngr/deleteIngr.php" afterDir="false" />

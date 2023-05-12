@@ -11,7 +11,7 @@ require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader
 Autoloader::register();
 
 
-$cb = new \cb\CoobookDB();
+$cb = new \cb\cookbookDB();
 $data = $cb->getRecette($id);
 $liste = $cb->getIngredients($id);
 $tags = $cb->getTags($id);

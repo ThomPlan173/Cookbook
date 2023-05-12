@@ -4,7 +4,7 @@ require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRE
 Autoloader::register();
 
 
-$cb = new \cb\CoobookDB();
+$cb = new \cb\cookbookDB();
 $sr  = new Browser\Liste();
 $ad = new \Edit\Add();
 $img = false;

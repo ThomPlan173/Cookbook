@@ -16,6 +16,7 @@ class Liste
 
                     <div id="checkbox_ingredient">
                         <?php $dataIngr = $cb->getAllIngredients(); ?>
+                        
                         <?php if (isset($_GET["idRecette"])) {
                             $array = array();
                             foreach ($dataIngr as $idIngr) {

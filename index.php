@@ -4,7 +4,7 @@ require "." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.
 Autoloader::register();
 
 
-$cb = new \cb\CoobookDB;
+$cb = new \cb\cookbookDB;
 $sr  = new Browser\Recherche();
 $ss = new \Session\Session();
 $ss->cleanSession();

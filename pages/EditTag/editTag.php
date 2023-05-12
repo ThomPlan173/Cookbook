@@ -3,7 +3,7 @@ session_start();
 require  ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
-$cb = new \cb\CoobookDB();
+$cb = new \cb\cookbookDB();
 $ed = new \Edit\Edit();
 
 $_SESSION['nomTag'] = $_POST['nomTag'];

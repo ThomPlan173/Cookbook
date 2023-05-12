@@ -27,7 +27,7 @@ class Logger
     public function log(string $username, string $password) : array{
 
         $user = "admin" ;
-        $pwd = "coobook" ;
+        $pwd = "cookbook" ;
 
         $error = null ;
         $granted = false ;
