@@ -15,8 +15,8 @@ class Liste
                     <input id="search_ingredient" type="text" placeholder="Quels ingrédients" name="ingredient">
 
                     <div id="checkbox_ingredient">
-                        <?php $dataIngr = $cb->getAllIngredients(); 
-                        $dataQte = $cb->getIngrQuantities($_GET["idRecette"]);
+                        <?php $dataIngr = $cb->getAllIngredients();
+                            $dataQte = $cb->getIngrQuantities($_GET["idRecette"]);
                         ?>
                         
                     </div>

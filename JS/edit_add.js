@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     add_form_ingredient.appendChild(add_button_ingredient);
 
     checkbox_ingr.appendChild(add_form_ingredient);
-    
+
+    let x = 0;
     for (let ingredient of vardataIngr) {
 
         let div = document.createElement('div');
@@ -39,6 +40,61 @@ document.addEventListener('DOMContentLoaded', function () {
         let label = document.createElement('label');
         label.htmlFor = ingredient.nomIngredient;
         label.innerHTML = ingredient.nomIngredient;
+
+        let qte = document.createElement('input');
+        qte.type = "number";
+        qte.className = "quantite";
+        qte.name = "qte" + ingredient.nomIngredient;
+        qte.max = 999;
+        qte.min = 1;
+
+        let unite = document.createElement('select');
+        unite.className = "unite_select";
+        unite.name = "unite";
+
+        let option1 = document.createElement("option")
+        option1.value = "";
+        option1.innerHTML = "";
+
+        let option2 = document.createElement("option")
+        option2.value = "g";
+        option2.innerHTML = "g";
+
+        let option3 = document.createElement("option")
+        option3.value = "kg";
+        option3.innerHTML = "kg";
+
+        let option4 = document.createElement("option")
+        option4.value = "ml";
+        option4.innerHTML = "ml";
+
+        let option5 = document.createElement("option")
+        option5.value = "l";
+        option5.innerHTML = "l";
+
+        let option6 = document.createElement("option")
+        option6.value = "cac";
+        option6.innerHTML = "c.a.c";
+
+        let option7 = document.createElement("option")
+        option7.value = "cas";
+        option7.innerHTML = "c.a.s";
+
+        unite.appendChild(option1);
+        unite.appendChild(option2);
+        unite.appendChild(option3);
+        unite.appendChild(option4);
+        unite.appendChild(option5);
+        unite.appendChild(option6);
+        unite.appendChild(option7);
+
+        if(x < vardataQte.length) {
+            if (vardataQte[x].idIngredient == ingredient.idIngredient) {
+                qte.value = vardataQte[x].quantite;
+                unite.value = vardataQte[x].unite;
+                x++;
+            }
+        }
 
         let br = document.createElement('br');
 
@@ -68,14 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         form_edit_ingredient.appendChild(bouton_edit_ingredient);
         bouton_edit_ingredient.appendChild(edit);
-       
-        for (let infos of vardataQte) {
-            let p = document.createElement('p');
-            p.textContent = infos.quantite;
-            let p2 = document.createElement('p');
-            p2.textContent = infos.unite;
-        }
-
 
         let form_delete_ingredient = document.createElement('form');
         form_delete_ingredient.method = "get";
@@ -105,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
         div2.appendChild(form_delete_ingredient);
         div.appendChild(input);
         div.appendChild(label);
+        div.appendChild(qte);
+        div.appendChild(unite);
         div.appendChild(br);
 
         checkbox_ingr.appendChild(div);
@@ -253,6 +303,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 label.htmlFor = ingredient.nomIngredient;
                 label.innerHTML = ingredient.nomIngredient;
 
+                let qte = document.createElement('input');
+                qte.type = "number";
+                qte.className = "quantite";
+                qte.name = "qte" + ingredient.nomIngredient;
+                qte.max = 999;
+                qte.min = 1;
+
+                let unite = document.createElement('select');
+                unite.className = "unite_select";
+                unite.name = "unite";
+
+                let option1 = document.createElement("option")
+                option1.value = "";
+                option1.innerHTML = "";
+
+                let option2 = document.createElement("option")
+                option2.value = "g";
+                option2.innerHTML = "g";
+
+                let option3 = document.createElement("option")
+                option3.value = "kg";
+                option3.innerHTML = "kg";
+
+                let option4 = document.createElement("option")
+                option4.value = "ml";
+                option4.innerHTML = "ml";
+
+                let option5 = document.createElement("option")
+                option5.value = "l";
+                option5.innerHTML = "l";
+
+                let option6 = document.createElement("option")
+                option6.value = "cac";
+                option6.innerHTML = "c.a.c";
+
+                let option7 = document.createElement("option")
+                option7.value = "cas";
+                option7.innerHTML = "c.a.s";
+
+                unite.appendChild(option1);
+                unite.appendChild(option2);
+                unite.appendChild(option3);
+                unite.appendChild(option4);
+                unite.appendChild(option5);
+                unite.appendChild(option6);
+                unite.appendChild(option7);
+
+                for(let x = 0; x < vardataQte.length; x++) {
+                    if (vardataQte[x].idIngredient == ingredient.idIngredient) {
+                        qte.value = vardataQte[x].quantite;
+                        unite.value = vardataQte[x].unite;
+                        x++;
+                    }
+                }
+
                 let br = document.createElement('br')
 
                 let form_edit_ingredient = document.createElement('form');
@@ -312,7 +417,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 div2.appendChild(form_delete_ingredient);
                 div.appendChild(input);
                 div.appendChild(label);
+                div.appendChild(qte);
+                div.appendChild(unite);
                 div.appendChild(br);
+
 
                 checkbox_ingr.appendChild(div);
 
