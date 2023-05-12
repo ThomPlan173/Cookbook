@@ -3,7 +3,7 @@ session_start();
 require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 
-if(!isset($_SESSION['id'])):
+if (!isset($_SESSION['id'])) :
     $_SESSION['id'] = $_GET['idRecette'];
 endif;
 $cb = new \cb\CoobookDB();
@@ -21,12 +21,12 @@ $_SESSION['page'] = "http://localhost/Projet_Recettes/";
 
 <?php $dataRit = $cb->getAllRIT(); ?>
 
-<?php ob_start() ;
+<?php ob_start();
 $sr->generateliste($cb); ?>
-<?php if(isset($_SESSION['errortext'])){
-    ?> <span class = "errortext"><?php echo $_SESSION['errortext']?> </span> <?php
-}
-?>
+<?php if (isset($_SESSION['errortext'])) {
+?> <span class="errortext"><?php echo $_SESSION['errortext'] ?> </span> <?php
+                                                                    }
+                                                                        ?>
 
 <script>
     let vardataRit = <?php echo json_encode($dataRit); ?>;
@@ -52,25 +52,24 @@ $sr->generateliste($cb); ?>
 
 <script src="../../JS/edit_add.js"></script>
 
-<script>
 
-    function add_ingredient(){
+<script>function add_ingredient() {
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/addIngr.php";
-        form.enctype="multipart/form-data";
+        form.enctype = "multipart/form-data";
 
         let inputNom = document.createElement("input");
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomIngr";
-        inputNom.autofocus = true ;
+        inputNom.autofocus = true;
 
         let inputImg = document.createElement("input");
         inputImg.type = "file";
         inputImg.name = "image";
         inputImg.accept = "image/png, image/gif, image/jpeg";
-        inputImg.autofocus = true ;
+        inputImg.autofocus = true;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.type = "submit";
@@ -85,7 +84,7 @@ $sr->generateliste($cb); ?>
 
     }
 
-    function add_tag(){
+    function add_tag() {
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditTag/addTag.php";
@@ -94,7 +93,7 @@ $sr->generateliste($cb); ?>
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomTag";
-        inputNom.autofocus = true ;
+        inputNom.autofocus = true;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.type = "submit";
@@ -108,11 +107,11 @@ $sr->generateliste($cb); ?>
 
     }
 
-    function edit_ingredient(id,nom){
+    function edit_ingredient(id, nom) {
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/editIngr.php";
-        form.enctype="multipart/form-data";
+        form.enctype = "multipart/form-data";
 
         let inputId = document.createElement("input");
         inputId.hidden = true;
@@ -124,28 +123,29 @@ $sr->generateliste($cb); ?>
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomIngr";
-        inputNom.value = nom ;
-        inputNom.autofocus = true ;
+        inputNom.value = nom;
+        inputNom.autofocus = true;
 
         let inputImg = document.createElement("input");
         inputImg.type = "file";
         inputImg.name = "image";
         inputImg.accept = "image/png, image/gif, image/jpeg";
-        inputImg.autofocus = true ;
+        inputImg.autofocus = true;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.type = "submit";
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
 
-        let edit_form_ingredient = document.getElementById("ingr"+id);
+        let edit_form_ingredient = document.getElementById("ingr" + id);
         form.appendChild(inputNom);
         form.appendChild(inputImg);
         form.appendChild(inputId);
         form.appendChild(inputSubmit);
         edit_form_ingredient.appendChild(form);
     }
-    function edit_tag(id,nom){
+
+    function edit_tag(id, nom) {
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditTag/editTag.php";
@@ -160,7 +160,7 @@ $sr->generateliste($cb); ?>
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomTag";
-        inputNom.autofocus = true ;
+        inputNom.autofocus = true;
         inputNom.value = nom;
 
         let inputSubmit = document.createElement("input");
@@ -168,14 +168,13 @@ $sr->generateliste($cb); ?>
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
 
-        let edit_form_tag = document.getElementById("tag"+id);
+        let edit_form_tag = document.getElementById("tag" + id);
         form.appendChild(inputNom);
         form.appendChild(inputId);
         form.appendChild(inputSubmit);
         edit_form_tag.appendChild(form);
 
     }
-
 </script>
 
 <div id="reste_page">
@@ -185,11 +184,11 @@ $sr->generateliste($cb); ?>
         $ed->generateformRecette($nom, $desc, $prepa);
     elseif (isset($_SESSION['response'])) :
         $response = $_SESSION['response'];
-        if(!$response['granted']):
-            $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
-        elseif(!isset($_SESSION['upload'])):
+        if (!$response['granted']) :
+            $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'], $response['error']);
+        elseif (!isset($_SESSION['upload'])) :
             $img = true;
-            $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error'], $img);
+            $ed->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'], $response['error'], $img);
         endif;
     endif; ?>
 </div>
@@ -215,7 +214,7 @@ $sr->generateliste($cb); ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         <?php foreach ($tags as $t) { ?>
-            FunctionTags("<?= $t->nomTag ?>","<?= $t->idTag ?>");
+            FunctionTags("<?= $t->nomTag ?>", "<?= $t->idTag ?>");
         <?php  } ?>
         <?php foreach ($liste as $l) { ?>
             FunctionIngredients("<?= $l->nomIngredient ?>", "<?= $l->idIngredient ?>");
@@ -239,7 +238,7 @@ $sr->generateliste($cb); ?>
         var j;
         for (j = 0; j < x.length; j++) {
 
-           ingredient_select.push(id);
+            ingredient_select.push(id);
             x[j].checked = true;
 
         }

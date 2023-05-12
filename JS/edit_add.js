@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     add_form_ingredient.appendChild(add_button_ingredient);
 
     checkbox_ingr.appendChild(add_form_ingredient);
-
+    
     for (let ingredient of vardataIngr) {
 
         let div = document.createElement('div');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         label.htmlFor = ingredient.nomIngredient;
         label.innerHTML = ingredient.nomIngredient;
 
-        let br = document.createElement('br')
+        let br = document.createElement('br');
 
         let form_edit_ingredient = document.createElement('form');
         form_edit_ingredient.method = "get";
@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
         })
-
+       
+        
         let edit = document.createElement('img');
         edit.src = "/Projet_Recettes/images/pencil-square.png";
         edit.width = 15;
@@ -67,8 +68,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         form_edit_ingredient.appendChild(bouton_edit_ingredient);
         bouton_edit_ingredient.appendChild(edit);
-
-
+       
+        for (let infos of vardataQte) {
+            let p = document.createElement('p');
+            p.textContent = infos.quantite;
+            let p2 = document.createElement('p');
+            p2.textContent = infos.unite;
+        }
 
 
         let form_delete_ingredient = document.createElement('form');
@@ -200,11 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         div.appendChild(br);
 
         checkbox_tag.appendChild(div);
-    }
-
-    ;
-
-
+    };
 
     input_ingr.addEventListener('input', function () {
 
