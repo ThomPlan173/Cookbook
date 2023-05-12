@@ -16,7 +16,7 @@ $tags = $cb->getTags($_SESSION['id']);
 $sr  = new Browser\Liste();
 $ed = new \Edit\Edit();
 $img = false;
-
+$_SESSION['page'] = "http://localhost/Projet_Recettes/";
 ?>
 
 <?php $dataRit = $cb->getAllRIT(); ?>

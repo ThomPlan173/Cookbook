@@ -17,6 +17,7 @@ $liste = $cb->getIngredients($id);
 $tags = $cb->getTags($id);
 
 $rc = new \Rec_Ig\Recette();
+$_SESSION['page'] = $_SERVER['REQUEST_URI'];
 ?>
 
 <?php ob_start() ;
