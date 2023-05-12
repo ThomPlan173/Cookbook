@@ -2,6 +2,10 @@
 session_start();
 
 $id = $_GET['idRecette'] ;
+if(!isset($_SESSION)) {
+    session_start();
+}
+$_SESSION['idRecette'] = $id;
 
 require ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();

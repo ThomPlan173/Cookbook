@@ -53,19 +53,24 @@ $sr->generateliste($cb); ?>
 <script src="../../JS/edit_add.js"></script>
 
 
-<script>function add_ingredient() {
+    function add_ingredient(){
+        let div = document.createElement("div");
+        div.className = "form_ingredient";
+
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/addIngr.php";
         form.enctype = "multipart/form-data";
 
         let inputNom = document.createElement("input");
-        inputNom.placeholder = "nom";
+        inputNom.className = "inputNom_ingr";
+        inputNom.placeholder = "Nom de l'ingredient";
         inputNom.type = "text";
         inputNom.name = "nomIngr";
         inputNom.autofocus = true;
 
         let inputImg = document.createElement("input");
+        inputImg.className = "inputImg_ingr";
         inputImg.type = "file";
         inputImg.name = "image";
         inputImg.accept = "image/png, image/gif, image/jpeg";
@@ -75,27 +80,32 @@ $sr->generateliste($cb); ?>
         inputSubmit.type = "submit";
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
+        inputSubmit.className = "bouton_ingredient";
 
         let add_form_ingredient = document.getElementById("add_form_ingredient");
+
         form.appendChild(inputNom);
         form.appendChild(inputImg);
         form.appendChild(inputSubmit);
-        add_form_ingredient.appendChild(form);
+        div.appendChild(form);
+        add_form_ingredient.appendChild(div);
 
     }
 
-    function add_tag() {
+    function add_tag(){
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditTag/addTag.php";
 
         let inputNom = document.createElement("input");
-        inputNom.placeholder = "nom";
+        inputNom.className = "inputNom_tag";
+        inputNom.placeholder = "Nom du tag";
         inputNom.type = "text";
         inputNom.name = "nomTag";
         inputNom.autofocus = true;
 
         let inputSubmit = document.createElement("input");
+        inputSubmit.className = "bouton_tag";
         inputSubmit.type = "submit";
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
@@ -103,11 +113,12 @@ $sr->generateliste($cb); ?>
         let add_form_tag = document.getElementById("add_form_tag");
         form.appendChild(inputNom);
         form.appendChild(inputSubmit);
-        add_form_tag.appendChild(form);
+        div.appendChild(form);
+        add_form_tag.appendChild(div);
 
     }
 
-    function edit_ingredient(id, nom) {
+    function edit_ingredient(id,nom){
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/editIngr.php";
@@ -120,6 +131,7 @@ $sr->generateliste($cb); ?>
         inputId.value = id;
 
         let inputNom = document.createElement("input");
+        inputNom.className = "inputNom_ingr";
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomIngr";
@@ -127,6 +139,7 @@ $sr->generateliste($cb); ?>
         inputNom.autofocus = true;
 
         let inputImg = document.createElement("input");
+        inputImg.className = "inputImg_ingr";
         inputImg.type = "file";
         inputImg.name = "image";
         inputImg.accept = "image/png, image/gif, image/jpeg";
@@ -136,16 +149,17 @@ $sr->generateliste($cb); ?>
         inputSubmit.type = "submit";
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
+        inputSubmit.className = "bouton_ingredient"
 
         let edit_form_ingredient = document.getElementById("ingr" + id);
         form.appendChild(inputNom);
         form.appendChild(inputImg);
         form.appendChild(inputId);
         form.appendChild(inputSubmit);
-        edit_form_ingredient.appendChild(form);
+        div.appendChild(form);
+        edit_form_ingredient.appendChild(div);
     }
-
-    function edit_tag(id, nom) {
+    function edit_tag(id,nom){
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditTag/editTag.php";
@@ -157,6 +171,7 @@ $sr->generateliste($cb); ?>
         inputId.value = id;
 
         let inputNom = document.createElement("input");
+        inputNom.className = "inputNom_tag";
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomTag";
@@ -164,6 +179,7 @@ $sr->generateliste($cb); ?>
         inputNom.value = nom;
 
         let inputSubmit = document.createElement("input");
+        inputSubmit.className = "bouton_tag";
         inputSubmit.type = "submit";
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
@@ -172,7 +188,8 @@ $sr->generateliste($cb); ?>
         form.appendChild(inputNom);
         form.appendChild(inputId);
         form.appendChild(inputSubmit);
-        edit_form_tag.appendChild(form);
+        div.appendChild(form);
+        edit_form_tag.appendChild(div);
 
     }
 </script>

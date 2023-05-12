@@ -79,6 +79,8 @@
 .bouton_modif {
     display: flex;
     right: 0;
+
+    vertical-align: middle;
 }
 /*_____________Selection_tags______________*/
 #filtre_tags {
@@ -226,8 +228,9 @@
     resize: none;
     font-size: 1.2em;
     margin-top: 10px;
+    margin-bottom: 80px;
     width: 99.3%;
-    height: 300px;
+    height: 250px;
 }
 
 /*_____________Erreurs______________*/

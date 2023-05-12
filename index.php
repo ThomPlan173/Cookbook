@@ -99,6 +99,18 @@ $sr->generatesearch($cb); ?>
                 image.className = "image_recette";
                 image.src = rit_select[i].imgRecette;
 
+                image.addEventListener("mousemove", function (){
+                    recette.style.border = "5px";
+                    recette.style.width = recette.style.width  + "- 5px";
+                    recette.style.border = "solid";
+
+                })
+
+                image.addEventListener("mouseout", function (){
+                    recette.style.width = recette.style.width + "+ 5px";
+                    recette.style.border = "unset";
+                })
+
 
                 let div = document.createElement('div');
                 div.className = "text_ingr";
