@@ -12,7 +12,7 @@
 /*__________Selection_ingredients__________*/
 #filtre_ingredients {
     position: absolute;
-    height: 40%;
+    height: 50%;
     width: 100%;
 }
 
@@ -20,6 +20,45 @@
     width: 90%;
     height: 25px;
     margin: 10px;
+}
+
+#add_form_ingredient {
+    margin-bottom: 10px;
+}
+
+#add_bouton_ingr {
+    background-color: aqua;
+}
+
+.form_ingredient {
+    border: solid 1px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.inputNom_ingr {
+    width: 90%;
+
+    display: block;
+    margin: 2px auto;
+}
+
+.inputImg_ingr {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+.bouton_ingredient {
+    background-color: cornflowerblue;
+    border-color: blue;
+    border-radius: 5px;
+
+    width: 50%;
+
+    display: block;
+    margin: 2px auto;
 }
 
 #checkbox_ingredient {
@@ -30,23 +69,57 @@
     max-height: 30vh;
     width: 93%;
 
-
     overflow: auto;
 }
 
+.ingr{
+    display: flex;
+}
+
+.bouton_modif {
+    display: flex;
+    right: 0;
+}
 /*_____________Selection_tags______________*/
 #filtre_tags {
     position: absolute;
-    top: 40%;
-    height: 35%;
+    top: 50%;
+    height: 40%;
     width: 100%;
-
 }
 
 #search_tag {
     width: 90%;
     height: 25px;
     margin: 10px;
+}
+
+#add_form_tag {
+    margin-bottom: 10px;
+}
+
+.form_tag {
+    border: solid 1px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.inputNom_tag {
+    width: 90%;
+
+    display: block;
+    margin: 2px auto;
+}
+
+.bouton_tag {
+    background-color: cornflowerblue;
+    border-color: blue;
+    border-radius: 5px;
+
+    width: 50%;
+
+    display: block;
+    margin: 2px auto;
 }
 
 #checkbox_tag {
@@ -58,6 +131,10 @@
 
     overflow: auto;
 
+}
+
+.tag{
+    display: flex;
 }
 
 /*________________________________________________________________________________________*/
@@ -81,6 +158,11 @@
     font-size: 2.5em;
     height: 75px;
     width: 150px;
+
+    background-color: cornflowerblue;
+    border-color: blue;
+    border-radius: 50px;
+
 }
 
 .form-group {

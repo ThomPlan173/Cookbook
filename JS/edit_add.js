@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     add_form_ingredient.id = "add_form_ingredient";
 
     let add_button_ingredient = document.createElement('input');
-    add_button_ingredient.value = " + Ajouter un Ingredient";
+    add_button_ingredient.id = "add_bouton_inrg";
+    add_button_ingredient.value = "+ Ajouter un Ingredient";
     add_button_ingredient.type = "button";
     add_button_ingredient.setAttribute('onclick', 'add_ingredient()');
 
@@ -16,7 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let ingredient of vardataIngr) {
 
         let div = document.createElement('div');
-        div.id = "ingr"+ingredient.idIngredient;
+        div.className = "ingr";
+        div.id = "ingr" + ingredient.idIngredient;
+
         let input = document.createElement('input')
         input.type = "checkbox";
         input.name = ingredient.nomIngredient;
@@ -42,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let form_edit_ingredient = document.createElement('form');
         form_edit_ingredient.method = "get";
 
+        let div2 = document.createElement('div');
+        div2.className = "bouton_modif";
+
         let bouton_edit_ingredient = document.createElement('button');
         bouton_edit_ingredient.type = "button";
         bouton_edit_ingredient.id = "photo_tete";
@@ -50,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             form_delete_ingredient.hidden = true;
             label.hidden = true;
             input.hidden = true;
+
             edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
         })
 
@@ -87,10 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_ingredient.appendChild(bouton_delete_ingredient);
         bouton_delete_ingredient.appendChild(del);
 
+        div.appendChild(div2);
+        div2.appendChild(form_edit_ingredient);
+        div2.appendChild(form_delete_ingredient);
         div.appendChild(input);
         div.appendChild(label);
-        div.appendChild(form_edit_ingredient);
-        div.appendChild(form_delete_ingredient);
         div.appendChild(br);
 
         checkbox_ingr.appendChild(div);
@@ -113,7 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let tag of vardataTag) {
 
         let div = document.createElement('div');
-        div.id = "tag"+tag.idTag;
+        div.className = "tag";
+        div.id = "tag" + tag.idTag;
 
         let input = document.createElement('input')
         input.type = "checkbox";
@@ -135,6 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
         label.innerHTML = tag.nomTag;
 
         let br = document.createElement('br')
+
+        let div2 = document.createElement('div');
+        div2.className = "bouton_modif";
 
         let form_edit_tag = document.createElement('form');
         form_edit_tag.method = "get";
@@ -180,10 +192,11 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_tag.appendChild(bouton_delete_tag);
         bouton_delete_tag.appendChild(del);
 
+        div.appendChild(div2);
+        div2.appendChild(form_edit_tag);
+        div2.appendChild(form_delete_tag);
         div.appendChild(input);
         div.appendChild(label);
-        div.appendChild(form_edit_tag);
-        div.appendChild(form_delete_tag);
         div.appendChild(br);
 
         checkbox_tag.appendChild(div);
@@ -215,7 +228,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if ((ingredient.nomIngredient.toUpperCase().includes(input_ingr.value.toUpperCase())) || (ingredient_select.indexOf(ingredient.idIngredient) != -1)) {
 
                 let div = document.createElement('div');
-                div.id = "ingr"+ingredient.idIngredient;
+                div.className = "ingr";
+                div.id = "ingr" + ingredient.idIngredient;
 
                 let input = document.createElement('input')
                 input.type = "checkbox";
@@ -230,11 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         }
                     }
-                    ;
+
                 })
-                if (ingredient_select.indexOf(ingredient.idIngredient) != -1) {
-                    input.checked = true;
-                }
 
                 let label = document.createElement('label');
                 label.htmlFor = ingredient.nomIngredient;
@@ -245,6 +256,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 let form_edit_ingredient = document.createElement('form');
                 form_edit_ingredient.method = "get";
 
+                let div2 = document.createElement('div');
+                div2.className = "bouton_modif";
+
                 let bouton_edit_ingredient = document.createElement('button');
                 bouton_edit_ingredient.type = "button";
                 bouton_edit_ingredient.id = "photo_tete";
@@ -253,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     form_delete_ingredient.hidden = true;
                     label.hidden = true;
                     input.hidden = true;
+
                     edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
                 })
 
@@ -290,10 +305,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_delete_ingredient.appendChild(bouton_delete_ingredient);
                 bouton_delete_ingredient.appendChild(del);
 
+                div.appendChild(div2);
+                div2.appendChild(form_edit_ingredient);
+                div2.appendChild(form_delete_ingredient);
                 div.appendChild(input);
                 div.appendChild(label);
-                div.appendChild(form_edit_ingredient);
-                div.appendChild(form_delete_ingredient);
                 div.appendChild(br);
 
                 checkbox_ingr.appendChild(div);
@@ -327,7 +343,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if ((tag.nomTag.toUpperCase().includes(input_tag.value.toUpperCase())) || (tag_select.indexOf(tag.idTag) != -1)) {
 
                 let div = document.createElement('div');
-                div.id = "tag"+tag.idTag;
+                div.className = "tag";
+                div.id = "tag" + tag.idTag;
 
                 let input = document.createElement('input')
                 input.type = "checkbox";
@@ -342,19 +359,16 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         }
                     }
-
-                    ;
-
                 })
-                if (tag_select.indexOf(tag.idTag) != -1) {
-                    input.checked = true;
-                }
 
                 let label = document.createElement('label');
                 label.htmlFor = tag.nomTag;
                 label.innerHTML = tag.nomTag;
 
                 let br = document.createElement('br')
+
+                let div2 = document.createElement('div');
+                div2.className = "bouton_modif";
 
                 let form_edit_tag = document.createElement('form');
                 form_edit_tag.method = "get";
@@ -386,11 +400,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 bouton_delete_tag.name = "del";
                 bouton_delete_tag.value = tag.idTag;
                 bouton_delete_tag.addEventListener("click", function() {
-                        if (window.confirm("Voulais vous suprimer le tag :\n" +
-                                tag.nomTag)) {
-                                form_delete_tag.action = "/Projet_Recettes/pages/EditTag/deleteTag.php";
-                            }
-                         })
+                    if (window.confirm("Voulais vous suprimer le tag :\n" +
+                        tag.nomTag)) {
+                        form_delete_tag.action = "/Projet_Recettes/pages/EditTag/deleteTag.php";
+                    }
+                })
 
                 let del = document.createElement('img');
                 del.src = "/Projet_Recettes/images/trash-fill.png";
@@ -400,12 +414,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_delete_tag.appendChild(bouton_delete_tag);
                 bouton_delete_tag.appendChild(del);
 
-
-
+                div.appendChild(div2);
+                div2.appendChild(form_edit_tag);
+                div2.appendChild(form_delete_tag);
                 div.appendChild(input);
                 div.appendChild(label);
-                div.appendChild(form_edit_tag);
-                div.appendChild(form_delete_tag);
                 div.appendChild(br);
 
                 checkbox_tag.appendChild(div);
