@@ -154,7 +154,7 @@ class CoobookDB extends PdoWrapper
             return $this->exec("DELETE FROM attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}' ", null);
         }
     }
-    public function updateRecetteIngredient($boolChecked,$quantite, $unite, $idIngr, $idRecette){
+    public function updateRecetteIngredient($boolChecked,$quantite, $unite = null, $idIngr, $idRecette){
         if($boolChecked == true && $this->exec("SELECT * from contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
         ",null) == null  ){
             return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
@@ -165,5 +165,12 @@ class CoobookDB extends PdoWrapper
         else {
             return $this->exec("UPDATE contenir SET quantite = '{$quantite}', unite = '{$unite}' WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
         }  
+    }
+    public function addTagRecette($idTag,$idRecette){
+        return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}'", null);
+    }
+
+    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette){
+        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
     }
 }
