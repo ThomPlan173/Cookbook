@@ -60,21 +60,21 @@ $sr->generateliste($cb); ?>
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/addIngr.php";
-        form.enctype = "multipart/form-data";
+        form.enctype="multipart/form-data";
 
         let inputNom = document.createElement("input");
         inputNom.className = "inputNom_ingr";
         inputNom.placeholder = "Nom de l'ingredient";
         inputNom.type = "text";
         inputNom.name = "nomIngr";
-        inputNom.autofocus = true;
+        inputNom.autofocus = true ;
 
         let inputImg = document.createElement("input");
         inputImg.className = "inputImg_ingr";
         inputImg.type = "file";
         inputImg.name = "image";
         inputImg.accept = "image/png, image/gif, image/jpeg";
-        inputImg.autofocus = true;
+        inputImg.autofocus = true ;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.type = "submit";
@@ -93,6 +93,9 @@ $sr->generateliste($cb); ?>
     }
 
     function add_tag(){
+        let div = document.createElement("div");
+        div.className = "form_tag";
+
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditTag/addTag.php";
@@ -102,7 +105,7 @@ $sr->generateliste($cb); ?>
         inputNom.placeholder = "Nom du tag";
         inputNom.type = "text";
         inputNom.name = "nomTag";
-        inputNom.autofocus = true;
+        inputNom.autofocus = true ;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.className = "bouton_tag";
@@ -119,10 +122,13 @@ $sr->generateliste($cb); ?>
     }
 
     function edit_ingredient(id,nom){
+        let div = document.createElement("div");
+        div.className = "form_ingredient";
+
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditIngr/editIngr.php";
-        form.enctype = "multipart/form-data";
+        form.enctype="multipart/form-data";
 
         let inputId = document.createElement("input");
         inputId.hidden = true;
@@ -135,15 +141,15 @@ $sr->generateliste($cb); ?>
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomIngr";
-        inputNom.value = nom;
-        inputNom.autofocus = true;
+        inputNom.value = nom ;
+        inputNom.autofocus = true ;
 
         let inputImg = document.createElement("input");
         inputImg.className = "inputImg_ingr";
         inputImg.type = "file";
         inputImg.name = "image";
         inputImg.accept = "image/png, image/gif, image/jpeg";
-        inputImg.autofocus = true;
+        inputImg.autofocus = true ;
 
         let inputSubmit = document.createElement("input");
         inputSubmit.type = "submit";
@@ -151,7 +157,7 @@ $sr->generateliste($cb); ?>
         inputSubmit.value = "Valider";
         inputSubmit.className = "bouton_ingredient"
 
-        let edit_form_ingredient = document.getElementById("ingr" + id);
+        let edit_form_ingredient = document.getElementById("ingr"+id);
         form.appendChild(inputNom);
         form.appendChild(inputImg);
         form.appendChild(inputId);
@@ -159,7 +165,11 @@ $sr->generateliste($cb); ?>
         div.appendChild(form);
         edit_form_ingredient.appendChild(div);
     }
+
     function edit_tag(id,nom){
+        let div = document.createElement("div");
+        div.className = "form_tag";
+
         let form = document.createElement("form");
         form.method = "post";
         form.action = "../EditTag/editTag.php";
@@ -175,7 +185,7 @@ $sr->generateliste($cb); ?>
         inputNom.placeholder = "nom";
         inputNom.type = "text";
         inputNom.name = "nomTag";
-        inputNom.autofocus = true;
+        inputNom.autofocus = true ;
         inputNom.value = nom;
 
         let inputSubmit = document.createElement("input");
@@ -184,7 +194,7 @@ $sr->generateliste($cb); ?>
         inputSubmit.name = "submit";
         inputSubmit.value = "Valider";
 
-        let edit_form_tag = document.getElementById("tag" + id);
+        let edit_form_tag = document.getElementById("tag"+id);
         form.appendChild(inputNom);
         form.appendChild(inputId);
         form.appendChild(inputSubmit);

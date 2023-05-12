@@ -44,6 +44,7 @@
 .image_ingredient {
     width: 45px;
     height: 45px;
+    border-radius: 50%;
 }
 #flex {
     display: flex;
