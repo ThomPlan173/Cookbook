@@ -142,7 +142,7 @@ class CoobookDB extends PdoWrapper
         return $this->exec("SELECT COUNT(idRecette) FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);
     }
     public function getIngrQuantities($idIngr, $idRecette){
-        return $this->exec("SELECT quantite,unite FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
+        return $this->exec("SELECT idIngredient,quantite,unite FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ORDER BY idIngredient ASC ", null);
     }
 
     public function updateRecetteTags($boolChecked, $idTag, $idRecette){
