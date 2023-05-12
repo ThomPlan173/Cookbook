@@ -39,6 +39,9 @@ display: flex;
     width: 100%;
 }
 
+.content_bouton_recette {
+    width: 100%;
+}
 .button_header {
     color: black;
     font-size: 1.5vh;
@@ -46,7 +49,7 @@ display: flex;
     border: white;
     margin: 0;
 
-    width: 25%;
+    width: 100%;
     height: 10vh;
 }
 

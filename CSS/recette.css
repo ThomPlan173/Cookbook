@@ -22,6 +22,7 @@
 #photo_tete {
     width: 500px;
     height: 500px;
+    border-radius: 30px;
 }
 
 #ingredient {

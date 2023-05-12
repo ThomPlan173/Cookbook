@@ -15,9 +15,18 @@ $img = false;
 <?php ob_start() ;
 $sr->generateliste($cb); ?>
 <?php if(isset($_SESSION['errortext'])){
-?> <span class = "errortext"><?php echo $_SESSION['errortext']?> </span> <?php
+?>
+
+
+    <span class = "errortext"><?php echo $_SESSION['errortext']?> </span> <?php
 }
 ?>
+
+<script>
+    let error = document.getElementsByClassName("errortext");
+
+
+</script>
 
 <script>
     let vardataRit = <?php echo json_encode($dataRit); ?>;
