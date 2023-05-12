@@ -15,23 +15,9 @@ class Liste
                     <input id="search_ingredient" type="text" placeholder="Quels ingrédients" name="ingredient">
 
                     <div id="checkbox_ingredient">
-                        <?php $dataIngr = $cb->getAllIngredients(); ?>
-                        
-                        <?php if (isset($_GET["idRecette"])) {
-                            $array = array();
-                            foreach ($dataIngr as $idIngr) {
-                                $result = $cb->getIngrQuantities($idIngr->idIngredient, $_GET["idRecette"]);
-
-                                if ($result != null) {
-                                    echo $result[0]->quantite . " " . $result[0]->unite . "<br>";
-                                } else {
-                                    echo "aucun" . "<br>";
-                                }
-                                array_push($array, $result);
-                                
-                            }
-                           
-                        } ?>
+                        <?php $dataIngr = $cb->getAllIngredients(); 
+                        $dataQte = $cb->getIngrQuantities($_GET["idRecette"]);
+                        ?>
                         
                     </div>
 
@@ -65,7 +51,7 @@ class Liste
         <script>
             var vardataIngr = <?php echo json_encode($dataIngr); ?>;
             var vardataTag = <?php echo json_encode($dataTag); ?>;
-            var vardataQte =  <?php echo json_encode($array); ?>;
+            var vardataQte =  <?php echo json_encode($dataQte); ?>;
             console.log(vardataQte);
         </script>
 <?php

@@ -55,24 +55,12 @@ class cookbookDB extends PdoWrapper
     {
         return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag ORDER BY nomTag ASC", null);
     }
-    //Getter de tous le les ingrédients
+    //Getter de tous les ingrédients ( id et nom )
     public function getAllIngredients()
     {
         return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC", null);
     }
-    public function getAllRecettes()
-    {
-        return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC", null);
-    }
-    //Etabli une recherche en fonction de 2 paramètres :
-    // - $nom : valeur entrée dans la barre de recherche
-    // - $pref : recherche selon préférence utilisateur ( Alphabetique ou inversé ) 
 
-    // => Susceptible d'être modifié
-    public function search($nom, $pref)
-    {
-        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);
-    }
 
 // Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
 
@@ -81,70 +69,73 @@ class cookbookDB extends PdoWrapper
         $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' WHERE idRecette = '{$id}'";
         return $this->exec($sql, null);
     }
-
+    //update d'un ingredient spécifique
     public function updateIngredient($id,$img,$nom){
 
         $sql = "UPDATE ingredient SET nomIngredient = '{$nom}',imgIngredient = '{$img}' WHERE idIngredient = '{$id}'";
         return $this->exec($sql, null);
     }
-
+    //update d'un tag spécifique
     public function updateTag($id,$nom){
 
         $sql = "UPDATE tag SET nomTag = '{$nom}' WHERE idTag = '{$id}'";
         return $this->exec($sql, null);
     }
-
+    //ajouter une recette 
     public function addRecette($img,$nom,$description,$preparation){
 
         $sql = "INSERT INTO recette (nomRecette,imgRecette, Description, Preparation) VALUES ('$nom','$img','$description','$preparation')";
         return $this->exec($sql, null);
     }
-
+    //ajouter un ingredient
     public function addIngredient($img,$nom){
 
         $sql = "INSERT INTO ingredient (nomIngredient,imgIngredient) VALUES ('$nom','$img')";
         return $this->exec($sql, null);
     }
-
+    //ajouter un tag
     public function addTag($nom){
 
         $sql = "INSERT INTO tag (nomTag) VALUES ('$nom')";
         return $this->exec($sql, null);
     }
+    //Recuperation d'une recette, de ses informations, d'une liste d'id de tags, d'une liste d'id d'ingredients
     public function getAllRIT(){
         $sql = "SELECT r.idRecette,r.nomRecette,r.Description,r.imgRecette,
         ( SELECT GROUP_CONCAT(a.idTag) 
          FROM  attribuer as a
          where r.idRecette = a.idRecette
-        ) AS liste_de_tags ,
+        ) AS liste_tags ,
         ( SELECT GROUP_CONCAT(c.idIngredient ) 
          FROM  contenir as c
          where c.idRecette = r.idRecette
-        )  AS liste_de_ingredients
+        )  AS liste_ingredients
         FROM recette as r
         ORDER BY r.nomRecette ASC" ;
         return $this->exec($sql, null);
     }
+    //supprimer une recette
     public function deleteRecette($id)
     {
         return $this->exec("DELETE FROM recette WHERE idRecette = '$id'", null);
     }
+    //supprimer un ingredient
     public function deleteIngredient($id)
     {
         return $this->exec("DELETE FROM ingredient WHERE idIngredient = '$id'", null);
     }
+    //supprimer un Tag
     public function deleteTag($id)
     {
         return $this->exec("DELETE FROM tag WHERE idTag = '$id'", null);
     }
-    public function searchCount($nom, $pref)
-    {
-        return $this->exec("SELECT COUNT(idRecette) FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);
+    //obtenir pour un ingredient spécifique à une recette sa quantité et unité
+    public function getIngrQuantities( $idRecette){
+        return $this->exec("SELECT idIngredient,quantite,unite FROM contenir WHERE idRecette = '{$idRecette}'", null);
     }
-    public function getIngrQuantities($idIngr, $idRecette){
-        return $this->exec("SELECT idIngredient,quantite,unite FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ORDER BY idIngredient ASC ", null);
-    }
+    //mettre à jour les tags d'une recette spécifique
 
+    // Verifie la différence si on coche le tag, et qu'il n'est pas instancier dans la table "attribuer"
     public function updateRecetteTags($boolChecked, $idTag, $idRecette){
         if($boolChecked == true && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
         ",null) == null  ){

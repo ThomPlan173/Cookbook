@@ -5,12 +5,12 @@
             <div id="content_bouton_header">
                 <?php if(isset($_SESSION['login'])):
                     ?>
-                    <button class="button_header" onclick="window.location.href = '/Projet_Recettes/pages/EditRec/add.php';"><h2>Ajouter une Recette</h2></button>
+                    <button class="button_header" onclick="window.location.href = '/Projet_Recettes/pages/EditRec/add.php';"><h2>Ajouter une recette</h2></button>
 
                     <?php
                         if($_SERVER['PHP_SELF'] == '/Projet_Recettes/pages/recette.php' AND isset($_SESSION['idRecette'])): ?>
                             <form class="content_bouton_recette" method="get" action="EditRec/edit.php">
-                                <button class="button_header" type="submit" name="idRecette" value="<?= $_SESSION['idRecette']?>"><h2>Ajouter une Recette</h2></button>
+                                <button class="button_header" type="submit" name="idRecette" value="<?= $_SESSION['idRecette']?>"><h2>Modifier la recette</h2></button>
                             </form>
                         <?php
                         endif;
