@@ -131,7 +131,7 @@ class cookbookDB extends PdoWrapper
     }
     //obtenir pour un ingredient spécifique à une recette sa quantité et unité
     public function getIngrQuantities( $idRecette){
-        return $this->exec("SELECT idIngredient,quantite,unite FROM contenir WHERE idRecette = '{$idRecette}'", null);
+        return $this->exec("SELECT c.idIngredient,c.quantite,c.unite FROM contenir as c INNER JOIN ingredient as i ON c.idIngredient = i.idIngredient WHERE c.idRecette = '{$idRecette}' order by i.nomIngredient ", null);
     }
     //mettre à jour les tags d'une recette spécifique
 
