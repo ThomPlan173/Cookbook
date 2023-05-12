@@ -10,7 +10,8 @@ class Add
             <input type="submit" name="submit" class="submit" value="Ajouter">
             <div class="form-group">
                 <div id = "img">
-                    Image : <input id="input_img"  class = "input" type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
+                    Image : <input id="input_img"  class = "input"
+                                   type="file" name="image" accept="image/png, image/gif, image/jpeg" autofocus>
                     <?php if($img):?><span class = "errortext">IMG !</span> <?php endif; ?>
                 </div>
                 <div id = "nom">

@@ -50,7 +50,7 @@ class CoobookDB extends PdoWrapper
         ON r.idRecette = a.idRecette
         WHERE r.idRecette = '$id'", null);
     }
-    //Getter de tout les tags 
+    //Getter de tout les tags
     public function getAllTags()
     {
         return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag ORDER BY nomTag ASC", null);
@@ -71,13 +71,13 @@ class CoobookDB extends PdoWrapper
     // => Susceptible d'être modifié
     public function search($nom, $pref)
     {
-        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);      
+        return $this->exec("SELECT idRecette,nomRecette, imgRecette, Description FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);
     }
 
 // Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
-    
+
     public function updateRecette($id,$img,$nom,$description,$preparation){
- 
+
         $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' WHERE idRecette = '{$id}'";
         return $this->exec($sql, null);
     }
@@ -95,7 +95,7 @@ class CoobookDB extends PdoWrapper
     }
 
     public function addRecette($img,$nom,$description,$preparation){
- 
+
         $sql = "INSERT INTO recette (nomRecette,imgRecette, Description, Preparation) VALUES ('$nom','$img','$description','$preparation')";
         return $this->exec($sql, null);
     }
@@ -139,12 +139,12 @@ class CoobookDB extends PdoWrapper
     }
     public function searchCount($nom, $pref)
     {
-        return $this->exec("SELECT COUNT(idRecette) FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);      
+        return $this->exec("SELECT COUNT(idRecette) FROM recette WHERE nomRecette LIKE '%{$nom}%' ORDER BY nomRecette $pref", null);
     }
     public function getIngrQuantities($idIngr, $idRecette){
         return $this->exec("SELECT quantite,unite FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
     }
-    
+
     public function updateRecetteTags($boolChecked, $idTag, $idRecette){
         if($boolChecked == true && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
         ",null) == null  ){
@@ -164,7 +164,7 @@ class CoobookDB extends PdoWrapper
         }
         else {
             return $this->exec("UPDATE contenir SET quantite = '{$quantite}', unite = '{$unite}' WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
-        }  
+        }
     }
     public function addTagRecette($idTag,$idRecette){
         return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}'", null);

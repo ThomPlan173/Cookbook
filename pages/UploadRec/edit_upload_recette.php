@@ -6,15 +6,14 @@ Autoloader::register();
 $cb = new \cb\CoobookDB();
 $ed = new \Edit\Edit();
 $up = new \Upload\Upload();
-$_SESSION['id'] = $_POST['id'];
+
 $_SESSION['nom'] = $_POST['nom'];
 $_SESSION['description'] = $_POST['description'];
 $_SESSION['preparation'] =  $_POST['preparation'];
-$_SESSION['image'] = $_POST['image'];
+
 $response = $ed->verifRecette($_SESSION['nom'],$_SESSION['description'],$_SESSION['preparation']);
 $_SESSION['response'] = $response ;
-
-if($response['granted'] && $_SESSION['image'] != null ){
+if($response['granted']){
     $upload = $up->uploading("Recette");
     if($upload!=""):
         $_SESSION['image'] = $upload;

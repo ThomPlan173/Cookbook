@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
     add_button_tag.value = " + Ajouter un Tag";
     add_button_tag.type = "button";
     add_button_tag.setAttribute('onclick', 'add_tag()');
+
+
     add_form_tag.appendChild(add_button_tag);
 
     checkbox_tag.appendChild(add_form_tag);
