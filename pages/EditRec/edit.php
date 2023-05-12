@@ -52,7 +52,7 @@ $sr->generateliste($cb); ?>
 
 <script src="../../JS/edit_add.js"></script>
 
-
+<script>
     function add_ingredient(){
         let div = document.createElement("div");
         div.className = "form_ingredient";
