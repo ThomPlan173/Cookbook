@@ -50,7 +50,7 @@ $sr->generateliste($cb); ?>
     }
 </script>
 
-<script src="../../JS/edit_add.js"></script>
+<script src="../../JS/add.js"></script>
 
 <script>
 
@@ -237,4 +237,25 @@ $sr->generateliste($cb); ?>
 <?php $js = ob_get_clean() ?>
 
 <?php Template::render($content, $css, $js) ?>
+
+<script>
+    function CheckedTags(tag, id){
+            let i;
+            let box = document.getElementsByName(tag);
+            let hide_input = document.getElementById("hideTag"+id);
+            hide_input.value = "true";
+            for(i = 0;i<box.length;i++){
+                box[i].checked = true;
+            }
+    }
+
+    <?php if(isset($_SESSION["tagsChecked"])):
+        foreach($_SESSION["tagsChecked"] as $t){ ?>
+    document.addEventListener('DOMContentLoaded', function (){
+        CheckedTags("<?= $t->nomTag?>","<?= $t->idTag?>");
+    })
+
+
+    <?php } endif; ?>
+</script>
 

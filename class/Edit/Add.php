@@ -5,8 +5,8 @@ namespace Edit;
 class Add
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img = false): void{ ?>
-        <form method="post" action="../UploadRec/add_upload_recette.php" class="edit" enctype="multipart/form-data" >
-            <legend id = "legend">Ajout</legend>
+        <div id = "Addform" class="edit" >
+            <legend id = "legend" style="margin-left: 30%">Ajout</legend>
             <input type="submit" name="submit" class="submit" value="Ajouter">
             <div class="form-group">
                 <div id = "img">
@@ -31,8 +31,7 @@ class Add
                 </div>
 
             </div>
-
-        </form>
+        </div>
         <?php
     }
 

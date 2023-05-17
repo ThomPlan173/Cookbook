@@ -26,7 +26,7 @@ class Template
 
         <body>
             <?php include "Template/Header.php" ?>
-            <div class="content">
+            <div class="content" id = "content">
 
                 <?= $content  ?>
 

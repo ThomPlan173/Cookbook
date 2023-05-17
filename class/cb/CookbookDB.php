@@ -61,6 +61,11 @@ class cookbookDB extends PdoWrapper
         return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC", null);
     }
 
+    public function getAllRecettes()
+    {
+        return $this->exec("SELECT DISTINCT idRecette, nomRecette FROM recette" , null);
+    }
+
 
 // Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
 
@@ -139,7 +144,7 @@ class cookbookDB extends PdoWrapper
     public function updateRecetteTags($boolChecked, $idTag, $idRecette){
         if($boolChecked == true && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
         ",null) == null  ){
-            return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}'", null);
+            return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}')", null);
         }else if($boolChecked == false && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
         ",null) != null){
             return $this->exec("DELETE FROM attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}' ", null);
@@ -148,7 +153,7 @@ class cookbookDB extends PdoWrapper
     public function updateRecetteIngredient($boolChecked,$quantite, $unite = null, $idIngr, $idRecette){
         if($boolChecked == true && $this->exec("SELECT * from contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
         ",null) == null  ){
-            return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
+            return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}')", null);
         }else if($boolChecked == false && $this->exec("SELECT * from contenirWHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
         ",null) != null){
             return $this->exec("DELETE FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
@@ -158,10 +163,10 @@ class cookbookDB extends PdoWrapper
         }
     }
     public function addTagRecette($idTag,$idRecette){
-        return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}'", null);
+        return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}')", null);
     }
 
     public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette){
-        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
+        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}')", null);
     }
 }

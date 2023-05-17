@@ -6,11 +6,23 @@ Autoloader::register();
 $cb = new \cb\cookbookDB();
 $ad = new \Edit\Add();
 $up = new \Upload\Upload();
+$tags = $cb->getAllTags();
+$tagsChecked = null;
+$ingredients = $cb->getAllIngredients();
+$i = 0;
 
+foreach ( $tags as $t){
+    if($_POST["hideTag".$t->idTag]=="true"){
+        $tagsChecked[$i] = $t;
+        $i++;
+    }
+}
 
+$_SESSION['tagsChecked'] = $tagsChecked;
 $_SESSION['nom'] = $_POST['nom'];
 $_SESSION['description'] = $_POST['description'];
 $_SESSION['preparation'] =  $_POST['preparation'];
+//$_SESSION['verif'] = true; dans edit_upload
 
 $response = $ad->verifRecette($_SESSION['nom'],$_SESSION['description'],$_SESSION['preparation']);
 $_SESSION['response'] = $response ;
@@ -19,6 +31,13 @@ if($response['granted']){
     if($upload!=""):
         $_SESSION['image'] = $upload;
         $cb->addRecette($_SESSION['image'],htmlspecialchars($_SESSION['nom'],ENT_QUOTES),htmlspecialchars($_SESSION['description'], ENT_QUOTES),htmlspecialchars($_SESSION['preparation'], ENT_QUOTES));
+        $recettes = $cb->getAllRecettes();
+        foreach ($recettes as $r){
+            $idRecette = $r->idRecette;
+        }
+        foreach ($tagsChecked as $tc){
+            $cb->addTagRecette($tc->idTag, $idRecette);
+        }
         $_SESSION['response'] = null;
         $_SESSION['nom'] = null;
         $_SESSION['image'] =  null;

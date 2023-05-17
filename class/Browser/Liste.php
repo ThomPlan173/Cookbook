@@ -21,13 +21,11 @@ class Liste
                         
                     </div>
 
+
                 </form>
-
-
             </div>
 
             <div id="filtre_tags">
-                <form>
 
                     <input id="search_tag" type="text" placeholder="Quels tags">
 
@@ -35,7 +33,6 @@ class Liste
                         <?php $dataTag = $cb->getAllTags(); ?>
                     </div>
 
-                </form>
             </div>
 
 

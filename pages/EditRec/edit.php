@@ -50,7 +50,7 @@ $sr->generateliste($cb); ?>
     }
 </script>
 
-<script src="../../JS/edit_add.js"></script>
+<script src="../../JS/edit.js"></script>
 
 <script>
     function add_ingredient(){
