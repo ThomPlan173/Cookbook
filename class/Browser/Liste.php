@@ -10,19 +10,21 @@ class Liste
         <div id="filtres">
 
             <div id="filtre_ingredients">
-                <form>
 
                     <input id="search_ingredient" type="text" placeholder="Quels ingrédients" name="ingredient">
 
                     <div id="checkbox_ingredient">
                         <?php $dataIngr = $cb->getAllIngredients();
-                            $dataQte = $cb->getIngrQuantities($_GET["idRecette"]);
+                        $idRecette = null;
+                        if(isset($_GET["idRecette"])){
+                            $idRecette = $_GET["idRecette"];
+                        }
+                            $dataQte = $cb->getIngrQuantities($idRecette);
                         ?>
                         
                     </div>
 
 
-                </form>
             </div>
 
             <div id="filtre_tags">

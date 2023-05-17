@@ -7,10 +7,15 @@ $cb = new \cb\cookbookDB();
 $ad = new \Edit\Add();
 $up = new \Upload\Upload();
 $tags = $cb->getAllTags();
+$ingrs = $cb->getAllIngredients();
 $tagsChecked = null;
+$ingrsChecked = null;
+$quantitees = null;
+$unitees = null;
+$verifqte = true;
 $ingredients = $cb->getAllIngredients();
-$i = 0;
 
+$i = 0;
 foreach ( $tags as $t){
     if($_POST["hideTag".$t->idTag]=="true"){
         $tagsChecked[$i] = $t;
@@ -18,15 +23,32 @@ foreach ( $tags as $t){
     }
 }
 
+$i = 0;
+foreach ($ingrs as $ig){
+    if($_POST["hideIngr".$ig->idIngredient]=="true"){
+        $ingrsChecked[$i] = $ig;
+        if($_POST["qte".$ig->idIngredient]==""){
+            $_SESSION["errortext"]="Erreur pour la quantité d'un ingrédient !";
+            $verifqte=false;
+        }
+        $quantitees[$i] = $_POST["qte".$ig->idIngredient];
+        $unitees[$i] = $_POST["hideIngrUt".$ig->idIngredient];
+        $i++;
+    }
+}
+
 $_SESSION['tagsChecked'] = $tagsChecked;
+$_SESSION['ingrsChecked'] = $ingrsChecked;
 $_SESSION['nom'] = $_POST['nom'];
 $_SESSION['description'] = $_POST['description'];
 $_SESSION['preparation'] =  $_POST['preparation'];
-//$_SESSION['verif'] = true; dans edit_upload
+//$_SESSION['verifIngrs'] = true; dans edit_upload
+//$_SESSION['verifTags'] = true; dans edit_upload
 
 $response = $ad->verifRecette($_SESSION['nom'],$_SESSION['description'],$_SESSION['preparation']);
 $_SESSION['response'] = $response ;
 if($response['granted']){
+    if($verifqte):
     $upload = $up->uploading("Recette");
     if($upload!=""):
         $_SESSION['image'] = $upload;
@@ -38,16 +60,24 @@ if($response['granted']){
         foreach ($tagsChecked as $tc){
             $cb->addTagRecette($tc->idTag, $idRecette);
         }
+        $i = 0;
+        foreach ($ingrsChecked as $igc){
+            $cb->addIngredientRecette($quantitees[$i], $unitees[$i], $igc->idIngredient, $idRecette);
+            $i++;
+        }
         $_SESSION['response'] = null;
         $_SESSION['nom'] = null;
         $_SESSION['image'] =  null;
         $_SESSION['description'] = null;
         $_SESSION['preparation'] =  null;
         $_SESSION['errortext']=null;
+        $_SESSION['tagsChecked'] = null;
+        $_SESSION['ingrsChecked'] = null;
         header("Location: "."/Projet_Recettes/index.php");
         exit() ;
         endif;
+        endif;
 }
-header("Location: ".$_SERVER['HTTP_REFERER']);
-exit();
+//header("Location: ".$_SERVER['HTTP_REFERER']);
+//exit();
 

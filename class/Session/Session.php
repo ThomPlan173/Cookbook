@@ -18,5 +18,9 @@ class Session
         $_SESSION['responseEdit'] = null;
         $_SESSION['idTag'] = null;
         $_SESSION['nomTag'] = null;
+        $_SESSION['verifIngrs'] = null;
+        $_SESSION['verifTags'] = null;
+        $_SESSION['tagsChecked'] = null;
+        $_SESSION['ingrsChecked'] = null;
     }
 }

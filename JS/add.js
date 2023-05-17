@@ -31,13 +31,22 @@ document.addEventListener('DOMContentLoaded', function () {
         div.className = "ingr";
         div.id = "ingr" + ingredient.idIngredient;
 
+        let hide_input = document.createElement('input');
+        hide_input.hidden = true;
+        hide_input.name = "hideIngr"+ingredient.idIngredient;
+        hide_input.id = "hideIngr"+ingredient.idIngredient;
+        hide_input.type = "text";
+        hide_input.value = "false";
+
         let input = document.createElement('input')
         input.type = "checkbox";
         input.name = ingredient.nomIngredient;
         input.addEventListener('input', (event) => {
             if (event.currentTarget.checked) {
+                hide_input.value = "true";
                 ingredient_select.push(ingredient.idIngredient);
             } else {
+                hide_input.value = "false";
                 for (let i = 0; i < ingredient_select.length; i++) {
                     if (ingredient_select[i] == ingredient.idIngredient) {
                         let tempon = ingredient_select.splice(i, 1);
@@ -54,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let qte = document.createElement('input');
         qte.type = "number";
         qte.className = "quantite";
-        qte.name = "qte" + ingredient.nomIngredient;
+        qte.name = "qte" + ingredient.idIngredient;
         qte.max = 999;
         qte.min = 1;
 
@@ -106,6 +115,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        let hide_input_unite = document.createElement('input');
+        //hide_input_unite.hidden = true;
+        hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
+        hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
+        hide_input_unite.type = "text";
+        hide_input_unite.value = qte.value;
+
         let br = document.createElement('br');
 
         let form_edit_ingredient = document.createElement('form');
@@ -122,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
             form_delete_ingredient.hidden = true;
             label.hidden = true;
             input.hidden = true;
+            unite.hidden = true;
+            qte.hidden = true;
 
             edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
         })
@@ -162,9 +180,11 @@ document.addEventListener('DOMContentLoaded', function () {
         div2.appendChild(form_edit_ingredient);
         div2.appendChild(form_delete_ingredient);
         div.appendChild(input);
+        div.appendChild(hide_input);
         div.appendChild(label);
         div.appendChild(qte);
         div.appendChild(unite);
+        div.appendChild(hide_input_unite);
         div.appendChild(br);
 
         checkbox_ingr.appendChild(div);
@@ -203,10 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('input', (event) => {
             if (event.currentTarget.checked) {
                 tag_select.push(tag.idTag);
-                input.value = "true";
                 hide_input.value = "true";
             } else {
-                input.value = "false";
                 hide_input.value = "false";
                 for (let i = 0; i < tag_select.length; i++) {
                     if (tag_select[i] == tag.idTag) {
@@ -305,13 +323,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.className = "ingr";
                 div.id = "ingr" + ingredient.idIngredient;
 
+                let hide_input = document.createElement('input');
+                hide_input.hidden = true;
+                hide_input.name = "hideIngr"+ingredient.idIngredient;
+                hide_input.id = "hideIngr"+ingredient.idIngredient;
+                hide_input.type = "text";
+                hide_input.value = "false";
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = ingredient.nomIngredient;
                 input.addEventListener('input', (event) => {
                     if (event.currentTarget.checked) {
+                        hide_input.value = "true";
                         ingredient_select.push(ingredient.idIngredient);
                     } else {
+                        hide_input.value = "false";
                         for (let i = 0; i < ingredient_select.length; i++) {
                             if (ingredient_select[i] == ingredient.idIngredient) {
                                 let tempon = ingredient_select.splice(i, 1);
@@ -328,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let qte = document.createElement('input');
                 qte.type = "number";
                 qte.className = "quantite";
-                qte.name = "qte" + ingredient.nomIngredient;
+                qte.name = "qte" + ingredient.idIngredient;
                 qte.max = 999;
                 qte.min = 1;
 
@@ -380,6 +407,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
 
+                let hide_input_unite = document.createElement('input');
+                //hide_input_unite.hidden = true;
+                hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
+                hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
+                hide_input_unite.type = "text";
+                hide_input_unite.value = qte.value;
+
+
                 let br = document.createElement('br')
 
                 let form_edit_ingredient = document.createElement('form');
@@ -396,6 +431,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     form_delete_ingredient.hidden = true;
                     label.hidden = true;
                     input.hidden = true;
+                    unite.hidden = true;
+                    qte.hidden = true;
 
                     edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
                 })
@@ -438,9 +475,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 div2.appendChild(form_edit_ingredient);
                 div2.appendChild(form_delete_ingredient);
                 div.appendChild(input);
+                div.appendChild(hide_input);
                 div.appendChild(label);
                 div.appendChild(qte);
                 div.appendChild(unite);
+                div.appendChild(hide_input_unite);
                 div.appendChild(br);
 
 
@@ -491,10 +530,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 input.addEventListener('input', (event) => {
                     if (event.currentTarget.checked) {
                         tag_select.push(tag.idTag);
-                        input.value = 'true';
                         hide_input.value = "true";
                     } else {
-                        input.value = "false";
                         hide_input.value = "false";
                         for (let i = 0; i < tag_select.length; i++) {
                             if (tag_select[i] == tag.idTag) {
