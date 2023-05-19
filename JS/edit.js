@@ -1,15 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let content = document.getElementById("content");
-    let div_form_rec = document.getElementById("Editform");
-    let edit_form_rec = document.createElement("form");
-    edit_form_rec.action = "../UploadRec/edit_upload_recette.php";
-    edit_form_rec.method = "post";
-    edit_form_rec.enctype = "multipart/form-data";
+
+    let div_form_rec = document.getElementById("Addform");
+
+    let add_form_rec = document.createElement("form");
+    add_form_rec.action = "../UploadRec/edit_upload_recette.php";
+    add_form_rec.method = "post";
+    add_form_rec.enctype = "multipart/form-data";
+
     let filtres = document.getElementById("filtres");
-    edit_form_rec.appendChild(filtres);
-    edit_form_rec.appendChild(div_form_rec);
-    content.appendChild(edit_form_rec);
+
+    add_form_rec.appendChild(filtres);
+    add_form_rec.appendChild(div_form_rec);
+    content.appendChild(add_form_rec);
+
     let add_form_ingredient = document.createElement('form');
     add_form_ingredient.id = "add_form_ingredient";
 

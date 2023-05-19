@@ -166,7 +166,7 @@ class cookbookDB extends PdoWrapper
         return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}')", null);
     }
 
-    public function addIngredientRecette($quantite,$unite = null, $idIngr, $idRecette, ){
+    public function addIngredientRecette($quantite,$unite = null, $idIngr, $idRecette){
         return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}')", null);
     }
 

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     add_form_rec.appendChild(filtres);
     add_form_rec.appendChild(div_form_rec);
     content.appendChild(add_form_rec);
+
     let add_form_ingredient = document.createElement('form');
     add_form_ingredient.id = "add_form_ingredient";
 
