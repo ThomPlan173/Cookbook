@@ -14,7 +14,7 @@ $quantitees = null;
 $unitees = null;
 $verifqte = true;
 $ingredients = $cb->getAllIngredients();
-
+$_SESSION["errortext"]=null;
 $i = 0;
 foreach ( $tags as $t){
     if($_POST["hideTag".$t->idTag]=="true"){
@@ -39,11 +39,11 @@ foreach ($ingrs as $ig){
 
 $_SESSION['tagsChecked'] = $tagsChecked;
 $_SESSION['ingrsChecked'] = $ingrsChecked;
+$_SESSION['qte'] = $quantitees;
+$_SESSION['unite'] = $unitees;
 $_SESSION['nom'] = $_POST['nom'];
 $_SESSION['description'] = $_POST['description'];
 $_SESSION['preparation'] =  $_POST['preparation'];
-//$_SESSION['verifIngrs'] = true; dans edit_upload
-//$_SESSION['verifTags'] = true; dans edit_upload
 
 $response = $ad->verifRecette($_SESSION['nom'],$_SESSION['description'],$_SESSION['preparation']);
 $_SESSION['response'] = $response ;
@@ -62,7 +62,7 @@ if($response['granted']){
         }
         $i = 0;
         foreach ($ingrsChecked as $igc){
-            $cb->addIngredientRecette($quantitees[$i], $unitees[$i], $igc->idIngredient, $idRecette);
+            $cb->addIngredientRecette($quantitees[$i],$unitees[$i], $igc->idIngredient, $idRecette);
             $i++;
         }
         $_SESSION['response'] = null;
@@ -73,11 +73,13 @@ if($response['granted']){
         $_SESSION['errortext']=null;
         $_SESSION['tagsChecked'] = null;
         $_SESSION['ingrsChecked'] = null;
+        $_SESSION['unite'] = null;
+        $_SESSION['qte'] = null;
         header("Location: "."/Projet_Recettes/index.php");
         exit() ;
         endif;
         endif;
 }
-//header("Location: ".$_SERVER['HTTP_REFERER']);
-//exit();
+header("Location: ".$_SERVER['HTTP_REFERER']);
+exit();
 

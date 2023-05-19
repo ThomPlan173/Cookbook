@@ -64,12 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
         qte.type = "number";
         qte.className = "quantite";
         qte.name = "qte" + ingredient.idIngredient;
+        qte.id = "qte" + ingredient.idIngredient;
         qte.max = 999;
         qte.min = 1;
 
         let unite = document.createElement('select');
         unite.className = "unite_select";
         unite.name = "unite";
+        unite.id = "unite"+ ingredient.idIngredient;
 
         let option1 = document.createElement("option")
         option1.value = "";
@@ -116,11 +118,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         let hide_input_unite = document.createElement('input');
-        //hide_input_unite.hidden = true;
+        hide_input_unite.hidden = true;
         hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
         hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
         hide_input_unite.type = "text";
-        hide_input_unite.value = qte.value;
+        hide_input_unite.value = unite.value;
+
+        let addbutton  = document.getElementById("addsubmit");
+
+        addbutton.addEventListener('click', function (){
+            hide_input_unite.value = unite.value;
+        })
 
         let br = document.createElement('br');
 
@@ -356,12 +364,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 qte.type = "number";
                 qte.className = "quantite";
                 qte.name = "qte" + ingredient.idIngredient;
+                qte.id = "qte" + ingredient.idIngredient;
                 qte.max = 999;
                 qte.min = 1;
 
                 let unite = document.createElement('select');
                 unite.className = "unite_select";
                 unite.name = "unite";
+                unite.id = "unite"+ ingredient.idIngredient;
 
                 let option1 = document.createElement("option")
                 option1.value = "";
@@ -408,12 +418,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 let hide_input_unite = document.createElement('input');
-                //hide_input_unite.hidden = true;
+                hide_input_unite.hidden = true;
                 hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
                 hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
                 hide_input_unite.type = "text";
-                hide_input_unite.value = qte.value;
+                hide_input_unite.value = unite.value;
 
+                let addbutton  = document.getElementById("addsubmit");
+
+                addbutton.addEventListener('click', function (){
+                    hide_input_unite.value = unite.value;
+                })
 
                 let br = document.createElement('br')
 

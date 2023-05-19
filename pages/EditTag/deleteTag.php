@@ -7,5 +7,6 @@ $cb = new \cb\cookbookDB();
 
 $id = $_GET["del"];
 $cb->deleteTag($id);
+$cb->deleteTagAttribution($id);
 $_SESSION['errortext']=null;
 header("Location: ".$_SERVER['HTTP_REFERER']);

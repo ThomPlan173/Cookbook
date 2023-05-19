@@ -166,7 +166,27 @@ class cookbookDB extends PdoWrapper
         return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}')", null);
     }
 
-    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette){
+    public function addIngredientRecette($quantite,$unite = null, $idIngr, $idRecette, ){
         return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}')", null);
+    }
+
+    public function deleteIngredientContenir($idIngr)
+    {
+        return $this->exec("DELETE FROM contenir WHERE idIngredient = '$idIngr'", null);
+    }
+    //supprimer un Tag
+    public function deleteTagAttribution($idTag)
+    {
+        return $this->exec("DELETE FROM attribuer WHERE idTag = '$idTag'", null);
+    }
+
+    public function deleteRecAttribution($idRec)
+    {
+        return $this->exec("DELETE FROM attribuer WHERE idRecette = '$idRec'", null);
+    }
+
+    public function deleteRecContenir($idRec)
+    {
+        return $this->exec("DELETE FROM contenir WHERE idRecette = '$idRec'", null);
     }
 }
