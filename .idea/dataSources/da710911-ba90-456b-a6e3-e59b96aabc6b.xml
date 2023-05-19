@@ -1265,7 +1265,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Position>4</Position>
     </column>
     <column id="354" parent="337" name="unite">
-      <DasType>enum(&apos;Cuill?re ? caf?&apos;, &apos;Cuill?re ? soupe&apos;, &apos;mL&apos;, &apos;L&apos;, &apos;g&apos;)|0e</DasType>
+      <DasType>enum(&apos;Cuill?re ? caf?&apos;, &apos;Cuill?re ? soupe&apos;, &apos;mL&apos;, &apos;L&apos;, &apos;g&apos;, &apos;kg&apos;)|0e</DasType>
       <Position>5</Position>
     </column>
     <foreign-key id="355" parent="337" name="contenir_ibfk_1">
