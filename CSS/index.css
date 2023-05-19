@@ -31,7 +31,7 @@ label {
 
     margin-left: 10px;
     margin-right: 10px;
-    height: 37vh;
+    max-height: 37vh;
     width: 93%;
 
 
@@ -41,7 +41,6 @@ label {
 /*_____________Selection_tags______________*/
 #filtre_tags {
     position: absolute;
-
     top: 50%;
     height: 35%;
     width: 100%;
@@ -62,6 +61,7 @@ label {
     width: 93%;
 
     overflow: auto;
+
 }
 
 /*_____________Selection_trie______________*/
@@ -83,10 +83,10 @@ label {
 /*________________________________________________________________________________________*/
 #reste_page {
     margin-left: 300px;
-    margin-bottom: 0;
+    margin-bottom: 0px;
 }
 
-/*___________________Recette____________________*/
+/*________________Recette_________________*/
 .search {
     display: flex;
 
@@ -103,11 +103,14 @@ label {
     width: 250px;
 }
 
+
+
 #liste_recette {
     max-height: 83%;
 
     position: absolute;
     overflow: auto;
+
 }
 
 .recette {
@@ -123,6 +126,7 @@ label {
     visibility: hidden;
     margin-top: 4px;
     margin-bottom: 2px;
+    background-color: aqua;
 }
 
 .image_recette {
@@ -131,17 +135,16 @@ label {
 
     height: 250px;
     width: 250px;
+
 }
 
 .text_ingr {
     margin-top: 10px;
     margin-right: 20px;
-
 }
 
 .bouton_admin {
     display: flex;
     position: absolute;
     height: 25px;
-
 }

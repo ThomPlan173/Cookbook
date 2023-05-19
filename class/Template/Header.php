@@ -17,7 +17,7 @@
                     endif;?>
 
                 <?php if(!isset($_SESSION['login'])): ?>
-                    <button class="button_header" id="login" onclick="window.location.href = '/Projet_Recettes/pages/Login/login.php';"><h1>Admin</h1></button>
+                    <button class="button_footer" id="login" onclick="window.location.href = '/Projet_Recettes/pages/Login/login.php';"><h1>Admin</h1></button>
                 <?php else:?>
 
                     <button class="button_footer" id="logout" onclick="window.location.href = '/Projet_Recettes/pages/Login/logout.php';"><h1>Logout</h1></button>

@@ -1,20 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let content = document.getElementById("content");
-
-    let div_form_rec = document.getElementById("Addform");
-
-    let add_form_rec = document.createElement("form");
-    add_form_rec.action = "../UploadRec/edit_upload_recette.php";
-    add_form_rec.method = "post";
-    add_form_rec.enctype = "multipart/form-data";
-
+    let div_form_rec = document.getElementById("Editform");
+    let edit_form_rec = document.createElement("form");
+    edit_form_rec.action = "../UploadRec/edit_upload_recette.php";
+    edit_form_rec.method = "post";
+    edit_form_rec.enctype = "multipart/form-data";
     let filtres = document.getElementById("filtres");
-
-    add_form_rec.appendChild(filtres);
-    add_form_rec.appendChild(div_form_rec);
-    content.appendChild(add_form_rec);
-
+    edit_form_rec.appendChild(filtres);
+    edit_form_rec.appendChild(div_form_rec);
+    content.appendChild(edit_form_rec);
     let add_form_ingredient = document.createElement('form');
     add_form_ingredient.id = "add_form_ingredient";
 
@@ -64,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let label = document.createElement('label');
         label.htmlFor = ingredient.nomIngredient;
         label.innerHTML = ingredient.nomIngredient;
+
+        let qte_input = document.createElement("div");
+        qte_input.className = 'qte_div';
 
         let qte = document.createElement('input');
         qte.type = "number";
@@ -192,14 +190,16 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_ingredient.appendChild(bouton_delete_ingredient);
         bouton_delete_ingredient.appendChild(del);
 
+        qte_input.appendChild(qte);
+        qte_input.appendChild(unite);
+
         div.appendChild(div2);
         div2.appendChild(form_edit_ingredient);
         div2.appendChild(form_delete_ingredient);
         div.appendChild(input);
         div.appendChild(hide_input);
         div.appendChild(label);
-        div.appendChild(qte);
-        div.appendChild(unite);
+        div.appendChild(qte_input);
         div.appendChild(hide_input_unite);
         div.appendChild(br);
 

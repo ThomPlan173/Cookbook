@@ -55,8 +55,8 @@ $sr->generatesearch($cb); ?>
                 for (let id of ingredient_select) {
                     if (rit.liste_ingredients != null) {
                         if (rit.liste_ingredients.indexOf(id) != -1) {
-                            n_ingredient++;
 
+                            n_ingredient++;
                         }
                     }
                 }

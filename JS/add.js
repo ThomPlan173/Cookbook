@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     add_form_rec.appendChild(filtres);
     add_form_rec.appendChild(div_form_rec);
     content.appendChild(add_form_rec);
-
     let add_form_ingredient = document.createElement('form');
     add_form_ingredient.id = "add_form_ingredient";
 
@@ -19,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     add_button_ingredient.value = "+ Ajouter un Ingredient";
     add_button_ingredient.type = "button";
     add_button_ingredient.setAttribute('onclick', 'add_ingredient()');
+
 
     add_form_ingredient.appendChild(add_button_ingredient);
 
@@ -67,12 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
         qte.type = "number";
         qte.className = "quantite";
         qte.name = "qte" + ingredient.idIngredient;
+        qte.id = "qte" + ingredient.idIngredient;
         qte.max = 999;
         qte.min = 1;
 
         let unite = document.createElement('select');
         unite.className = "unite_select";
         unite.name = "unite";
+        unite.id = "unite"+ ingredient.idIngredient;
 
         let option1 = document.createElement("option")
         option1.value = "";
@@ -118,6 +120,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        let hide_input_unite = document.createElement('input');
+        hide_input_unite.hidden = true;
+        hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
+        hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
+        hide_input_unite.type = "text";
+        hide_input_unite.value = unite.value;
+
+        let addbutton  = document.getElementById("addsubmit");
+
+        addbutton.addEventListener('click', function (){
+            hide_input_unite.value = unite.value;
+        })
 
         let br = document.createElement('br');
 
@@ -173,6 +187,9 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_ingredient.appendChild(bouton_delete_ingredient);
         bouton_delete_ingredient.appendChild(del);
 
+        qte_input.appendChild(qte);
+        qte_input.appendChild(unite);
+
         div.appendChild(div2);
         div2.appendChild(form_edit_ingredient);
         div2.appendChild(form_delete_ingredient);
@@ -180,8 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
         div.appendChild(hide_input);
         div.appendChild(label);
         div.appendChild(qte_input);
-        qte_input.appendChild(qte);
-        qte_input.appendChild(unite);
+        div.appendChild(hide_input_unite);
         div.appendChild(br);
 
         checkbox_ingr.appendChild(div);
@@ -353,12 +369,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 qte.type = "number";
                 qte.className = "quantite";
                 qte.name = "qte" + ingredient.idIngredient;
+                qte.id = "qte" + ingredient.idIngredient;
                 qte.max = 999;
                 qte.min = 1;
 
                 let unite = document.createElement('select');
                 unite.className = "unite_select";
                 unite.name = "unite";
+                unite.id = "unite"+ ingredient.idIngredient;
 
                 let option1 = document.createElement("option")
                 option1.value = "";
@@ -403,6 +421,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         x++;
                     }
                 }
+
+                let hide_input_unite = document.createElement('input');
+                hide_input_unite.hidden = true;
+                hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
+                hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
+                hide_input_unite.type = "text";
+                hide_input_unite.value = unite.value;
+
+                let addbutton  = document.getElementById("addsubmit");
+
+                addbutton.addEventListener('click', function (){
+                    hide_input_unite.value = unite.value;
+                })
 
                 let br = document.createElement('br')
 
@@ -468,6 +499,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.appendChild(label);
                 div.appendChild(qte);
                 div.appendChild(unite);
+                div.appendChild(hide_input_unite);
                 div.appendChild(br);
 
 
