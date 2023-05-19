@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     add_button_ingredient.type = "button";
     add_button_ingredient.setAttribute('onclick', 'add_ingredient()');
 
-
     add_form_ingredient.appendChild(add_button_ingredient);
 
     checkbox_ingr.appendChild(add_form_ingredient);
@@ -59,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let label = document.createElement('label');
         label.htmlFor = ingredient.nomIngredient;
         label.innerHTML = ingredient.nomIngredient;
+
+        let qte_input = document.createElement("div");
+        qte_input.className = 'qte_div';
 
         let qte = document.createElement('input');
         qte.type = "number";
@@ -115,12 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        let hide_input_unite = document.createElement('input');
-        //hide_input_unite.hidden = true;
-        hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
-        hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
-        hide_input_unite.type = "text";
-        hide_input_unite.value = qte.value;
 
         let br = document.createElement('br');
 
@@ -182,9 +178,9 @@ document.addEventListener('DOMContentLoaded', function () {
         div.appendChild(input);
         div.appendChild(hide_input);
         div.appendChild(label);
-        div.appendChild(qte);
-        div.appendChild(unite);
-        div.appendChild(hide_input_unite);
+        div.appendChild(qte_input);
+        qte_input.appendChild(qte);
+        qte_input.appendChild(unite);
         div.appendChild(br);
 
         checkbox_ingr.appendChild(div);
@@ -407,14 +403,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
 
-                let hide_input_unite = document.createElement('input');
-                //hide_input_unite.hidden = true;
-                hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
-                hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
-                hide_input_unite.type = "text";
-                hide_input_unite.value = qte.value;
-
-
                 let br = document.createElement('br')
 
                 let form_edit_ingredient = document.createElement('form');
@@ -479,7 +467,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.appendChild(label);
                 div.appendChild(qte);
                 div.appendChild(unite);
-                div.appendChild(hide_input_unite);
                 div.appendChild(br);
 
 

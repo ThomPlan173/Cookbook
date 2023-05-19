@@ -224,7 +224,7 @@ $sr->generateliste($cb); ?>
 
 <?php ob_start() ?>
 
-<link rel="stylesheet" href="../../CSS/add.css">
+<link rel="stylesheet" href="../../CSS/edit.css">
 
 <?php $css = ob_get_clean() ?>
 

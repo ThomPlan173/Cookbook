@@ -6,8 +6,9 @@ class Edit
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img=false): void{ ?>
         <form method="post" action="../UploadRec/edit_upload_recette.php" class="edit" enctype="multipart/form-data" >
-            <legend id = "legend">Modification</legend>
-            <input type="submit" name="submit" class="submit" value="Modifier">
+            <legend id = "legend">Modification
+                <input type="submit" name="submit" class="submit" value="Modifier">
+            </legend>
             <div class="form-group">
                 <div id = "img">
                     Image : <input id="input_img"  class = "input"

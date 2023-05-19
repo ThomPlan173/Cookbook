@@ -1,5 +1,8 @@
 html, body {
-    background-color: #e7e7e7;
+    background-image: url("../img/Fond.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -16,7 +19,6 @@ html, body {
     height: 10vh;
     z-index: 9;
 
-
     background-color: powderblue;
 }
 
@@ -25,7 +27,7 @@ html, body {
     margin-right: auto;
     width: 1200px;
 
-display: flex;
+    display: flex;
 }
 
 #index {
@@ -47,13 +49,25 @@ display: flex;
     color: black;
     font-size: 1.5vh;
     background-color: powderblue;
-    border: white;
+    border: none;
     margin: 0;
 
     width: 100%;
     height: 10vh;
 }
 
+#login {
+    background-color: powderblue;
+    margin-left: 85%;
+    width: 15%;
+    border: none;
+}
+
+#logout {
+    background-color: darkgray;
+    width: 15%;
+    border: none;
+}
 
 /*_CONTENT_________________________________________________________________*/
 .content {
@@ -64,6 +78,7 @@ display: flex;
     top: 10vh;
 
     background-color: white;
+    opacity: 90%;
     font-family: 'Mochiy Pop One', sans-serif;
 
     max-width: 1200px;
@@ -80,34 +95,15 @@ display: flex;
     bottom: 0; left: 0;
 
     width: 100%;
-    height: 80px;
+    height: 45px;
 
     background-color: powderblue;
     color: black;
 }
 
-#login {
-    background-color: cornflowerblue;
-    border-color: blue;
-    margin-right: 20px;
-    border-radius: 15px;
-}
-
-#logout {
-    background-color: darkgray;
-    border-color: black;
-    margin-right: 20px;
-    border-radius: 15px;
-}
 
 #copyright {
-    margin-top: 10px;
+    margin: 10px;
+
 }
 
-/*_SIDEBAR___________________________________________________________________*/
-
-#sidebar{
-    margin-top: 4%;
-    position: center;
-    color: red;
-}
