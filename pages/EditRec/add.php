@@ -50,7 +50,7 @@ $sr->generateliste($cb); ?>
     }
 </script>
 
-<script src="../../JS/edit_add.js"></script>
+<script src="../../JS/add.js"></script>
 
 <script>
 
@@ -237,4 +237,49 @@ $sr->generateliste($cb); ?>
 <?php $js = ob_get_clean() ?>
 
 <?php Template::render($content, $css, $js) ?>
+
+<script>
+    function CheckedTags(tag, id){
+            let i;
+            let box = document.getElementsByName(tag);
+            let hide_input = document.getElementById("hideTag"+id);
+            hide_input.value = "true";
+            for(i = 0;i<box.length;i++){
+                box[i].checked = true;
+            }
+    }
+
+    <?php if(isset($_SESSION["tagsChecked"])):
+        foreach($_SESSION["tagsChecked"] as $t){ ?>
+    document.addEventListener('DOMContentLoaded', function (){
+        CheckedTags("<?= $t->nomTag?>","<?= $t->idTag?>");
+    })
+    <?php } endif; ?>
+
+    function CheckedIngredients(ingredient, id, qteval, uniteval = null){
+        let i;
+        let box = document.getElementsByName(ingredient);
+        let hide_input = document.getElementById("hideIngr"+id);
+        hide_input.value = "true";
+        for(i = 0;i<box.length;i++){
+            box[i].checked = true;
+        }
+        let unite = document.getElementById("unite"+id);
+        unite.value = uniteval;
+        let qte = document.getElementById("qte"+id);
+        qte.value = qteval;
+    }
+
+    <?php if(isset($_SESSION["ingrsChecked"])):
+    $i = 0;
+    $quantitees = $_SESSION['qte'];
+    $unitees = $_SESSION['unite'];
+    foreach($_SESSION["ingrsChecked"] as $ig){ ?>
+    document.addEventListener('DOMContentLoaded', function (){
+        CheckedIngredients("<?= $ig->nomIngredient?>","<?= $ig->idIngredient?>","<?= $quantitees[$i] ?>","<?= $unitees[$i] ?>");
+    })
+
+    <?php $i++; } endif; ?>
+
+</script>
 

@@ -27,7 +27,6 @@
 }
 
 #add_bouton_ingr {
-    background-color: aqua;
 }
 
 .form_ingredient {
@@ -74,6 +73,23 @@
 
 .ingr{
     display: flex;
+}
+
+.qte_div {
+    display: flex;
+    height: 20px;
+    width: 90px;
+}
+
+.quantite {
+    width: 40px;
+    height: 14px;
+}
+
+.unite {
+    width: 500px;
+    height:20px;
+    line-height:20px;
 }
 
 .bouton_modif {
@@ -148,28 +164,29 @@
 #legend {
     text-align: center;
     font-size: 3em;
-
+    margin-left: 300px;
     color: darkred;
 }
 
 .submit{
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
 
-    font-size: 2.5em;
-    height: 75px;
+    font-size: 1em;
+    height: 65px;
     width: 150px;
 
     background-color: cornflowerblue;
     border-color: blue;
-    border-radius: 50px;
+    border-radius: 15px;
 
 }
 
 .form-group {
     display: ruby;
     margin: 20px;
+    margin-left: 320px;
     font-size: 1.5em;
     margin-bottom: 90px;
 }
@@ -213,7 +230,7 @@
     resize: none;
     font-size: 1.2em;
     margin-top: 10px;
-    width: 99.3%;
+    width: 100%;
     height: 150px;
 }
 
@@ -228,9 +245,9 @@
     resize: none;
     font-size: 1.2em;
     margin-top: 10px;
-    margin-bottom: 80px;
-    width: 99.3%;
-    height: 250px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 300px;
 }
 
 /*_____________Erreurs______________*/
@@ -240,4 +257,6 @@
 
 .errortext{
     color : orangered;
+    z-index: 10;
+    text-align: center;
 }

@@ -22,6 +22,7 @@ if ($response['granted']) {
         $_SESSION['nomIngr'] = null;
         $_SESSION['image'] =  null;
         $_SESSION['idIngr'] = null;
+        $_SESSION['errortext'] = null;
         header("Location: ".$_SERVER['HTTP_REFERER']);
         exit();
     endif;

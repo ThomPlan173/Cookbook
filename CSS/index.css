@@ -1,7 +1,7 @@
 #filtres {
     position: absolute;
     width: 300px;
-    height: 85%;
+    height: 90%;
 
     padding-bottom: 80px;
 
@@ -16,7 +16,7 @@ label {
 /*__________Selection_ingredients__________*/
 #filtre_ingredients {
     position: absolute;
-    height: 40%;
+    height: 50%;
     width: 100%;
 }
 
@@ -31,7 +31,7 @@ label {
 
     margin-left: 10px;
     margin-right: 10px;
-    max-height: 30vh;
+    max-height: 37vh;
     width: 93%;
 
 
@@ -41,7 +41,7 @@ label {
 /*_____________Selection_tags______________*/
 #filtre_tags {
     position: absolute;
-    top: 40%;
+    top: 50%;
     height: 35%;
     width: 100%;
 
@@ -57,7 +57,7 @@ label {
     position: absolute;
     margin-left: 10px;
     margin-right: 10px;
-    max-height: 32vh;
+    height: 25vh;
     width: 93%;
 
     overflow: auto;
@@ -68,7 +68,7 @@ label {
 #trie {
     position: absolute;
     width: 268px;
-    top:75%;
+    top:86%;
     margin-left: 10px;
 }
 
@@ -86,11 +86,11 @@ label {
     margin-bottom: 0px;
 }
 
-/*________________Recherche_________________*/
+/*________________Recette_________________*/
 .search {
     display: flex;
 
-    padding-top: 10px;
+    padding-top: 5px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -106,7 +106,7 @@ label {
 
 
 #liste_recette {
-    max-height: 78%;
+    max-height: 83%;
 
     position: absolute;
     overflow: auto;
@@ -124,7 +124,8 @@ label {
 
 .bouton_image_recette {
     visibility: hidden;
-    margin: 5px;
+    margin-top: 4px;
+    margin-bottom: 2px;
     background-color: aqua;
 }
 
@@ -144,7 +145,6 @@ label {
 
 .bouton_admin {
     display: flex;
-
-    margin-top: 5px;
-    margin-right: 5px;
+    position: absolute;
+    height: 25px;
 }

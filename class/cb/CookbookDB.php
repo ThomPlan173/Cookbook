@@ -75,6 +75,11 @@ class cookbookDB extends PdoWrapper
         return $this->exec($query, null);
     }
 
+    public function getAllRecettes()
+    {
+        return $this->exec("SELECT DISTINCT idRecette, nomRecette FROM recette" , null);
+    }
+
     // Update d'une recette spécifique dans la base de données
     public function updateRecette($id, $img, $nom, $description, $preparation)
     {
@@ -180,41 +185,41 @@ class cookbookDB extends PdoWrapper
             return $this->exec("DELETE FROM attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}' ", null);
         }
     }
-    public function updateRecetteIngredient($boolChecked, $quantite, $unite = null, $idIngr, $idRecette)
-    {
-        if ($boolChecked == true && $this->exec("SELECT * from contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
-        ", null) == null) {
-            return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
-        } else if ($boolChecked == false && $this->exec("SELECT * from contenirWHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
-        ", null) != null) {
+    public function updateRecetteIngredient($boolChecked,$quantite, $unite = null, $idIngr, $idRecette){
+        if($boolChecked == true && $this->exec("SELECT * from contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
+        ",null) == null  ){
+            return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}')", null);
+        }else if($boolChecked == false && $this->exec("SELECT * from contenirWHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
+        ",null) != null){
             return $this->exec("DELETE FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
         } else {
             return $this->exec("UPDATE contenir SET quantite = '{$quantite}', unite = '{$unite}' WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
         }
     }
-    // Ajoute un tag à une recette dans la base de données
-    public function addTagRecette($idTag, $idRecette)
-    {
-        $query = "INSERT INTO attribuer (idRecette, idTag) VALUES (:idRecette, :idTag)";
-        $params = array(
-            'idRecette' => $idRecette, // Paramètre nommé pour l'ID de la recette
-            'idTag' => $idTag // Paramètre nommé pour l'ID du tag
-        );
-
-        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
+    public function addTagRecette($idTag,$idRecette){
+        return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}')", null);
     }
 
-    // Ajoute un ingrédient à une recette dans la base de données
-    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette)
-    {
-        $query = "INSERT INTO contenir (idRecette, idIngredient, quantite, unite) VALUES (:idRecette, :idIngr, :quantite, :unite)";
-        $params = array(
-            'idRecette' => $idRecette, // Paramètre nommé pour l'ID de la recette
-            'idIngr' => $idIngr, // Paramètre nommé pour l'ID de l'ingrédient
-            'quantite' => $quantite, // Paramètre nommé pour la quantité
-            'unite' => $unite // Paramètre nommé pour l'unité (optionnel)
-        );
+    public function addIngredientRecette($quantite,$unite = null, $idIngr, $idRecette){
+        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}')", null);
+    }
 
-        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
+    public function deleteIngredientContenir($idIngr)
+    {
+        return $this->exec("DELETE FROM contenir WHERE idIngredient = '$idIngr'", null);
+    }
+    //supprimer un Tag
+    public function deleteTagAttribution($idTag)
+    {
+        return $this->exec("DELETE FROM attribuer WHERE idTag = '$idTag'", null);
+    }
+
+    public function deleteRecAttribution($idRec)
+    {
+        return $this->exec("DELETE FROM attribuer WHERE idRecette = '$idRec'", null);
+    }
+
+    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette){
+        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
     }
 }

@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `contenir` (
   `idRecette` int(11) DEFAULT NULL,
   `idIngredient` int(11) DEFAULT NULL,
   `quantite` int(11) NOT NULL,
-  `unite` enum('Cuill?re ? caf?','Cuill?re ? soupe','mL','L','g') DEFAULT NULL,
+  `unite` enum('Cuill?re ? caf?','Cuill?re ? soupe','mL','L','g', 'kg') DEFAULT NULL,
   PRIMARY KEY (`idContenir`),
   KEY `contenir_ibfk_1` (`idRecette`),
   KEY `contenir_ibfk_2` (`idIngredient`)

@@ -13,6 +13,7 @@ class Template
             <meta charset="UTF-8">
             <title>Projet Web3</title>
 
+            <link rel="icon" href = "/Projet_Recettes/class/Template/img/index.png" >
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
@@ -26,13 +27,13 @@ class Template
 
         <body>
             <?php include "Template/Header.php" ?>
-            <div class="content">
+            <div class="content" id = "content">
 
                 <?= $content  ?>
 
-                <?php include "Template/Footer.php" ?>
-            </div>
 
+            </div>
+                <?php include "Template/Footer.php" ?>
             <script src="/Projet_Recettes/class/Template/JS/main.js"></script>
             <?php if ($js != null) { ?>
                 <?= $js; ?>

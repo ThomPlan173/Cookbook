@@ -7,4 +7,6 @@ $cb = new \cb\cookbookDB();
 
 $id = $_GET["del"];
 $cb->deleteRecette($id);
+$cb->deleteRecAttribution($id);
+$cb->deleteRecContenir($id);
 header("Location: "."/Projet_Recettes/index.php");

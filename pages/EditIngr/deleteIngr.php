@@ -7,5 +7,6 @@ $cb = new \cb\cookbookDB();
 
 $id = $_GET["del"];
 $cb->deleteIngredient($id);
+$cb->deleteIngredientContenir($id);
 $_SESSION['errortext']=null;
 header("Location: ".$_SERVER['HTTP_REFERER']);

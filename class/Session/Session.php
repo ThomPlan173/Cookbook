@@ -18,5 +18,10 @@ class Session
         $_SESSION['responseEdit'] = null;
         $_SESSION['idTag'] = null;
         $_SESSION['nomTag'] = null;
+        $_SESSION['verif'] = null;
+        $_SESSION['tagsChecked'] = null;
+        $_SESSION['ingrsChecked'] = null;
+        $_SESSION['unite'] = null;
+        $_SESSION['qte'] = null;
     }
 }

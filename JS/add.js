@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    let content = document.getElementById("content");
+    let div_form_rec = document.getElementById("Addform");
+    let add_form_rec = document.createElement("form");
+    add_form_rec.action = "../UploadRec/add_upload_recette.php";
+    add_form_rec.method = "post";
+    add_form_rec.enctype = "multipart/form-data";
+    let filtres = document.getElementById("filtres");
+    add_form_rec.appendChild(filtres);
+    add_form_rec.appendChild(div_form_rec);
+    content.appendChild(add_form_rec);
     let add_form_ingredient = document.createElement('form');
     add_form_ingredient.id = "add_form_ingredient";
 
     let add_button_ingredient = document.createElement('input');
-    add_button_ingredient.id = "add_bouton_inrg";
+    add_button_ingredient.id = "add_bouton_ingr";
     add_button_ingredient.value = "+ Ajouter un Ingredient";
     add_button_ingredient.type = "button";
     add_button_ingredient.setAttribute('onclick', 'add_ingredient()');
@@ -21,13 +31,22 @@ document.addEventListener('DOMContentLoaded', function () {
         div.className = "ingr";
         div.id = "ingr" + ingredient.idIngredient;
 
+        let hide_input = document.createElement('input');
+        hide_input.hidden = true;
+        hide_input.name = "hideIngr"+ingredient.idIngredient;
+        hide_input.id = "hideIngr"+ingredient.idIngredient;
+        hide_input.type = "text";
+        hide_input.value = "false";
+
         let input = document.createElement('input')
         input.type = "checkbox";
         input.name = ingredient.nomIngredient;
         input.addEventListener('input', (event) => {
             if (event.currentTarget.checked) {
+                hide_input.value = "true";
                 ingredient_select.push(ingredient.idIngredient);
             } else {
+                hide_input.value = "false";
                 for (let i = 0; i < ingredient_select.length; i++) {
                     if (ingredient_select[i] == ingredient.idIngredient) {
                         let tempon = ingredient_select.splice(i, 1);
@@ -41,16 +60,21 @@ document.addEventListener('DOMContentLoaded', function () {
         label.htmlFor = ingredient.nomIngredient;
         label.innerHTML = ingredient.nomIngredient;
 
+        let qte_input = document.createElement("div");
+        qte_input.className = 'qte_div';
+
         let qte = document.createElement('input');
         qte.type = "number";
         qte.className = "quantite";
-        qte.name = "qte" + ingredient.nomIngredient;
+        qte.name = "qte" + ingredient.idIngredient;
+        qte.id = "qte" + ingredient.idIngredient;
         qte.max = 999;
         qte.min = 1;
 
         let unite = document.createElement('select');
         unite.className = "unite_select";
         unite.name = "unite";
+        unite.id = "unite"+ ingredient.idIngredient;
 
         let option1 = document.createElement("option")
         option1.value = "";
@@ -96,6 +120,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        let hide_input_unite = document.createElement('input');
+        hide_input_unite.hidden = true;
+        hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
+        hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
+        hide_input_unite.type = "text";
+        hide_input_unite.value = unite.value;
+
+        let addbutton  = document.getElementById("addsubmit");
+
+        addbutton.addEventListener('click', function (){
+            hide_input_unite.value = unite.value;
+        })
+
         let br = document.createElement('br');
 
         let form_edit_ingredient = document.createElement('form');
@@ -112,6 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
             form_delete_ingredient.hidden = true;
             label.hidden = true;
             input.hidden = true;
+            unite.hidden = true;
+            qte.hidden = true;
 
             edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
         })
@@ -148,13 +187,17 @@ document.addEventListener('DOMContentLoaded', function () {
         form_delete_ingredient.appendChild(bouton_delete_ingredient);
         bouton_delete_ingredient.appendChild(del);
 
+        qte_input.appendChild(qte);
+        qte_input.appendChild(unite);
+
         div.appendChild(div2);
         div2.appendChild(form_edit_ingredient);
         div2.appendChild(form_delete_ingredient);
         div.appendChild(input);
+        div.appendChild(hide_input);
         div.appendChild(label);
-        div.appendChild(qte);
-        div.appendChild(unite);
+        div.appendChild(qte_input);
+        div.appendChild(hide_input_unite);
         div.appendChild(br);
 
         checkbox_ingr.appendChild(div);
@@ -180,13 +223,22 @@ document.addEventListener('DOMContentLoaded', function () {
         div.className = "tag";
         div.id = "tag" + tag.idTag;
 
+        let hide_input = document.createElement('input');
+        hide_input.hidden = true;
+        hide_input.name = "hideTag"+tag.idTag;
+        hide_input.id = "hideTag"+tag.idTag;
+        hide_input.type = "text";
+        hide_input.value = "false";
+
         let input = document.createElement('input')
         input.type = "checkbox";
         input.name = tag.nomTag;
         input.addEventListener('input', (event) => {
             if (event.currentTarget.checked) {
                 tag_select.push(tag.idTag);
+                hide_input.value = "true";
             } else {
+                hide_input.value = "false";
                 for (let i = 0; i < tag_select.length; i++) {
                     if (tag_select[i] == tag.idTag) {
                         let tempon = tag_select.splice(i, 1);
@@ -252,6 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
         div2.appendChild(form_edit_tag);
         div2.appendChild(form_delete_tag);
         div.appendChild(input);
+        div.appendChild(hide_input);
         div.appendChild(label);
         div.appendChild(br);
 
@@ -283,13 +336,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.className = "ingr";
                 div.id = "ingr" + ingredient.idIngredient;
 
+                let hide_input = document.createElement('input');
+                hide_input.hidden = true;
+                hide_input.name = "hideIngr"+ingredient.idIngredient;
+                hide_input.id = "hideIngr"+ingredient.idIngredient;
+                hide_input.type = "text";
+                hide_input.value = "false";
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = ingredient.nomIngredient;
                 input.addEventListener('input', (event) => {
                     if (event.currentTarget.checked) {
+                        hide_input.value = "true";
                         ingredient_select.push(ingredient.idIngredient);
                     } else {
+                        hide_input.value = "false";
                         for (let i = 0; i < ingredient_select.length; i++) {
                             if (ingredient_select[i] == ingredient.idIngredient) {
                                 let tempon = ingredient_select.splice(i, 1);
@@ -306,13 +368,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 let qte = document.createElement('input');
                 qte.type = "number";
                 qte.className = "quantite";
-                qte.name = "qte" + ingredient.nomIngredient;
+                qte.name = "qte" + ingredient.idIngredient;
+                qte.id = "qte" + ingredient.idIngredient;
                 qte.max = 999;
                 qte.min = 1;
 
                 let unite = document.createElement('select');
                 unite.className = "unite_select";
                 unite.name = "unite";
+                unite.id = "unite"+ ingredient.idIngredient;
 
                 let option1 = document.createElement("option")
                 option1.value = "";
@@ -358,6 +422,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
 
+                let hide_input_unite = document.createElement('input');
+                hide_input_unite.hidden = true;
+                hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
+                hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
+                hide_input_unite.type = "text";
+                hide_input_unite.value = unite.value;
+
+                let addbutton  = document.getElementById("addsubmit");
+
+                addbutton.addEventListener('click', function (){
+                    hide_input_unite.value = unite.value;
+                })
+
                 let br = document.createElement('br')
 
                 let form_edit_ingredient = document.createElement('form');
@@ -374,6 +451,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     form_delete_ingredient.hidden = true;
                     label.hidden = true;
                     input.hidden = true;
+                    unite.hidden = true;
+                    qte.hidden = true;
 
                     edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
                 })
@@ -416,9 +495,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 div2.appendChild(form_edit_ingredient);
                 div2.appendChild(form_delete_ingredient);
                 div.appendChild(input);
+                div.appendChild(hide_input);
                 div.appendChild(label);
                 div.appendChild(qte);
                 div.appendChild(unite);
+                div.appendChild(hide_input_unite);
                 div.appendChild(br);
 
 
@@ -456,13 +537,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.className = "tag";
                 div.id = "tag" + tag.idTag;
 
+                let hide_input = document.createElement('input');
+                hide_input.hidden = true;
+                hide_input.name = "hideTag"+tag.idTag;
+                hide_input.id = "hideTag"+tag.idTag;
+                hide_input.type = "text";
+                hide_input.value = "false";
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = tag.nomTag;
                 input.addEventListener('input', (event) => {
                     if (event.currentTarget.checked) {
                         tag_select.push(tag.idTag);
+                        hide_input.value = "true";
                     } else {
+                        hide_input.value = "false";
                         for (let i = 0; i < tag_select.length; i++) {
                             if (tag_select[i] == tag.idTag) {
                                 let tempon = tag_select.splice(i, 1);
@@ -470,6 +560,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
                 })
+
+
 
                 let label = document.createElement('label');
                 label.htmlFor = tag.nomTag;
@@ -528,6 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 div2.appendChild(form_edit_tag);
                 div2.appendChild(form_delete_tag);
                 div.appendChild(input);
+                div.appendChild(hide_input);
                 div.appendChild(label);
                 div.appendChild(br);
 

@@ -53,8 +53,8 @@ $sr->generatesearch($cb); ?>
             if (rit.nomRecette.toUpperCase().includes(input_rit.value.toUpperCase())) {
                 let n_ingredient = 0;
                 for (let id of ingredient_select) {
-                    if (rit.liste_de_ingredients != null) {
-                        if (rit.liste_de_ingredients.indexOf(id) != -1) {
+                    if (rit.liste_ingredients != null) {
+                        if (rit.liste_ingredients.indexOf(id) != -1) {
 
                             n_ingredient++;
                         }
@@ -63,8 +63,8 @@ $sr->generatesearch($cb); ?>
                 if (n_ingredient == ingredient_select.length) {
                     let n_tag = 0;
                     for (let id of tag_select) {
-                        if (rit.liste_de_tags != null) {
-                            if (rit.liste_de_tags.indexOf(id) != -1) {
+                        if (rit.liste_tags != null) {
+                            if (rit.liste_tags.indexOf(id) != -1) {
                                 n_tag++;
                             }
                         }
@@ -171,7 +171,7 @@ $sr->generatesearch($cb); ?>
                     del.width = 25;
                     del.height = 25;
 
-                    recette.appendChild(admin);
+                    div.appendChild(admin);
 
                     admin.appendChild(form1);
                     form1.appendChild(bouton1);
