@@ -142,6 +142,7 @@ $sr->generatesearch($cb); ?>
                     let bouton1 = document.createElement('button');
                     bouton1.type = "submit";
                     bouton1.id = "photo_tete";
+                    bouton1.className = "button_edit";
                     bouton1.name = "idRecette";
                     bouton1.value = rit_select[i].idRecette;
 
@@ -157,6 +158,7 @@ $sr->generatesearch($cb); ?>
                     let bouton2 = document.createElement('button');
                     bouton2.id = "photo_tete";
                     bouton2.name = "del";
+                    bouton2.className = "button_delete";
                     bouton2.value = rit_select[i].idRecette;
                     bouton2.addEventListener("click", function() {
                         if (window.confirm("Voulez-vous suprimer la recette :\n" +
@@ -227,7 +229,7 @@ $sr->generatesearch($cb); ?>
 
                 <?php if (isset($_SESSION['login'])) : ?>
                     let admin = document.createElement('div');
-                    admin.className = "bouton_admin"
+                    admin.className = "bouton_admin";
 
                     let form1 = document.createElement('form');
                     form1.method = "get";
@@ -236,6 +238,7 @@ $sr->generatesearch($cb); ?>
                     let bouton1 = document.createElement('button');
                     bouton1.type = "submit";
                     bouton1.id = "photo_tete";
+                    bouton1.className = "button_edit";
                     bouton1.name = "idRecette";
                     bouton1.value = rit_select[i].idRecette;
 
@@ -251,6 +254,7 @@ $sr->generatesearch($cb); ?>
                     let bouton2 = document.createElement('button');
                     bouton2.id = "photo_tete";
                     bouton2.name = "del";
+                    bouton2.className = "button_delete";
                     bouton2.value = rit_select[i].idRecette;
                     bouton2.addEventListener("click", function() {
                         if (window.confirm("Voulais vous suprimer la recette :\n" +

@@ -6,8 +6,8 @@ class Add
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img = false): void{ ?>
         <div id = "Addform" class="edit" >
-            <legend id = "legend" style="margin-left: 30%">Ajout
-                <input id = "addsubmit" type="submit" name="submit" class="submit" value="Ajouter">
+            <legend id = "legend" style="margin-left: 30%">
+                <input id = "addsubmit" type="submit" name="submit" class="submit" value="Ajout">
             </legend>
             <div class="form-group">
                 <div id = "img">
