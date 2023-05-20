@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             }
-
         })
 
         let label = document.createElement('label');
@@ -382,8 +381,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         }
                     }
-
                 })
+
+                if (ingredient_select.indexOf(ingredient.idIngredient) != -1) {
+                    input.checked = true;
+                }
 
                 let label = document.createElement('label');
                 label.htmlFor = ingredient.nomIngredient;
@@ -392,6 +394,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let divgap = document.createElement("div");
                 divgap.className = "divgap";
+
+                let qte_input = document.createElement("div");
+                qte_input.className = 'qte_div';
 
                 let qte = document.createElement('input');
                 qte.type = "number";
@@ -523,6 +528,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_delete_ingredient.appendChild(bouton_delete_ingredient);
                 bouton_delete_ingredient.appendChild(del);
 
+                qte_input.appendChild(qte);
+                qte_input.appendChild(unite);
+
                 divgap.appendChild(label);
                 divgap.appendChild(qte_input);
 
@@ -532,7 +540,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.appendChild(input);
                 div.appendChild(hide_input);
                 div.appendChild(divgap);
-                div.appendChild(unite);
                 div.appendChild(hide_input_unite);
                 div.appendChild(br);
 
@@ -597,7 +604,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 })
 
-
+                if (tag_select.indexOf(tag.idTag) != -1) {
+                    input.checked = true;
+                }
 
                 let label = document.createElement('label');
                 label.htmlFor = tag.nomTag;
