@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let label = document.createElement('label');
         label.htmlFor = ingredient.nomIngredient;
         label.innerHTML = ingredient.nomIngredient;
+        label.className = "labelIngr";
+
+        let divgap = document.createElement("div");
+        divgap.className = "divgap";
 
         let qte_input = document.createElement("div");
         qte_input.className = 'qte_div';
@@ -146,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let bouton_edit_ingredient = document.createElement('button');
         bouton_edit_ingredient.type = "button";
+        bouton_edit_ingredient.className = "button_edit";
         bouton_edit_ingredient.id = "photo_tete";
         bouton_edit_ingredient.addEventListener("click", function (){
             form_edit_ingredient.hidden = true;
@@ -173,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let bouton_delete_ingredient = document.createElement('button');
         bouton_delete_ingredient.id = "photo_tete";
         bouton_delete_ingredient.name = "del";
+        bouton_delete_ingredient.className = "button_delete";
         bouton_delete_ingredient.value = ingredient.idIngredient;
         bouton_delete_ingredient.addEventListener("click", function() {
             if (window.confirm("Voulais vous suprimer l'ingredient :\n" +
@@ -193,13 +199,15 @@ document.addEventListener('DOMContentLoaded', function () {
         qte_input.appendChild(qte);
         qte_input.appendChild(unite);
 
+        divgap.appendChild(label);
+        divgap.appendChild(qte_input);
+
         div.appendChild(div2);
         div2.appendChild(form_edit_ingredient);
         div2.appendChild(form_delete_ingredient);
         div.appendChild(input);
         div.appendChild(hide_input);
-        div.appendChild(label);
-        div.appendChild(qte_input);
+        div.appendChild(divgap);
         div.appendChild(hide_input_unite);
         div.appendChild(br);
 
@@ -264,6 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let bouton_edit_tag = document.createElement('button');
         bouton_edit_tag.type = "button";
+        bouton_edit_tag.className = "button_edit";
         bouton_edit_tag.id = "photo_tete";
         bouton_edit_tag.addEventListener("click", function (){
             form_edit_tag.hidden = true;
@@ -287,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let bouton_delete_tag = document.createElement('button');
         bouton_delete_tag.id = "photo_tete";
         bouton_delete_tag.name = "del";
+        bouton_delete_tag.className = "button_delete";
         bouton_delete_tag.value = tag.idTag;
         bouton_delete_tag.addEventListener("click", function() {
             if (window.confirm("Voulais vous suprimer le tag :\n" +
@@ -367,6 +377,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 let label = document.createElement('label');
                 label.htmlFor = ingredient.nomIngredient;
                 label.innerHTML = ingredient.nomIngredient;
+                label.className = "labelIngr";
+
+                let divgap = document.createElement("div");
+                divgap.className = "divgap";
 
                 let qte = document.createElement('input');
                 qte.type = "number";
@@ -450,6 +464,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let bouton_edit_ingredient = document.createElement('button');
                 bouton_edit_ingredient.type = "button";
+                bouton_edit_ingredient.className = "button_edit";
                 bouton_edit_ingredient.id = "photo_tete";
                 bouton_edit_ingredient.addEventListener("click", function (){
                     form_edit_ingredient.hidden = true;
@@ -479,6 +494,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let bouton_delete_ingredient = document.createElement('button');
                 bouton_delete_ingredient.id = "photo_tete";
                 bouton_delete_ingredient.name = "del";
+                bouton_delete_ingredient.className = "button_delete";
                 bouton_delete_ingredient.value = ingredient.idIngredient;
                 bouton_delete_ingredient.addEventListener("click", function() {
                     if (window.confirm("Voulais vous suprimer l'ingredient :\n" +
@@ -496,13 +512,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 form_delete_ingredient.appendChild(bouton_delete_ingredient);
                 bouton_delete_ingredient.appendChild(del);
 
+                divgap.appendChild(label);
+                divgap.appendChild(qte_input);
+
                 div.appendChild(div2);
                 div2.appendChild(form_edit_ingredient);
                 div2.appendChild(form_delete_ingredient);
                 div.appendChild(input);
                 div.appendChild(hide_input);
-                div.appendChild(label);
-                div.appendChild(qte);
+                div.appendChild(divgap);
                 div.appendChild(unite);
                 div.appendChild(hide_input_unite);
                 div.appendChild(br);
@@ -580,6 +598,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let bouton_edit_tag = document.createElement('button');
                 bouton_edit_tag.type = "button";
+                bouton_edit_tag.className = "button_edit";
                 bouton_edit_tag.id = "photo_tete";
                 bouton_edit_tag.addEventListener("click", function (){
                     form_edit_tag.hidden = true;
@@ -603,6 +622,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let bouton_delete_tag = document.createElement('button');
                 bouton_delete_tag.id = "photo_tete";
                 bouton_delete_tag.name = "del";
+                bouton_delete_tag.className = "button_delete";
                 bouton_delete_tag.value = tag.idTag;
                 bouton_delete_tag.addEventListener("click", function() {
                     if (window.confirm("Voulais vous suprimer le tag :\n" +

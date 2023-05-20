@@ -6,7 +6,7 @@
     padding-bottom: 80px;
 
     display: ruby;
-    border-right: solid powderblue;
+    border-right: solid powdersaddlebrown;
 }
 
 /*__________Selection_ingredients__________*/
@@ -50,8 +50,8 @@
 
 
 .bouton_ingredient {
-    background-color: cornflowerblue;
-    border-color: blue;
+    background-color: #c95a49;
+    border-color: saddlebrown;
     border-radius: 5px;
 
     width: 50%;
@@ -75,6 +75,16 @@
     display: flex;
 }
 
+.divgap{
+    display: flex;
+    gap:30px;
+}
+
+.labelIngr{
+    display: flex;
+    width: 65px;
+}
+
 .qte_div {
     display: flex;
     height: 20px;
@@ -95,7 +105,7 @@
 .bouton_modif {
     display: flex;
     right: 0;
-
+    gap : 5px;
     vertical-align: middle;
 }
 /*_____________Selection_tags______________*/
@@ -130,8 +140,8 @@
 }
 
 .bouton_tag {
-    background-color: cornflowerblue;
-    border-color: blue;
+    background-color: #c95a49;
+    border-color: saddlebrown;
     border-radius: 5px;
 
     width: 50%;
@@ -162,9 +172,9 @@
 }
 
 #legend {
+    display: flex;
     text-align: center;
-    font-size: 3em;
-    margin-left: 300px;
+    font-size: 2.5em;
     color: darkred;
 }
 
@@ -177,8 +187,8 @@
     height: 65px;
     width: 150px;
 
-    background-color: cornflowerblue;
-    border-color: blue;
+    background-color: #c95a49;
+    border-color: saddlebrown;
     border-radius: 15px;
 
 }
