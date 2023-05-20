@@ -219,7 +219,4 @@ class cookbookDB extends PdoWrapper
         return $this->exec("DELETE FROM attribuer WHERE idRecette = '$idRec'", null);
     }
 
-    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette){
-        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
-    }
 }
