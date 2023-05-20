@@ -28,9 +28,20 @@ $_SESSION['page'] = "http://localhost/Projet_Recettes/"; // enregistre la page i
 
 <?php ob_start(); //génère un message d'erreur si il y a une erreur d'ajout/edition d'un tag/ingrédient
 $sr->generateliste($cb); ?>
-<?php if (isset($_SESSION['errortext'])) {
-?> <span class="errortext"><?php echo $_SESSION['errortext'] ?> </span> <?php
-                                                                    }
+<?php if (isset($_SESSION['errortext'])) {?>
+
+    <script>
+        let error = document.getElementById("filtres");
+
+        let span = document.createElement("span");
+        span.className = 'errortext';
+        span.innerHTML = <?php echo $_SESSION['errortext']?>;
+
+        error.appendChild(span);
+    </script>
+
+   <?php
+}
 /*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
                                                                     ?>
 

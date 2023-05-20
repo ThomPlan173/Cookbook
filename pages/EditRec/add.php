@@ -23,18 +23,23 @@ $sr->generateliste($cb); ?>
 <?php if(isset($_SESSION['errortext'])){
 ?>
 
+    <script>
+        let error = document.getElementById("filtres");
 
-    <span class = "errortext"><?php echo $_SESSION['errortext']?> </span> <?php
+        let span = document.createElement("span");
+        span.className = 'errortext';
+        span.innerHTML = <?php echo $_SESSION['errortext']?>;
+
+        error.appendChild(span);
+    </script>
+
+   <?php
 }
 
 #----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------
 ?>
 
-<script>
-    let error = document.getElementsByClassName("errortext");
 
-
-</script>
 
 <script>
     let vardataRit = <?php echo json_encode($dataRit); ?>;
