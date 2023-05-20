@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
+
     let content = document.getElementById("content");
     let div_form_rec = document.getElementById("Addform");
     let add_form_rec = document.createElement("form");
@@ -37,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         hide_input.id = "hideIngr"+ingredient.idIngredient;
         hide_input.type = "text";
         hide_input.value = "false";
+
+        /*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
 
         let input = document.createElement('input')
         input.type = "checkbox";
@@ -124,6 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
+
         let hide_input_unite = document.createElement('input');
         hide_input_unite.hidden = true;
         hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
@@ -156,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
             input.hidden = true;
             unite.hidden = true;
             qte.hidden = true;
+            divgap.classList.add("hidden");
 
             edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
         })
@@ -239,6 +246,8 @@ document.addEventListener('DOMContentLoaded', function () {
         hide_input.type = "text";
         hide_input.value = "false";
 
+        /*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
+
         let input = document.createElement('input')
         input.type = "checkbox";
         input.name = tag.nomTag;
@@ -264,6 +273,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let div2 = document.createElement('div');
         div2.className = "bouton_modif";
+
+        /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
         let form_edit_tag = document.createElement('form');
         form_edit_tag.method = "get";
@@ -354,6 +365,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 hide_input.type = "text";
                 hide_input.value = "false";
 
+                /*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = ingredient.nomIngredient;
@@ -437,6 +450,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
 
+                /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
+
                 let hide_input_unite = document.createElement('input');
                 hide_input_unite.hidden = true;
                 hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
@@ -469,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     input.hidden = true;
                     unite.hidden = true;
                     qte.hidden = true;
-
+                    divgap.classList.add("hidden");
                     edit_ingredient(ingredient.idIngredient, ingredient.nomIngredient);
                 })
 
@@ -563,6 +578,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 hide_input.type = "text";
                 hide_input.value = "false";
 
+                /*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
+
                 let input = document.createElement('input')
                 input.type = "checkbox";
                 input.name = tag.nomTag;
@@ -590,6 +607,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let div2 = document.createElement('div');
                 div2.className = "bouton_modif";
+
+                /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
                 let form_edit_tag = document.createElement('form');
                 form_edit_tag.method = "get";
@@ -653,3 +672,4 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 })
+/*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/

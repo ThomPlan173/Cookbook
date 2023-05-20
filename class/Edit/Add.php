@@ -2,6 +2,8 @@
 
 namespace Edit;
 
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
+
 class Add
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img = false): void{ ?>
@@ -87,4 +89,9 @@ public function verifTag(string $nom) : array
     );
 }
 }
+
+#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------
+
 ?>
+
+

@@ -1,4 +1,8 @@
 <?php
+
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
+
+
 session_start();
 require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
@@ -26,7 +30,8 @@ $sr->generateliste($cb); ?>
 <?php if (isset($_SESSION['errortext'])) {
 ?> <span class="errortext"><?php echo $_SESSION['errortext'] ?> </span> <?php
                                                                     }
-                                                                        ?>
+/*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
+                                                                    ?>
 
 <script>
     let vardataRit = <?php echo json_encode($dataRit); ?>;
@@ -53,6 +58,9 @@ $sr->generateliste($cb); ?>
 <script src="../../JS/edit.js"></script>
 
 <script>
+
+/*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
+
     function add_ingredient(){
         let div = document.createElement("div");
         div.className = "form_ingredient";
@@ -251,7 +259,7 @@ $sr->generateliste($cb); ?>
         <?php  } ?>
         
     })
-    <?php
+    <?php /*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
     else :?>
         Edition = true;
      <?php endif; ?>
@@ -279,6 +287,8 @@ $sr->generateliste($cb); ?>
 
         }
     }
+
+    /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
     function CheckedTags(tag, id){
         let i;
@@ -323,3 +333,5 @@ $sr->generateliste($cb); ?>
     <?php $i++; } endif; ?>
 
 </script>
+
+<?php #----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------?>

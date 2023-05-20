@@ -2,6 +2,8 @@
 
 namespace Edit;
 
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
+
 class Edit
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img=false): void{ ?>
@@ -85,4 +87,8 @@ class Edit
         );
     }
 }
+
+#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------
 ?>
+
+

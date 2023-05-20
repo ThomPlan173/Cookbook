@@ -226,6 +226,7 @@ class cookbookDB extends PdoWrapper
 
 ###########################################################----SUPPRESSION_RIT----########################################################
 
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
 
     public function deleteIngredientContenir($idIngr)
     {
@@ -248,3 +249,5 @@ class cookbookDB extends PdoWrapper
         return $this->exec("DELETE FROM contenir WHERE idRecette = '$idRec'", null);
     }
 }
+
+#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------

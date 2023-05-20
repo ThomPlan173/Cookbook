@@ -6,7 +6,7 @@
     padding-bottom: 80px;
 
     display: ruby;
-    border-right: solid powdersaddlebrown;
+    border-right: solid saddlebrown;
 }
 
 /*__________Selection_ingredients__________*/
@@ -269,4 +269,8 @@
     color : orangered;
     z-index: 10;
     text-align: center;
+}
+
+.hidden{
+    display: none;
 }

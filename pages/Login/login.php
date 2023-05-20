@@ -1,12 +1,13 @@
 <?php
 
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
+
 session_start() ;
 
 require ".." . DIRECTORY_SEPARATOR. ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
 use Logger\Logger ;
 
-//$logger = new Logger(DOCUMENT_DIR."/pages/login.php") ;
 $logger = new Logger() ;
 
 $username = null;
@@ -43,3 +44,5 @@ $css = ob_get_clean();
 ob_start();
 $js = ob_get_clean();
 Template::render($code, $css, $js);
+
+/*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/

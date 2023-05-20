@@ -1,4 +1,8 @@
 <?php
+
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
+
+
 session_start();
 require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
@@ -21,6 +25,8 @@ $sr->generateliste($cb); ?>
 
     <span class = "errortext"><?php echo $_SESSION['errortext']?> </span> <?php
 }
+
+#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------
 ?>
 
 <script>
@@ -53,6 +59,8 @@ $sr->generateliste($cb); ?>
 <script src="../../JS/add.js"></script>
 
 <script>
+
+/*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
     function add_ingredient(){
         let div = document.createElement("div");
@@ -281,5 +289,8 @@ $sr->generateliste($cb); ?>
 
     <?php $i++; } endif; ?>
 
+
 </script>
+
+<?php #----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------?>
 

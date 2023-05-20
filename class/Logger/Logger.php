@@ -2,6 +2,8 @@
 
 namespace Logger;
 
+#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
+
 class Logger
 {
     public function generateLoginForm(string $username=null, $error=null): void{
@@ -48,3 +50,5 @@ class Logger
     }
 
 }
+
+#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------

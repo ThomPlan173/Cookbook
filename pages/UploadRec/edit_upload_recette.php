@@ -1,4 +1,7 @@
 <?php
+
+/*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
+
 session_start();
 require ".." . DIRECTORY_SEPARATOR .".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
 Autoloader::register();
@@ -88,3 +91,5 @@ if($response['granted']){
 }
 header("Location: ".$_SERVER['HTTP_REFERER']);
 exit();
+
+/*#----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------*/
