@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
-    let content = document.getElementById("content");
-    let div_form_rec = document.getElementById("Addform");
-    let add_form_rec = document.createElement("form");
+    let content = document.getElementById("content"); /* prend le div content du template pour lui ajouter le form d'ajout de recettte */
+    let div_form_rec = document.getElementById("Addform"); /* et son div  */
+    let add_form_rec = document.createElement("form"); /* methode post vers le fichier add_upload_recette.php avec multipart/form-data pour permettre l'upload de fichiers */
     add_form_rec.action = "../UploadRec/add_upload_recette.php";
     add_form_rec.method = "post";
     add_form_rec.enctype = "multipart/form-data";
-    let filtres = document.getElementById("filtres");
+    let filtres = document.getElementById("filtres"); /* ajoute les filtres de tag et ingredients pour que tout soit dans le même formulaire */
     add_form_rec.appendChild(filtres);
     add_form_rec.appendChild(div_form_rec);
     content.appendChild(add_form_rec);
-    let add_form_ingredient = document.createElement('form');
+    let add_form_ingredient = document.createElement('form'); /* creation du form d'ajout d'un ingredient */
     add_form_ingredient.id = "add_form_ingredient";
 
     let add_button_ingredient = document.createElement('input');
@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let x = 0;
     for (let ingredient of vardataIngr) {
 
-        let div = document.createElement('div');
+        let div = document.createElement('div'); /* creation d'un div pour chaque ingredient */
         div.className = "ingr";
         div.id = "ingr" + ingredient.idIngredient;
 
-        let hide_input = document.createElement('input');
+        let hide_input = document.createElement('input'); /* creation d'un input invisible pour renvoyer dans POST si la checkbox de l'ingredient est coché ou non */
         hide_input.hidden = true;
         hide_input.name = "hideIngr"+ingredient.idIngredient;
         hide_input.id = "hideIngr"+ingredient.idIngredient;
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
-        let hide_input_unite = document.createElement('input');
+        let hide_input_unite = document.createElement('input'); /* creation d'un input invisible qui permet de renvoyer dans POST la valeur de l'unite de l'ingredient*/
         hide_input_unite.hidden = true;
         hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
         hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let addbutton  = document.getElementById("addsubmit");
 
-        addbutton.addEventListener('click', function (){
+        addbutton.addEventListener('click', function (){ // affecte la valeur de hide_input a l'unite au moment ou l'on submit l'ajout de la recette
             hide_input_unite.value = unite.value;
         })
 
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let div2 = document.createElement('div');
         div2.className = "bouton_modif";
 
-        let bouton_edit_ingredient = document.createElement('button');
+        let bouton_edit_ingredient = document.createElement('button'); // bouton d'edition qui cache les balises de l'ingredient pour le remplacer par un form de modification grace à edit_ingredient
         bouton_edit_ingredient.type = "button";
         bouton_edit_ingredient.className = "button_edit";
         bouton_edit_ingredient.id = "photo_tete";
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let form_delete_ingredient = document.createElement('form');
         form_delete_ingredient.method = "get";
 
-        let bouton_delete_ingredient = document.createElement('button');
+        let bouton_delete_ingredient = document.createElement('button'); // bouton delete qui demande une confiramtion de suppression de l'ingredient puis supprime si oui et ne fait rien sinon
         bouton_delete_ingredient.id = "photo_tete";
         bouton_delete_ingredient.name = "del";
         bouton_delete_ingredient.className = "button_delete";
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    let add_form_tag = document.createElement('form');
+    let add_form_tag = document.createElement('form'); /* creation du form d'ajout d'un tag */
     add_form_tag.id = "add_form_tag";
 
     let add_button_tag = document.createElement('input');
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
         div.className = "tag";
         div.id = "tag" + tag.idTag;
 
-        let hide_input = document.createElement('input');
+        let hide_input = document.createElement('input');/* creation d'un input invisible pour renvoyer dans POST si la checkbox du tag est coché ou non */
         hide_input.hidden = true;
         hide_input.name = "hideTag"+tag.idTag;
         hide_input.id = "hideTag"+tag.idTag;
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let form_edit_tag = document.createElement('form');
         form_edit_tag.method = "get";
 
-        let bouton_edit_tag = document.createElement('button');
+        let bouton_edit_tag = document.createElement('button'); // bouton d'edition qui cache les balises du tag pour le remplacer par un form de modification grace à edit_tag
         bouton_edit_tag.type = "button";
         bouton_edit_tag.className = "button_edit";
         bouton_edit_tag.id = "photo_tete";
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let form_delete_tag = document.createElement('form');
         form_delete_tag.method = "get";
 
-        let bouton_delete_tag = document.createElement('button');
+        let bouton_delete_tag = document.createElement('button'); // bouton delete qui demande une confiramtion de suppression du tag puis supprime si oui et ne fait rien sinon
         bouton_delete_tag.id = "photo_tete";
         bouton_delete_tag.name = "del";
         bouton_delete_tag.className = "button_delete";
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         removeAllChild(checkbox_ingr);
 
-        let add_form_ingredient = document.createElement('form');
+        let add_form_ingredient = document.createElement('form'); /* creation du form d'ajout d'un ingredient */
         add_form_ingredient.id = "add_form_ingredient";
 
         let add_button_ingredient = document.createElement('input');
@@ -354,11 +354,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if ((ingredient.nomIngredient.toUpperCase().includes(input_ingr.value.toUpperCase())) || (ingredient_select.indexOf(ingredient.idIngredient) != -1)) {
 
-                let div = document.createElement('div');
+                let div = document.createElement('div'); /* creation d'un div pour chaque ingredient */
                 div.className = "ingr";
                 div.id = "ingr" + ingredient.idIngredient;
 
-                let hide_input = document.createElement('input');
+                let hide_input = document.createElement('input'); /* creation d'un input invisible pour renvoyer dans POST si la checkbox de l'ingredient est coché ou non */
                 hide_input.hidden = true;
                 hide_input.name = "hideIngr"+ingredient.idIngredient;
                 hide_input.id = "hideIngr"+ingredient.idIngredient;
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
-                let hide_input_unite = document.createElement('input');
+                let hide_input_unite = document.createElement('input'); /* creation d'un input invisible qui permet de renvoyer dans POST la valeur de l'unite de l'ingredient*/
                 hide_input_unite.hidden = true;
                 hide_input_unite.name = "hideIngrUt"+ingredient.idIngredient;
                 hide_input_unite.id = "hideIngrUt"+ingredient.idIngredient;
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let addbutton  = document.getElementById("addsubmit");
 
-                addbutton.addEventListener('click', function (){
+                addbutton.addEventListener('click', function (){ // affecte la valeur de hide_input a l'unite au moment ou l'on submit l'ajout de la recette
                     hide_input_unite.value = unite.value;
                 })
 
@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let div2 = document.createElement('div');
                 div2.className = "bouton_modif";
 
-                let bouton_edit_ingredient = document.createElement('button');
+                let bouton_edit_ingredient = document.createElement('button'); // bouton d'edition qui cache les balises de l'ingredient pour le remplacer par un form de modification grace à edit_ingredient
                 bouton_edit_ingredient.type = "button";
                 bouton_edit_ingredient.className = "button_edit";
                 bouton_edit_ingredient.id = "photo_tete";
@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let form_delete_ingredient = document.createElement('form');
                 form_delete_ingredient.method = "get";
 
-                let bouton_delete_ingredient = document.createElement('button');
+                let bouton_delete_ingredient = document.createElement('button'); // bouton delete qui demande une confiramtion de suppression de l'ingredient puis supprime si oui et ne fait rien sinon
                 bouton_delete_ingredient.id = "photo_tete";
                 bouton_delete_ingredient.name = "del";
                 bouton_delete_ingredient.className = "button_delete";
@@ -550,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         removeAllChild(checkbox_tag);
 
-        let add_form_tag = document.createElement('form');
+        let add_form_tag = document.createElement('form'); /* creation du form d'ajout d'un tag */
         add_form_tag.id = "add_form_tag";
 
         let add_button_tag = document.createElement('input');
@@ -571,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 div.className = "tag";
                 div.id = "tag" + tag.idTag;
 
-                let hide_input = document.createElement('input');
+                let hide_input = document.createElement('input');/* creation d'un input invisible pour renvoyer dans POST si la checkbox du tag est coché ou non */
                 hide_input.hidden = true;
                 hide_input.name = "hideTag"+tag.idTag;
                 hide_input.id = "hideTag"+tag.idTag;
@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let form_edit_tag = document.createElement('form');
                 form_edit_tag.method = "get";
 
-                let bouton_edit_tag = document.createElement('button');
+                let bouton_edit_tag = document.createElement('button'); // bouton d'edition qui cache les balises du tag pour le remplacer par un form de modification grace à edit_tag
                 bouton_edit_tag.type = "button";
                 bouton_edit_tag.className = "button_edit";
                 bouton_edit_tag.id = "photo_tete";
@@ -636,7 +636,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let form_delete_tag = document.createElement('form');
                 form_delete_tag.method = "get";
 
-                let bouton_delete_tag = document.createElement('button');
+                let bouton_delete_tag = document.createElement('button'); // bouton delete qui demande une confiramtion de suppression du tag puis supprime si oui et ne fait rien sinon
                 bouton_delete_tag.id = "photo_tete";
                 bouton_delete_tag.name = "del";
                 bouton_delete_tag.className = "button_delete";

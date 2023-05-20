@@ -3,9 +3,10 @@
 namespace Session;
 
 #----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
-
 class Session
 {
+
+    // fonction permettant de nettoyer certains cles de $_SESSION
     function cleanSession(): void {
         $_SESSION['response'] = null;
         $_SESSION['nom'] = null;

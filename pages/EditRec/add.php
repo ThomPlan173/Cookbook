@@ -2,6 +2,7 @@
 
 #----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
 
+//page contenant le formualaire d'ajout d'une recette avec la possiblité d'ajouter/modifier les ingrédients/tags
 
 session_start();
 require ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Autoloader.php';
@@ -12,12 +13,12 @@ $cb = new \cb\cookbookDB();
 $sr  = new Browser\Liste();
 $ad = new \Edit\Add();
 $img = false;
-$_SESSION['page'] = "http://localhost/Projet_Recettes/";
+$_SESSION['page'] = "http://localhost/Projet_Recettes/"; // enregistre la page index
 ?>
 
 <?php $dataRit = $cb->getAllRIT() ; ?>
 
-<?php ob_start() ;
+<?php ob_start() ; //génère un message d'erreur si il y a une erreur d'ajout/edition d'un tag/ingrédient
 $sr->generateliste($cb); ?>
 <?php if(isset($_SESSION['errortext'])){
 ?>
@@ -62,7 +63,7 @@ $sr->generateliste($cb); ?>
 
 /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
-    function add_ingredient(){
+    function add_ingredient(){ /* permet de générer un form qui permet d'ajouter un ingrédient  */
         let div = document.createElement("div");
         div.className = "form_ingredient";
 
@@ -101,7 +102,7 @@ $sr->generateliste($cb); ?>
 
     }
 
-    function add_tag(){
+    function add_tag(){/* permet de générer un form qui permet d'ajouter un tag  */
         let div = document.createElement("div");
         div.className = "form_tag";
 
@@ -130,7 +131,7 @@ $sr->generateliste($cb); ?>
 
     }
 
-    function edit_ingredient(id,nom){
+    function edit_ingredient(id,nom){/* permet de générer un form qui permet de modifier un ingrédient  */
         let div = document.createElement("div");
         div.className = "form_ingredient";
 
@@ -175,7 +176,7 @@ $sr->generateliste($cb); ?>
         edit_form_ingredient.appendChild(div);
     }
 
-    function edit_tag(id,nom){
+    function edit_tag(id,nom){/* permet de générer un form qui permet de modifier un tag  */
         let div = document.createElement("div");
         div.className = "form_tag";
 
@@ -217,13 +218,13 @@ $sr->generateliste($cb); ?>
 <div id = "reste_page" >
     <?php
 
-    if (!isset($_SESSION['response'])) :
+    if (!isset($_SESSION['response'])) : // si il n'y a pas de réponse génère le formulaire sans param donc sans données prédéfinit
         $ad->generateformRecette();
-    elseif (isset($_SESSION['response'])) :
-        $response = $_SESSION['response'];
+    elseif (isset($_SESSION['response'])) : // si il y a une réponse, sauvegarde la réponse et recrée
+        $response = $_SESSION['response']; // un formualire si il y a eu une erreur avec les erreurs et les données entrées précédemment
         if(!$response['granted']):
         $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error']);
-        elseif(!isset($_SESSION['upload'])):
+        elseif(!isset($_SESSION['upload'])): // si il s'agit d'un problème lié au fichier à upload renvoie le form avec l'erreur de fichier et les données
             $img = true;
             $ad->generateformRecette($_SESSION['nom'], $_SESSION['description'], $_SESSION['preparation'],$response['error'], $img);
         endif;
@@ -247,38 +248,38 @@ $sr->generateliste($cb); ?>
 <?php Template::render($content, $css, $js) ?>
 
 <script>
-    function CheckedTags(tag, id){
+    function CheckedTags(tag, id){ /* permet de checked un tag qui a été checked avant le submit */
             let i;
-            let box = document.getElementsByName(tag);
-            let hide_input = document.getElementById("hideTag"+id);
+            let box = document.getElementsByName(tag); // récupère le tag
+            let hide_input = document.getElementById("hideTag"+id); // récupère sont hide_input et met sa valeur à true pour enregistrer dans le POST de add que le tag soit checked
             hide_input.value = "true";
-            for(i = 0;i<box.length;i++){
+            for(i = 0;i<box.length;i++){     // checked la box
                 box[i].checked = true;
             }
     }
 
-    <?php if(isset($_SESSION["tagsChecked"])):
+    <?php if(isset($_SESSION["tagsChecked"])): // si des tags sont checked, repète  la méthode pour chaque tag checked
         foreach($_SESSION["tagsChecked"] as $t){ ?>
     document.addEventListener('DOMContentLoaded', function (){
         CheckedTags("<?= $t->nomTag?>","<?= $t->idTag?>");
     })
     <?php } endif; ?>
 
-    function CheckedIngredients(ingredient, id, qteval, uniteval = null){
-        let i;
+    function CheckedIngredients(ingredient, id, qteval, uniteval = null){ /* permet de checked un ingrédient qui a été checked avant le submit et de mettre les valeurs de l'unite et de la quantité*/
+        let i;                                                             /* que l'utilisateur à taper avant le submit */
         let box = document.getElementsByName(ingredient);
-        let hide_input = document.getElementById("hideIngr"+id);
+        let hide_input = document.getElementById("hideIngr"+id); // récupère sont hide_input et met sa valeur à true pour enregistrer dans le POST de add que l'ingrédient' soit checked
         hide_input.value = "true";
         for(i = 0;i<box.length;i++){
             box[i].checked = true;
         }
-        let unite = document.getElementById("unite"+id);
+        let unite = document.getElementById("unite"+id); // récupère sont hide_input_unite et met sa valeur à uniteval en param pour enregistrer dans le POST de add sa valeur
         unite.value = uniteval;
-        let qte = document.getElementById("qte"+id);
+        let qte = document.getElementById("qte"+id); // récupère sa balise qte et met sa valeur à qteval pour enregistrer dans le POST de add  sa valeur
         qte.value = qteval;
     }
 
-    <?php if(isset($_SESSION["ingrsChecked"])):
+    <?php if(isset($_SESSION["ingrsChecked"])): // si des ingrédients sont checked, repète  la méthode pour chaque ingrédient checked
     $i = 0;
     $quantitees = $_SESSION['qte'];
     $unitees = $_SESSION['unite'];

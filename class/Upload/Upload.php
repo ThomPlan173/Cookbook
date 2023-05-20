@@ -6,6 +6,10 @@ namespace Upload;
 
 class Upload
 {
+
+    //permet d'upload un fichier avec le type de fichier en param (Recette ou Ingredient) qui correspondent aux noms de dossier d'upload
+    // si le $_FIlES['image'] n'existe pas ou contient une erreur, on s'arrete en renvoie un message d'erreur sinon le fichier et upload dans le dossier correspondant au param $type
+    // renvoie "" si il a eu une erreur sinon renvoie le chemin du fichier upload
     function uploading(string $type): string{
         // Les informations liées au fichier uploadé se trouvent dans $_FILES
         // NB : 'le_fichier' est le nom du champ dans le formulaire

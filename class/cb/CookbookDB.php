@@ -228,22 +228,25 @@ class cookbookDB extends PdoWrapper
 
 #----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------
 
+    //Supprime les liaisons entre les recettes et l'ingrédient en paramètre
     public function deleteIngredientContenir($idIngr)
     {
         return $this->exec("DELETE FROM contenir WHERE idIngredient = '$idIngr'", null);
     }
 
-    //supprimer un Tag
+    //Supprime les liaisons entre les recettes et le tag en paramètre
     public function deleteTagAttribution($idTag)
     {
         return $this->exec("DELETE FROM attribuer WHERE idTag = '$idTag'", null);
     }
 
+    //Supprime les liaisons entre les tags et la recette en paramètre
     public function deleteRecAttribution($idRec)
     {
         return $this->exec("DELETE FROM attribuer WHERE idRecette = '$idRec'", null);
     }
 
+    //Supprime les liaisons entre les ingrédients et la recette en paramètre
     public function deleteRecContenir($idRec)
     {
         return $this->exec("DELETE FROM contenir WHERE idRecette = '$idRec'", null);
