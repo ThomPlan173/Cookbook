@@ -3,15 +3,19 @@ document.addEventListener('DOMContentLoaded', function () {
     /*#----------------------------------------------ALEXANDRE___DEBUT------------------------------------------------------------*/
 
     let content = document.getElementById("content"); /* prend le div content du template pour lui ajouter le form d'ajout de recettte */
+
     let div_form_rec = document.getElementById("Addform"); /* et son div  */
+
     let add_form_rec = document.createElement("form"); /* methode post vers le fichier add_upload_recette.php avec multipart/form-data pour permettre l'upload de fichiers */
     add_form_rec.action = "../UploadRec/add_upload_recette.php";
     add_form_rec.method = "post";
     add_form_rec.enctype = "multipart/form-data";
+
     let filtres = document.getElementById("filtres"); /* ajoute les filtres de tag et ingredients pour que tout soit dans le même formulaire */
     add_form_rec.appendChild(filtres);
     add_form_rec.appendChild(div_form_rec);
     content.appendChild(add_form_rec);
+
     let add_form_ingredient = document.createElement('form'); /* creation du form d'ajout d'un ingredient */
     add_form_ingredient.id = "add_form_ingredient";
 

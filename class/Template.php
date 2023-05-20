@@ -31,9 +31,8 @@ class Template
 
                 <?= $content  ?>
 
-
-            </div>
                 <?php include "Template/Footer.php" ?>
+            </div>
             <script src="/Projet_Recettes/class/Template/JS/main.js"></script>
             <?php if ($js != null) { ?>
                 <?= $js; ?>

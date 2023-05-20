@@ -3,9 +3,8 @@ html, body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    margin: 0;
-    padding: 0;
     height: 50%;
+    margin: 0;
 }
 
 /*_HEADER_________________________________________________________________*/
@@ -18,15 +17,13 @@ html, body {
     width: 100%;
     height: 10vh;
     z-index: 9;
-
-
-    background-color: #c95a49;
 }
 
 #header2 {
+    background-color: #c95a49;
     margin-left: auto;
     margin-right: auto;
-    width: 1200px;
+    width: 1500px;
     display: flex;
 }
 
@@ -80,24 +77,23 @@ html, body {
     opacity: 90%;
     font-family: 'Mochiy Pop One', sans-serif;
 
-    max-width: 1200px;
+    max-width: 1500px;
     min-height: 90vh;
-
 }
-
-
 
 /*_FOOTER___________________________________________________________________*/
 .footer {
     position: absolute;
     display: flex;
-    bottom: 0; left: 0;
+    bottom: 0;
 
     width: 100%;
     height: 45px;
+    z-index: 4;
 
     background-color: #c95a49;
     color: black;
+    opacity: 100%;
 }
 
 #copyright {
@@ -105,8 +101,6 @@ html, body {
 }
 
 /*_BOUTON_EDIT_DELETE_ADD____________________________________________________*/
-
-
 .button_edit{
     background-color: seagreen;
     border-radius: 15%;
@@ -118,17 +112,10 @@ html, body {
 }
 
 /*_FORM_EDIT_ADD______________________________________________________________*/
-
-.form-group{
-    padding-top: 10%;
-}
-
 #filtres {
     position: absolute;
     width: 300px;
-    height: 90%;
-
-    padding-bottom: 80px;
+    height: 100%;
 
     display: ruby;
     border-right: solid #a6483a;

@@ -11,9 +11,6 @@ class Edit
 {
     function generateformRecette(string $nom=null, string $descr=null, string $prepa=null, $error=null, $img=false): void{ ?>
         <div id = "Editform" class="edit" >
-            <legend id = "legend" style="margin-left: 30%">
-                <input id = "editsubmit"  type="submit" name="submit" class="submit" value="Modif"> <!-- Bouton d'Ajout -->
-            </legend>
             <div class="form-group">
                 <div id = "img">
                     Image : <input id="input_img"  class = "input"
@@ -35,7 +32,8 @@ class Edit
                     <br><textarea id="input_prep" <?php if($error != null): if($error[2]) :?>class = "error" <?php else :?> class = "input" <?php endif; endif; ?>
                         name="preparation" placeholder="Préparation de la recette" value="<?php echo $prepa?>" autofocus><?php echo $prepa ?></textarea> <!-- Input de la description -->
                 </div>
-
+                <input id = "editsubmit"  type="submit" name="submit" class="submit" value="Modifier
+"> <!-- Bouton d'Ajout -->
             </div>
         </div>
         <?php

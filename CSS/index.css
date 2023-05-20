@@ -5,7 +5,7 @@ label {
 /*__________Selection_ingredients__________*/
 #filtre_ingredients {
     position: absolute;
-    height: 50%;
+    height: 40%;
     width: 100%;
 }
 
@@ -30,10 +30,9 @@ label {
 /*_____________Selection_tags______________*/
 #filtre_tags {
     position: absolute;
-    top: 50%;
+    top: 40%;
     height: 35%;
     width: 100%;
-
 }
 
 #search_tag {
@@ -50,14 +49,13 @@ label {
     width: 93%;
 
     overflow: auto;
-
 }
 
 /*_____________Selection_trie______________*/
 #trie {
     position: absolute;
     width: 268px;
-    top:86%;
+    top:76%;
     margin-left: 10px;
 }
 
@@ -72,7 +70,7 @@ label {
 /*________________________________________________________________________________________*/
 #reste_page {
     margin-left: 300px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 /*________________Recette_________________*/
@@ -120,21 +118,32 @@ label {
 
 .image_recette {
     visibility: visible;
-    border-radius: 10px;
+    border-radius: 7px;
 
     height: 250px;
     width: 250px;
-
 }
 
 .text_ingr {
     margin-top: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
+}
+
+.nom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.desc {
+    margin: 0;
+    margin-bottom: 10px;
+    height: 155px;
+    overflow: auto;
 }
 
 .bouton_admin {
     display: flex;
-    position: absolute;
-    height: 25px;
+    height: 40px;
     gap:5px;
 }

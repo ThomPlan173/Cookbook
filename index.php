@@ -116,9 +116,11 @@ $sr->generatesearch($cb); ?>
                 div.className = "text_ingr";
 
                 let nom = document.createElement('h3');
+                nom.className = 'nom';
                 nom.innerHTML = rit_select[i].nomRecette + " :";
 
                 let desc = document.createElement('p');
+                desc.className = "desc";
                 desc.innerHTML = rit_select[i].Description;
 
                 checkbox_rit.appendChild(recette);
@@ -212,9 +214,11 @@ $sr->generatesearch($cb); ?>
                 div.className = "text_ingr";
 
                 let nom = document.createElement('h3');
+                nom.className = 'nom';
                 nom.innerHTML = rit_select[i].nomRecette + " :";
 
                 let desc = document.createElement('p');
+                desc.className = "desc";
                 desc.innerHTML = rit_select[i].Description;
 
                 checkbox_rit.appendChild(recette);
