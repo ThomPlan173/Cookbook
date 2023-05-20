@@ -9,13 +9,12 @@ include __DIR__ . "../../../db_credentials.php";
 // Classe utilisée pour la totalitée des requetes SQL nécéssaires
 class cookbookDB extends PdoWrapper
 {
-    //dir pour les images
-    public const IMAGE_DIR = "images/";
+    public const IMAGE_DIR = "images/"; // Répertoire pour les images des recettes
 
-    //constructeur de classe et initialisateurs 
+    // Constructeur de classe
     public function __construct()
     {
-        // appel au constructeur de la classe mère (PDOWrapper qui utilise PDO pour connecter la BD)
+        // Appel du constructeur de la classe mère (PDOWrapper qui utilise PDO pour se connecter à la base de données)
         parent::__construct(
             $GLOBALS['db_name'],
             $GLOBALS['db_host'],
@@ -25,82 +24,116 @@ class cookbookDB extends PdoWrapper
         );
     }
 
-    //Getter de recette pour un ID de recette spécifique, affichage des données de la recette ( recette.php )
+    // Méthode pour obtenir les données d'une recette spécifique en fonction de son ID
     public function getRecette($id)
     {
-        return $this->exec("SELECT * FROM recette WHERE idRecette = '$id'", null);
+        $query = "SELECT * FROM recette WHERE idRecette = :id"; // Utilisation de paramètres nommés pour éviter les injections SQL
+        $params = array('id' => $id); // Tableau des paramètres
+
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
-    //Getter des ingrédients pour un ID de recette spécifique, affichage d'une liste d'ingrédients ( recette.php )
+
+    // Getter des ingrédients pour un ID de recette spécifique, affichage d'une liste d'ingrédients (recette.php)
     public function getIngredients($id)
     {
-        return $this->exec("SELECT i.idIngredient, i.imgIngredient, i.nomIngredient, c.quantite, c.unite FROM recette as r 
-        INNER JOIN contenir as c
-        ON r.idRecette = c.idRecette
-        INNER JOIN ingredient as i
-        ON c.idIngredient = i.idIngredient
-        WHERE r.idRecette = '$id'", null);
+        $query = "SELECT i.idIngredient, i.imgIngredient, i.nomIngredient, c.quantite, c.unite 
+              FROM recette AS r 
+              INNER JOIN contenir AS c ON r.idRecette = c.idRecette
+              INNER JOIN ingredient AS i ON c.idIngredient = i.idIngredient
+              WHERE r.idRecette = :id"; // Utilisation de paramètres nommés pour éviter les injections SQL
+        $params = array('id' => $id); // Tableau des paramètres
+
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
-    //Getter des tags pour un ID de recette spécifique, affichage d'un liste de tags
+
+    // Getter des tags pour un ID de recette spécifique, affichage d'une liste de tags (recette.php)
     public function getTags($id)
     {
-        return $this->exec("SELECT t.idTag, t.nomTag FROM tag as t 
-        INNER JOIN attribuer as a
-        ON a.idTag = t.idTag
-        INNER JOIN recette as r
-        ON r.idRecette = a.idRecette
-        WHERE r.idRecette = '$id'", null);
+        $query = "SELECT t.idTag, t.nomTag 
+              FROM tag AS t 
+              INNER JOIN attribuer AS a ON a.idTag = t.idTag
+              INNER JOIN recette AS r ON r.idRecette = a.idRecette
+              WHERE r.idRecette = :id"; // Utilisation de paramètres nommés pour éviter les injections SQL
+        $params = array('id' => $id); // Tableau des paramètres
+
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
-    //Getter de tout les tags
+
+    // Getter de tous les tags, affichage d'une liste de tous les tags
     public function getAllTags()
     {
-        return $this->exec("SELECT DISTINCT idTag, nomTag FROM tag ORDER BY nomTag ASC", null);
+        $query = "SELECT DISTINCT idTag, nomTag FROM tag ORDER BY nomTag ASC";
+
+        return $this->exec($query, null);
     }
-    //Getter de tous les ingrédients ( id et nom )
+
+    // Getter de tous les ingrédients (id et nom), affichage d'une liste de tous les ingrédients disponibles
     public function getAllIngredients()
     {
-        return $this->exec("SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC", null);
+        $query = "SELECT DISTINCT idIngredient, nomIngredient FROM ingredient ORDER BY nomIngredient ASC";
+
+        return $this->exec($query, null);
     }
 
+    // Update d'une recette spécifique dans la base de données
+    public function updateRecette($id, $img, $nom, $description, $preparation)
+    {
+        $query = "UPDATE recette SET nomRecette = :nom, imgRecette = :img, Description = :description, Preparation = :preparation WHERE idRecette = :id";
+        $params = array(
+            'id' => $id, // Paramètre nommé pour l'ID de la recette
+            'img' => $img, // Paramètre nommé pour l'image de la recette
+            'nom' => $nom, // Paramètre nommé pour le nom de la recette
+            'description' => $description, // Paramètre nommé pour la description de la recette
+            'preparation' => $preparation // Paramètre nommé pour la préparation de la recette
+        );
 
-// Update une recette, dépendra des valeurs transmises et de l'ID de recette passé en GET
-
-    public function updateRecette($id,$img,$nom,$description,$preparation){
-
-        $sql = "UPDATE recette SET nomRecette = '{$nom}',imgRecette = '{$img}', Description = '{$description}', Preparation = '{$preparation}' WHERE idRecette = '{$id}'";
-        return $this->exec($sql, null);
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
-    //update d'un ingredient spécifique
-    public function updateIngredient($id,$img,$nom){
 
-        $sql = "UPDATE ingredient SET nomIngredient = '{$nom}',imgIngredient = '{$img}' WHERE idIngredient = '{$id}'";
-        return $this->exec($sql, null);
+    // Update d'un ingrédient spécifique dans la base de données
+    public function updateIngredient($id, $img, $nom)
+    {
+        $query = "UPDATE ingredient SET nomIngredient = :nom, imgIngredient = :img WHERE idIngredient = :id";
+        $params = array(
+            'id' => $id, // Paramètre nommé pour l'ID de l'ingrédient
+            'img' => $img, // Paramètre nommé pour l'image de l'ingrédient
+            'nom' => $nom // Paramètre nommé pour le nom de l'ingrédient
+        );
+
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
+
     //update d'un tag spécifique
-    public function updateTag($id,$nom){
+    public function updateTag($id, $nom)
+    {
 
         $sql = "UPDATE tag SET nomTag = '{$nom}' WHERE idTag = '{$id}'";
         return $this->exec($sql, null);
     }
     //ajouter une recette 
-    public function addRecette($img,$nom,$description,$preparation){
+    public function addRecette($img, $nom, $description, $preparation)
+    {
 
         $sql = "INSERT INTO recette (nomRecette,imgRecette, Description, Preparation) VALUES ('$nom','$img','$description','$preparation')";
         return $this->exec($sql, null);
     }
     //ajouter un ingredient
-    public function addIngredient($img,$nom){
+    public function addIngredient($img, $nom)
+    {
 
         $sql = "INSERT INTO ingredient (nomIngredient,imgIngredient) VALUES ('$nom','$img')";
         return $this->exec($sql, null);
     }
     //ajouter un tag
-    public function addTag($nom){
+    public function addTag($nom)
+    {
 
         $sql = "INSERT INTO tag (nomTag) VALUES ('$nom')";
         return $this->exec($sql, null);
     }
     //Recuperation d'une recette, de ses informations, d'une liste d'id de tags, d'une liste d'id d'ingredients
-    public function getAllRIT(){
+    public function getAllRIT()
+    {
         $sql = "SELECT r.idRecette,r.nomRecette,r.Description,r.imgRecette,
         ( SELECT GROUP_CONCAT(a.idTag) 
          FROM  attribuer as a
@@ -111,7 +144,7 @@ class cookbookDB extends PdoWrapper
          where c.idRecette = r.idRecette
         )  AS liste_ingredients
         FROM recette as r
-        ORDER BY r.nomRecette ASC" ;
+        ORDER BY r.nomRecette ASC";
         return $this->exec($sql, null);
     }
     //supprimer une recette
@@ -130,38 +163,58 @@ class cookbookDB extends PdoWrapper
         return $this->exec("DELETE FROM tag WHERE idTag = '$id'", null);
     }
     //obtenir pour un ingredient spécifique à une recette sa quantité et unité
-    public function getIngrQuantities( $idRecette){
+    public function getIngrQuantities($idRecette)
+    {
         return $this->exec("SELECT c.idIngredient,c.quantite,c.unite FROM contenir as c INNER JOIN ingredient as i ON c.idIngredient = i.idIngredient WHERE c.idRecette = '{$idRecette}' order by i.nomIngredient ", null);
     }
     //mettre à jour les tags d'une recette spécifique
 
     // Verifie la différence si on coche le tag, et qu'il n'est pas instancier dans la table "attribuer"
-    public function updateRecetteTags($boolChecked, $idTag, $idRecette){
-        if($boolChecked == true && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
-        ",null) == null  ){
+    public function updateRecetteTags($boolChecked, $idTag, $idRecette)
+    {
+        if ($boolChecked == true && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
+        ", null) == null) {
             return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}'", null);
-        }else if($boolChecked == false && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
-        ",null) != null){
+        } else if ($boolChecked == false && $this->exec("SELECT * from attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}'
+        ", null) != null) {
             return $this->exec("DELETE FROM attribuer WHERE idTag = '{$idTag}' AND idRecette = '{$idRecette}' ", null);
         }
     }
-    public function updateRecetteIngredient($boolChecked,$quantite, $unite = null, $idIngr, $idRecette){
-        if($boolChecked == true && $this->exec("SELECT * from contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
-        ",null) == null  ){
+    public function updateRecetteIngredient($boolChecked, $quantite, $unite = null, $idIngr, $idRecette)
+    {
+        if ($boolChecked == true && $this->exec("SELECT * from contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
+        ", null) == null) {
             return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
-        }else if($boolChecked == false && $this->exec("SELECT * from contenirWHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
-        ",null) != null){
+        } else if ($boolChecked == false && $this->exec("SELECT * from contenirWHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}'
+        ", null) != null) {
             return $this->exec("DELETE FROM contenir WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
-        }
-        else {
+        } else {
             return $this->exec("UPDATE contenir SET quantite = '{$quantite}', unite = '{$unite}' WHERE idIngredient = '{$idIngr}' AND idRecette = '{$idRecette}' ", null);
         }
     }
-    public function addTagRecette($idTag,$idRecette){
-        return $this->exec("INSERT INTO attribuer ( idRecette, idTag ) VALUES ( '{$idRecette}','{$idTag}'", null);
+    // Ajoute un tag à une recette dans la base de données
+    public function addTagRecette($idTag, $idRecette)
+    {
+        $query = "INSERT INTO attribuer (idRecette, idTag) VALUES (:idRecette, :idTag)";
+        $params = array(
+            'idRecette' => $idRecette, // Paramètre nommé pour l'ID de la recette
+            'idTag' => $idTag // Paramètre nommé pour l'ID du tag
+        );
+
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
 
-    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette){
-        return $this->exec("INSERT INTO contenir ( idRecette, idIngredient, quantite, unite ) VALUES ( '{$idRecette}','{$idIngr}','{$quantite}','{$unite}'", null);
+    // Ajoute un ingrédient à une recette dans la base de données
+    public function addIngredientRecette($quantite, $unite = null, $idIngr, $idRecette)
+    {
+        $query = "INSERT INTO contenir (idRecette, idIngredient, quantite, unite) VALUES (:idRecette, :idIngr, :quantite, :unite)";
+        $params = array(
+            'idRecette' => $idRecette, // Paramètre nommé pour l'ID de la recette
+            'idIngr' => $idIngr, // Paramètre nommé pour l'ID de l'ingrédient
+            'quantite' => $quantite, // Paramètre nommé pour la quantité
+            'unite' => $unite // Paramètre nommé pour l'unité (optionnel)
+        );
+
+        return $this->exec($query, $params); // Exécution de la requête préparée avec les paramètres
     }
 }
