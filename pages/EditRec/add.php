@@ -39,7 +39,7 @@ $sr->generateliste($cb); ?>
 #----------------------------------------------ALEXANDRE___FIN------------------------------------------------------------
 ?>
 
-
+<!-- Récupération des doonées JS des ingrédients, tags et de leurs checkbox -->
 
 <script>
     let vardataRit = <?php echo json_encode($dataRit); ?>;

@@ -24,9 +24,6 @@
     margin-bottom: 10px;
 }
 
-#add_bouton_ingr {
-}
-
 .form_ingredient {
     border: solid 1px;
     border-radius: 10px;
@@ -45,7 +42,7 @@
     margin: 0 auto;
 }
 
-
+ 
 
 .bouton_ingredient {
     background-color: #c95a49;
