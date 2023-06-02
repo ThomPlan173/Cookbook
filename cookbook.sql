@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3308
--- Généré le : mer. 31 mai 2023 à 23:40
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 02 juin 2023 à 12:34
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -38,12 +38,12 @@ CREATE TABLE `attribuer` (
 --
 
 INSERT INTO `attribuer` (`idAttribution`, `idRecette`, `idTag`) VALUES
-(13, 3, 4),
-(14, 3, 3),
 (17, 1, 1),
 (18, 1, 4),
-(19, 18, 1),
-(20, 18, 4);
+(35, 3, 4),
+(36, 3, 3),
+(43, 18, 1),
+(44, 18, 4);
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `contenir` (
   `idRecette` int(11) DEFAULT NULL,
   `idIngredient` int(11) DEFAULT NULL,
   `quantite` int(11) NOT NULL,
-  `unite` enum('Cuill?re ? caf?','Cuill?re ? soupe','mL','L','g') DEFAULT NULL
+  `unite` enum('cac','cas','ml','l','g','kg','') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -64,15 +64,15 @@ CREATE TABLE `contenir` (
 --
 
 INSERT INTO `contenir` (`idContenir`, `idRecette`, `idIngredient`, `quantite`, `unite`) VALUES
-(19, 3, 4, 50, 'g'),
-(20, 3, 2, 1, ''),
 (24, 1, 7, 1, ''),
 (25, 1, 1, 50, 'g'),
 (26, 1, 3, 150, 'g'),
-(27, 18, 7, 1, ''),
-(28, 18, 1, 1, ''),
-(29, 18, 4, 2, ''),
-(30, 18, 3, 1, '');
+(50, 3, 4, 50, 'g'),
+(51, 3, 2, 1, ''),
+(64, 18, 7, 1, 'cas'),
+(65, 18, 1, 1, 'kg'),
+(66, 18, 4, 2, 'cac'),
+(67, 18, 3, 1, 'kg');
 
 -- --------------------------------------------------------
 
@@ -187,13 +187,13 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT pour la table `attribuer`
 --
 ALTER TABLE `attribuer`
-  MODIFY `idAttribution` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idAttribution` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT pour la table `contenir`
 --
 ALTER TABLE `contenir`
-  MODIFY `idContenir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idContenir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT pour la table `ingredient`

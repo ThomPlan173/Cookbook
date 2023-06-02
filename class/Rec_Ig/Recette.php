@@ -9,7 +9,7 @@ class Recette
 
         <!-- Nom de la recette -->
         <div id="nom">
-            <h1> <?= utf8_encode($data[0]->nomRecette) ?></h1>
+            <h1> <?= htmlspecialchars_decode($data[0]->nomRecette) ?></h1>
         </div>
 
         <div id="info">
