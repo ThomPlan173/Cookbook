@@ -1,7 +1,7 @@
 <?php
 
 //Paramètres utiles pour la connexion à la base de données
-$GLOBALS['db_name'] ='cookbook' ;
+$GLOBALS['db_name'] ='cookbook2' ;
 $GLOBALS['db_host'] ='127.0.0.1';
 $GLOBALS['db_port'] ='3306' ;
 $GLOBALS['db_user'] = 'root' ;
